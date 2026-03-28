@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<!-- Mirrored from www.stalkeia.com/pages/cta.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Mar 2026 03:54:04 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Scripts críticos com defer para não bloquear parsing -->
+    <meta name="description"
+        content="A maior ferramenta de stalker do Brasil. Descubra a verdade sobre qualquer pessoa do Instagram.">
+    <title>Stalker.privado.com- melhor ferramenta de espião. </title>
+    <link rel="shortcut icon" href="../assets/images/favicon/logo_site_pequena.png">
+<link rel="icon" href="../assets/images/favicon/logo_site_pequena.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/images/favicon/logo_site_pequena.png">
+    <link rel="stylesheet" href="../styles/components/cta.css" id="cta-css">
+    <style>
+        body {
+            background: #000;
+        }
+    </style>
+
+    <!-- Preservar parâmetros UTM imediatamente ao carregar a página -->
+    <script>
+        // Preservar parâmetros UTM na URL imediatamente (antes de qualquer script executar)
+        (function () {
+            const currentSearch = window.location.search;
+            if (currentSearch && currentSearch.length > 1) {
+                // Garantir que os parâmetros estão preservados na URL
+                const currentUrl = new URL(window.location.html);
+                if (!currentUrl.search || currentUrl.search !== currentSearch) {
+                    // Se os parâmetros não estão na URL, restaurá-los
+                    window.history.replaceState(null, '', window.location.pathname + currentSearch + window.location.hash);
+                }
+                console.log('✅ [CTA] Parâmetros preservados na URL:', currentSearch);
+            }
+        })();
+    </script>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+        data-token="78cf939a-5d92-4fcb-9348-88f9653c009f">
+        </script> -->
+
+    <!-- Config -->
+    <script src="../scripts/config/config.obf.js" defer></script>
+    <script src="../scripts/api/instagram-api.obf.js" defer></script>
+    <!-- MySQL Client - Lead Tracking -->
+    <script src="../scripts/utils/mysqlClient.obf.js" defer></script>
+
+</head>
+
+<body>
+    <!-- Matrix Canvas Background -->
+    <canvas id="matrix-canvas"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.525; pointer-events: none; z-index: 0;"></canvas>
+
+    <!-- Timer Bar -->
+    <div class="timer-bar">
+        <p><strong style="font-weight: 900;">Finalize sua compra em <span id="countdown">10:00</span></strong><br><span
+                style="display: inline-block; margin-top: 3px;">Ao zerar o cronômetro, nunca mais será possível acessar
+                o instagram de <span id="timer-username">qualquer pessoa</span>.</span></p>
+        <button class="timer-button" onclick="scrollToPricing(event)">Desbloquear<br>Acesso Agora</button>
+    </div>
+
+    <div class="container">
+        <!-- Logo e Título -->
+        <div class="logo-section">
+            <img src="../assets/images/logos/logo_site.png" alt="stalkeia.comLogo">
+           <h1 class="main-title" style="color: #fff !important; background: none !important; -webkit-text-fill-color: initial !important;">
+    A Unica ferramenta<br> <span style="color: #35ff9a !important;">Stalker</span> do Brasil que funciona
+</h1>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="profile-card">
+            <div class="profile-card-content">
+                <div class="profile-card-avatar-wrapper">
+                    <div class="profile-card-avatar-border">
+                        <div class="profile-card-avatar-inner">
+                            <img alt="Perfil" src="../assets/images/avatars/perfil-espionado.jpg"
+                                class="profile-card-avatar-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card-info">
+                    <!-- Nome do Instagram -->
+                    <h2 class="profile-card-username">Pessoa Investigada</h2>
+                    <!-- Nome de usuário -->
+                    <p class="profile-card-name">@pessoa_investigada</p>
+                    <div class="profile-card-stats">
+                        <div class="profile-card-stat">
+                            <span class="profile-card-stat-number">0</span>
+                            <span class="profile-card-stat-label"> posts</span>
+                        </div>
+                        <div class="profile-card-stat">
+                            <span class="profile-card-stat-number">355</span>
+                            <span class="profile-card-stat-label"> seguidores</span>
+                        </div>
+                        <div class="profile-card-stat">
+                            <span class="profile-card-stat-number">378</span>
+                            <span class="profile-card-stat-label"> seguindo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="profile-card-bio"></p>
+            <a class="profile-card-link" href="#" target="_blank" style="display: none;"></a>
+        </div>
+
+        <!-- Badge VERSÃO 1 - 85% largura -->
+    <div class="profile-card-badge" style="background: rgba(53, 255, 154, 0.12) !important; border: 1px solid rgba(53, 255, 154, 0.25) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border-radius: 20px !important; padding: 20px !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; width: 90% !important; margin: 20px auto !important; height: auto !important; min-height: 100px !important;">
+    <strong style="color: #fff !important; font-size: 18px !important; margin-bottom: 8px !important; display: block !important; text-align: center !important; text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;">
+        Espionagem 100% finalizada! 🥳
+    </strong>
+    <span style="color: #fff !important; font-size: 15px !important; opacity: 0.9 !important; display: block !important; text-align: center !important; line-height: 1.4 !important;">
+        Adquira seu acesso VIP e tenha<br>acesso imediatamente a:
+    </span>
+</div>
+
+        <div class="scroll-indicator">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <!-- Mídias -->
+            <div class="feature-item">
+                <div class="feature-header">
+                    <div class="headline-cta">
+                        <svg class="feature-icon" fill="none" stroke="#35ff9a" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+</svg>
+                        <h3 class="feature-title">Veja Mídias de Qualquer IG</h3>
+                    </div>
+                    <p class="feature-desc">Veja todas as mídias recebidas e<br>enviadas, incluindo itens apagados.</p>
+                </div>
+                <div class="media-grid-instagram">
+                    <div class="media-item-gallery" style="grid-column: span 2; grid-row: span 2;">
+                        <img src="../assets/images/screenshots/fotoblur1.jpg" alt=""
+                            style="filter: blur(12px); transition: filter 0.5s;">
+                        <div class="media-overlay">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="media-item-gallery">
+                        <img src="../assets/images/screenshots/nudes1-chat1.jpg" alt=""
+                            style="filter: blur(12px); transition: filter 0.5s;">
+                        <div class="media-overlay">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="media-item-gallery">
+                        <img src="../assets/images/screenshots/nudes1-chat2.jpg" alt=""
+                            style="filter: blur(12px); transition: filter 0.5s;">
+                        <div class="media-overlay">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="media-item-gallery">
+                        <img src="../assets/images/screenshots/pack1.1.chat2.png" alt=""
+                            style="filter: blur(12px); transition: filter 0.5s;">
+                        <div class="media-overlay">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="media-item-gallery">
+                        <img src="../assets/images/screenshots/chat2.nudes1.png" alt=""
+                            style="filter: blur(12px); transition: filter 0.5s;">
+                        <div class="media-overlay">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="media-item-gallery">
+                        <img src="../assets/images/screenshots/chat5.1a.png" alt=""
+                            style="filter: blur(12px); transition: filter 0.5s;">
+                        <div class="media-overlay">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Localização -->
+            <div class="feature-item">
+                <div class="feature-header">
+                    <div class="headline-cta">
+                        <svg class="feature-icon" fill="none" stroke="#35ff9a" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <h3 class="feature-title">Localização em tempo real</h3>
+                    </div>
+                    <p class="feature-desc">Veja onde <span class="username-display">André</span> está agora, e<br>os
+                        últimos locais por onde passou.</p>
+                </div>
+                <div class="map-preview">
+                    <div class="map-container">
+                        <div class="map-image-wrapper">
+                            <img src="../assets/images/screenshots/fundomaps.png" alt="Mapa">
+                            <div class="location-profile">
+                                <img src="../assets/images/avatars/perfil-espionado.jpg" alt="Profile"
+                                    class="location-profile-img">
+                            </div>
+                        </div>
+                        <div class="location-info">
+                            <div class="location-name">Localização Atual</div>
+                            <p class="profile-card-name">@pessoa_investigada</p>
+                            <button type="button" class="message-system-btn">Ver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stories Ocultos -->
+            <div class="feature-item">
+                <div class="feature-header">
+                    <div class="headline-cta">
+                        <svg class="feature-icon" fill="none" stroke="#35ff9a" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                            </path>
+                        </svg>
+                        <h3 class="feature-title">Stories e posts ocultos</h3>
+                    </div>
+                    <p class="feature-desc">Veja stories de "Melhores Amigos" e<br>posts que <span
+                            class="username-display">André</span> ocultou de você.</p>
+                </div>
+                <div class="stories-grid">
+                    <div class="story-item" data-image="cf1.html">
+                        <svg class="story-icon" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <p class="story-text">Conteúdo restrito</p>
+                    </div>
+                    <div class="story-item" data-image="cf2.html">
+                        <svg class="story-icon" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <p class="story-text">Conteúdo restrito</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Directs -->
+            <div class="feature-item">
+                <div class="feature-header">
+                    <div class="headline-cta">
+                        <svg class="feature-icon" fill="none" stroke="#00A1E0" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                            </path>
+                        </svg>
+                        <h3 class="feature-title">Mensagens do Direct</h3>
+                    </div>
+                    <p class="feature-desc">Veja literalmente todas as mensagens de<br><span
+                            class="username-display">André</span>, incluindo mensagens temporárias</p>
+                </div>
+                <div class="chat-preview">
+                    <div class="chat-header">
+                        <div class="chat-user-info">
+                            <div class="chat-avatar"
+                                style="background-image: url('../assets/images/avatars/perfil-espionado.jpg'); background-size: cover; background-position: center;">
+                            </div>
+                            <div>
+                                <div class="chat-name">Pessoa Investigada</div>
+                                <div class="chat-status">
+                                    <span class="status-dot"></span>
+                                    online
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: clamp(12px, 3.5vw, 16px);">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                style="width: clamp(16px, 4.5vw, 20px); height: clamp(16px, 4.5vw, 20px);">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                style="width: clamp(16px, 4.5vw, 20px); height: clamp(16px, 4.5vw, 20px);">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="chat-messages">
+                        <!-- Mensagens serão adicionadas dinamicamente via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+        <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(53, 255, 154, 0.2); border-radius: 16px; padding: 16px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);">
+    
+    <div style="display: flex; align-items: center; justify-content: flex-start; gap: 10px; margin-bottom: 8px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#35ff9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"></path>
+        </svg>
+        
+        <h3 style="color: #35ff9a; font-size: 16px; font-weight: 800; margin: 0; text-transform: uppercase; line-height: 1.2;">
+            Conversas do whatsapp de <span class="username-display"></span>
+        </h3>
+    </div>
+
+    <p style="color: rgba(255, 255, 255, 0.9); font-size: 14px; line-height: 1.5; margin: 0;">
+        Foram encontradas conversas arquivadas no número de <span class="username-display" style="color: #35ff9a; font-weight: bold;">Pessoa</span>. Adquira o VIP para desbloquear.
+    </p>
+</div>
+<div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 25px;">
+    <div style="position: relative; width: 140px; height: 240px; background: #000; border-radius: 15px; overflow: hidden; border: 2px solid #1a1a1a; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+        <img src="../assets/images/screenshots/foto_whats2.jpg" style="width: 100%; height: 100%; object-fit: cover; filter: blur(3px); opacity: 0.6;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.3);">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#35ff9a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <p style="color: white; font-family: sans-serif; font-size: 11px; margin-top: 8px; font-weight: 500;">Conteúdo restrito</p>
+        </div>
+    </div>
+
+    <div style="position: relative; width: 140px; height: 240px; background: #000; border-radius: 15px; overflow: hidden; border: 2px solid #1a1a1a; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+        <img src="../assets/images/screenshots/foto_whats2.jpg" style="width: 100%; height: 100%; object-fit: cover; filter: blur(3px); opacity: 0.6;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.3);">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#35ff9a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <p style="color: white; font-family: sans-serif; font-size: 11px; margin-top: 8px; font-weight: 500;">Conteúdo restrito</p>
+        </div>
+    </div>
+</div>
+
+<button onclick="scrollToPricing(event)" style="width: 100%; background: linear-gradient(135deg, #35ff9a, #1a7a4a); color: #000; border: none; padding: 16px; border-radius: 12px; font-weight: 900; font-size: 15px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(53, 255, 154, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.02)';" onmouseout="this.style.transform='scale(1)';">
+    Desbloquear Whatsapp com o VIP Agora 🔥
+</button>
+
+        <!-- Tool Section -->
+        <div class="tool-section">
+            <div class="tool-logo tool-logo-big">
+               <img src="../assets/images/logos/logo_site.png" alt="stalkeia.comLogo">
+            </div>
+            <div class="tool-title" data-typing="true">
+               Com o <span style="color: #35ff9a !important; font-weight: bold;">Stalker.privado</span> você vai ter acesso completo...
+               <span class="username-display" style="color: #35ff9a !important;">André</span> por apenas:
+            </div>
+
+            <!-- PREÇO -->
+            <div class="pricing-value-container">
+                <p class="pricing-old-price">De: R$ 80,90</p>
+                <div class="pricing-current-price">
+                    <p class="pricing-amount">R$ 22<span class="pricing-cents">,99</span></p>
+                    <div class="pricing-note-slider">
+                        <div class="pricing-note-track">
+                            <span class="pricing-note-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Pagamento único
+                            </span>
+                            <span class="pricing-note-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                Acesso imediato
+                            </span>
+                            <span class="pricing-note-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
+                                </svg>
+                                Pagamento seguro
+                            </span>
+                            <span class="pricing-note-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                    </path>
+                                </svg>
+                                30 dias de garantia
+                            </span>
+                            <span class="pricing-note-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Pagamento único
+                            </span>
+                            <span class="pricing-note-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                Acesso imediato
+                            </span>
+                            <span class="pricing-note-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
+                                </svg>
+                                Pagamento seguro
+                            </span>
+                            <span class="pricing-note-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                    </path>
+                                </svg>
+                                30 dias de garantia
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEATURES -->
+            <ul class="pricing-benefits">
+                <li class="pricing-benefit-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Todas as mensagens do direct de <span class="username-display">André</span></span>
+                </li>
+                <li class="pricing-benefit-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Todas as fotos sem censura (incluindo apagadas)</span>
+                </li>
+                <li class="pricing-benefit-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Localização em tempo real e locais que esteve</span>
+                </li>
+                <li class="pricing-benefit-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Alerta sempre que <span class="username-display">André</span> interagir com alguém</span>
+                </li>
+                <li class="pricing-benefit-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>2 bônus surpresa avaliados em R$120,00</span>
+                </li>
+            </ul>
+
+            <!-- BOTÃO CTA -->
+            <a href="#" target="_blank" class="pricing-cta-button" id="main-cta-button">
+                <span class="pricing-cta-main"> Acessar tudo agora mesmo</span>
+                <span class="pricing-cta-sub">Acesso liberado em até 2 minutos</span>
+            </a>
+
+        </div>
+
+        <!-- Scroll Indicator acima do testimonials -->
+        <div class="scroll-indicator scroll-indicator-tool">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+
+        <!-- Testimonials com Carrossel -->
+        <div class="testimonials-section">
+            <h2 class="testimonials-title">Veja o que falam as pessoas<br>que usam o <span style="color: #35ff9a !important; background: none !important; -webkit-text-fill-color: initial !important;">stalker.privado</span></h2>
+            <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <!-- Depoimento 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <img src="../assets/images/avatars/avatar-perfil-1.png" alt="Avatar"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div>
+                                    <h4>Marcosvianad</h4>
+                                    <div class="testimonial-time">3h</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-text">Achei q era golpe mas testei msm assim. Paguei, recebi
+                                o acesso. Tava tudo lá: directs, fotos q ela apagava, até a localização funcionou. Valeu
+                                cada centavo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <img src="../assets/images/avatars/avatar-perfil-2.png" alt="Avatar"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div>
+                                    <h4>Gieselferreira_34</h4>
+                                    <div class="testimonial-time">5h</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-text">O acesso foi super rapido. Paguei no pix e em menos de 2 min já
+                                tava vendo tudo.me salvo de um relacionamento toxico</p>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <img src="../assets/images/avatars/avatar-perfil-3.png" alt="Avatar"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div>
+                                    <h4>Rodrig_Olivers</h4>
+                                    <div class="testimonial-time">1d</div>
+                                </div>
+                            </div>
+                            <p class="testimonial-text">Na versão completa testei com @ de uma menina e vi um monte de coisa.
+                                Localização, fotos escondidas, até conversas apagadas. pra quem está desconfiado de algo ou so quer ver VALE MUITOOO.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indicadores -->
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attention Box - Estilo Aviso -->
+        <div class="attention-alert">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                </path>
+            </svg>
+            <span>As informações acessadas são <strong>extremamente sensíveis</strong>. Use com responsabilidade.</span>
+        </div>
+
+        <!-- FAQ - Nova versão com CSS individual -->
+        <div class="faq-new">
+            <h2 class="faq-new-title">Perguntas Frequentes</h2>
+            <div class="faq-new-list">
+                <div class="faq-new-item">
+                    <button class="faq-new-btn">
+                        <span>A ferramenta realmente funciona?</span>
+                        <span class="faq-new-icon">+</span>
+                    </button>
+                    <div class="faq-new-answer">
+                        <p>Sim! O stalker.privado utiliza tecnologia avançada para acessar dados do Instagram de forma
+                            completamente invisível. Milhares de usuários já confirmaram a eficácia da ferramenta.</p>
+                    </div>
+                </div>
+                <div class="faq-new-item">
+                    <button class="faq-new-btn">
+                        <span>A pessoa vai saber que eu stalkeei o perfil dela?</span>
+                        <span class="faq-new-icon">+</span>
+                    </button>
+                    <div class="faq-new-answer">
+                        <p>Não! O acesso é 100% invisível. A pessoa não recebe nenhuma notificação e não há rastros de
+                            que você visualizou o perfil dela.</p>
+                    </div>
+                </div>
+                <div class="faq-new-item">
+                    <button class="faq-new-btn">
+                        <span>Funciona em perfis privados?</span>
+                        <span class="faq-new-icon">+</span>
+                    </button>
+                    <div class="faq-new-answer">
+                        <p>Sim! O stalker. privado funciona em qualquer tipo de perfil, incluindo perfis privados, contas
+                            verificadas e perfis comerciais.</p>
+                    </div>
+                </div>
+                <div class="faq-new-item">
+                    <button class="faq-new-btn">
+                        <span>Preciso instalar alguma coisa?</span>
+                        <span class="faq-new-icon">+</span>
+                    </button>
+                    <div class="faq-new-answer">
+                        <p>Não! O stalker.privado funciona totalmente na nuvem. Você só precisa acessar pelo navegador, sem
+                            precisar baixar ou instalar nada no seu dispositivo.</p>
+                    </div>
+                </div>
+                <div class="faq-new-item">
+                    <button class="faq-new-btn">
+                        <span>Como funciona a garantia?</span>
+                        <span class="faq-new-icon">+</span>
+                    </button>
+                    <div class="faq-new-answer">
+                        <p>Oferecemos garantia de 30 dias. Se não ficar satisfeito, devolvemos 100% do seu dinheiro, sem
+                            perguntas.</p>
+                    </div>
+                </div>
+                <div class="faq-new-item">
+                    <button class="faq-new-btn">
+                        <span>Quanto tempo tenho acesso?</span>
+                        <span class="faq-new-icon">+</span>
+                    </button>
+                    <div class="faq-new-answer">
+                        <p>O acesso é vitalício! Uma vez adquirido, você pode usar a ferramenta para sempre, sem
+                            mensalidades ou renovações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guarantee - Abaixo do FAQ -->
+        <div class="guarantee-box">
+            <h3>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                    </path>
+                </svg>
+                Garantia de 30 Dias
+            </h3>
+            <p>Teste sem risco! Se não gostar ou por algum motivo não se adaptar, devolvemos 100% do seu dinheiro.</p>
+        </div>
+    </div>
+
+    <!-- Pop-up vermelho para ações bloqueadas -->
+    <div id="blocked-popup-overlay"></div>
+    <div id="blocked-popup">
+        <!-- Conteúdo será inserido dinamicamente -->
+    </div>
+
+    <style>
+        /* Pop-up - igual ao feed.html */
+        #blocked-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(220, 38, 38, 0.15);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            backdrop-filter: blur(20px) saturate(180%);
+            color: #F9F9F9;
+            padding: 24px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(249, 249, 249, 0.18);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            width: calc(100% - 40px);
+            text-align: center;
+        }
+
+        #blocked-popup.show {
+            display: flex;
+            animation: popupFadeIn 0.3s ease-out, subtlePulse 3s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes subtlePulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.97;
+                transform: translate(-50%, -50%) scale(1.01);
+            }
+        }
+
+        #blocked-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: none;
+        }
+
+        #blocked-popup-overlay.show {
+            display: block;
+        }
+    </style>
+
+
+    <script>
+        // Carregar dados do perfil do localStorage e preencher a página
+        (async function () {
+            async function loadProfileData() {
+                try {
+                    const profileCard = document.querySelector('.profile-card');
+                    if (!profileCard) {
+                        console.warn('⚠️ [CTA] Elemento .profile-card não encontrado no DOM');
+                        return;
+                    }
+                    // Buscar username do localStorage primeiro
+                    let username = localStorage.getItem('espionado_username') || localStorage.getItem('username') || '';
+
+                    // Buscar perfil completo do localStorage
+                    const storageKey = 'instagram_profile';
+                    let profileData = localStorage.getItem(storageKey);
+                    let parsed = null;
+
+                    if (profileData) {
+                        try {
+                            parsed = JSON.parse(profileData);
+                            // Se não tem username mas tem perfil salvo, extrair username do perfil
+                            if (!username && parsed && parsed.username) {
+                                username = parsed.username;
+                            }
+                        } catch (e) {
+                            console.error('❌ [CTA] Erro ao parsear perfil:', e);
+                        }
+                    }
+
+                    // 🔥 Se não encontrou no localStorage, buscar do Firebase
+                    if (!username && !parsed) {
+                        if (typeof window.getCurrentLeadId === 'function' && typeof window.getLeadData === 'function') {
+                            try {
+                                const leadId = await window.getCurrentLeadId();
+
+                                const leadData = await window.getLeadData(leadId);
+
+                                if (leadData && (leadData.spiedProfile || leadData.lastSpiedProfile)) {
+                                    const profile = leadData.lastSpiedProfile || leadData.spiedProfile;
+                                    username = profile.username;
+                                    parsed = {
+                                        username: profile.username,
+                                        full_name: profile.full_name || '',
+                                        profile_pic_url: profile.profile_pic_url || '../assets/images/avatars/perfil-espionado.jpeg',
+                                        follower_count: profile.follower_count || 0,
+                                        following_count: profile.following_count || 0,
+                                        media_count: profile.media_count || 0
+                                    };
+                                } else {
+                                    console.warn('⚠️ [CTA] Nenhum perfil encontrado no Firebase');
+                                }
+                            } catch (error) {
+                                console.error('❌ [CTA] Erro ao buscar dados do Firebase:', error);
+                            }
+                        } else {
+                            console.warn('⚠️ [CTA] Funções do Firebase ainda não disponíveis');
+                        }
+                    }
+
+                    // Verificar se os dados são de fallback (apenas para controlar estatísticas)
+                    const isFallbackData = localStorage.getItem('is_fallback_data') === 'true';
+
+                    const cleanUsername = username ? username.replace(/^@+/, '').trim() : '';
+
+                    console.log('🔍 [CTA] Debug - username:', username, 'cleanUsername:', cleanUsername, 'parsed:', !!parsed, 'isFallback:', isFallbackData);
+
+                    // Se não tem username nem perfil, esconder o card e não personalizar
+                    if (!cleanUsername && !parsed) {
+                        console.warn('⚠️ [CTA] Nenhum dado encontrado - ocultando card do perfil');
+                        // Esconder card do perfil quando não há dados
+                        if (profileCard) {
+                            profileCard.style.display = 'none';
+                        }
+                        return;
+                    }
+
+                    // Se não tem perfil mas tem username, criar objeto mínimo para personalização
+                    if (!parsed && cleanUsername) {
+                        parsed = {
+                            username: cleanUsername,
+                            full_name: '',
+                            profile_pic_url: '../assets/images/avatars/perfil-espionado.jpeg'
+                        };
+                    }
+
+                    // Se ainda não tem parsed (nem username nem perfil), não pode personalizar
+                    if (!parsed) {
+                        if (profileCard) {
+                            profileCard.style.display = 'none';
+                        }
+                        return;
+                    }
+
+                    // ✅ Se chegou aqui, tem perfil ou username - mostrar o card (mesmo que seja fallback)
+                    // O fallback só afeta se vamos mostrar as estatísticas, mas o card deve aparecer
+                    // IMPORTANTE: Mostrar o card ANTES de qualquer outra coisa
+                    if (profileCard) {
+                        profileCard.style.setProperty('display', 'block', 'important');
+                        profileCard.classList.add('visible');
+                        console.log('✅ [CTA] Card do perfil exibido - username:', cleanUsername, 'parsed:', !!parsed, 'isFallback:', isFallbackData);
+                    } else {
+                        console.error('❌ [CTA] profileCard não encontrado quando deveria exibir!');
+                    }
+
+                    // Preencher nome no timer (primeiro nome do full_name ou username)
+                    const timerUsername = document.getElementById('timer-username');
+                    if (timerUsername) {
+                        let displayName = '';
+                        if (parsed.full_name && parsed.full_name.trim()) {
+                            // Pegar primeiro nome
+                            displayName = parsed.full_name.trim().split(' ')[0];
+                        } else if (cleanUsername) {
+                            // Usar username como fallback
+                            displayName = cleanUsername;
+                        }
+                        if (displayName) {
+                            timerUsername.textContent = displayName;
+                        }
+                    }
+
+                    // Preencher foto de perfil em todos os lugares
+                    let profilePicUrl = parsed.profile_pic_url || '../assets/images/avatars/perfil-espionado.jpeg';
+
+                    // Aplicar proxy se for URL do Instagram e ainda não tiver proxy
+                    if (profilePicUrl && !profilePicUrl.includes('image-proxy.html') && (profilePicUrl.includes('cdninstagram.com') || profilePicUrl.startsWith('http://') || profilePicUrl.startsWith('https:///'))) {
+                        if (typeof getProxyImageUrl === 'function') {
+                            profilePicUrl = getProxyImageUrl(profilePicUrl);
+                        } else {
+                            // Se getProxyImageUrl não estiver disponível, tentar novamente após um delay
+                            setTimeout(() => {
+                                if (typeof getProxyImageUrl === 'function' && profilePicUrl) {
+                                    const updatedUrl = getProxyImageUrl(profilePicUrl);
+                                    if (updatedUrl) {
+                                        profilePicUrl = updatedUrl;
+                                        // Atualizar todas as imagens com a nova URL
+                                        const profileImg = document.querySelector('.profile-card-avatar-img');
+                                        if (profileImg) profileImg.src = profilePicUrl;
+                                        const locationImg = document.querySelector('.location-profile-img');
+                                        if (locationImg) locationImg.src = profilePicUrl;
+                                        const chatAvatar = document.querySelector('.chat-avatar');
+                                        if (chatAvatar) chatAvatar.style.backgroundImage = `url('%24%7bprofilePicUrl%7d.html')`;
+                                    }
+                                }
+                            }, 500);
+                        }
+                    }
+
+                    // 1. Card de perfil
+                    const profileImg = document.querySelector('.profile-card-avatar-img');
+                    if (profileImg && profilePicUrl) {
+                        profileImg.src = profilePicUrl;
+                        profileImg.onerror = function () {
+                            if (this.src !== '../assets/images/avatars/perfil-espionado.jpg') {
+                                this.src = '../assets/images/avatars/perfil-espionado.jpg';
+                            }
+                        };
+                    }
+
+                    // 2. Foto no mapa de localização
+                    const locationImg = document.querySelector('.location-profile-img');
+                    if (locationImg && profilePicUrl) {
+                        locationImg.src = profilePicUrl;
+                        locationImg.onerror = function () {
+                            if (this.src !== '../assets/images/avatars/perfil-espionado.jpg') {
+                                this.src = '../assets/images/avatars/perfil-espionado.jpg';
+                            }
+                        };
+                    }
+
+                    // 3. Avatar do chat
+                    const chatAvatar = document.querySelector('.chat-avatar');
+                    if (chatAvatar && profilePicUrl) {
+                        chatAvatar.style.backgroundImage = `url('%24%7bprofilePicUrl%7d.html')`;
+                    }
+
+                    // Preencher nome completo (fallback para username se não tiver)
+                    const usernameEl = document.querySelector('.profile-card-username');
+
+                    if (usernameEl) {
+                        // Usar full_name se disponível, senão usar username
+                        usernameEl.textContent = parsed.full_name || cleanUsername || 'Pessoa Investigada';
+                    }
+
+                    // Preencher username (só se tiver cleanUsername)
+                    if (cleanUsername) {
+                        const usernameNameEl = document.querySelector('.profile-card-name');
+                        if (usernameNameEl) {
+                            usernameNameEl.textContent = '@' + cleanUsername;
+                        }
+                    }
+
+                    // Função para formatar números
+                    function formatNumber(num) {
+                        if (num >= 1000000) {
+                            return (num / 1000000).toFixed(1).replace('.', ',') + ' mi';
+                        } else if (num >= 100000) {
+                            return Math.floor(num / 1000) + ' mil';
+                        } else if (num >= 11000) {
+                            return (num / 1000).toFixed(1).replace('.', ',') + ' mil';
+                        } else if (num >= 1000) {
+                            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        }
+                        return num.toString();
+                    }
+
+                    // Se for fallback, ESCONDER as estatísticas (não temos esses dados)
+                    const statsContainer = document.querySelector('.profile-card-stats');
+                    if (isFallbackData && statsContainer) {
+                        statsContainer.style.display = 'none';
+                    } else {
+                        // Preencher stats apenas se NÃO for fallback
+                        const postCountEl = document.querySelector('.profile-card-stat-number');
+                        if (postCountEl && parsed.media_count !== undefined) {
+                            postCountEl.textContent = formatNumber(parsed.media_count || 0);
+                        }
+
+                        const followersEl = document.querySelectorAll('.profile-card-stat-number');
+                        if (followersEl.length > 1 && parsed.follower_count !== undefined) {
+                            followersEl[1].textContent = formatNumber(parsed.follower_count || 0);
+                        }
+
+                        if (followersEl.length > 2 && parsed.following_count !== undefined) {
+                            followersEl[2].textContent = formatNumber(parsed.following_count || 0);
+                        }
+                    }
+
+                    // Preencher bio (com quebras de linha)
+                    const bioEl = document.querySelector('.profile-card-bio');
+                    if (bioEl) {
+                        if (parsed.biography && parsed.biography.trim()) {
+                            // Converter quebras de linha para <br>
+                            const bioWithBreaks = parsed.biography.replace(/\n/g, '<br>');
+                            bioEl.innerHTML = bioWithBreaks;
+                            bioEl.style.display = 'block';
+                        } else {
+                            bioEl.style.display = 'none';
+                        }
+                    }
+
+                    // Preencher link da bio
+                    const linkEl = document.querySelector('.profile-card-link');
+                    if (linkEl) {
+                        if (parsed.external_url && parsed.external_url.trim()) {
+                            // Mostrar apenas o domínio do link
+                            try {
+                                const url = new URL(parsed.html);
+                                linkEl.textContent = url.hostname.replace('www.', '');
+                            } catch {
+                                linkEl.textContent = parsed.external_url;
+                            }
+                            linkEl.href = parsed.external_url;
+                            linkEl.style.display = 'block';
+                        } else {
+                            linkEl.style.display = 'none';
+                        }
+                    }
+
+                    // Preencher todos os lugares onde aparece o nome
+                    // Se tiver full_name, usar o primeiro nome; senão usar username como fallback
+                    const displayName = parsed.full_name || cleanUsername || '';
+                    const firstName = displayName ? displayName.split(' ')[0] : '';
+
+                    // Preencher elementos que usam o nome
+                    const nameToDisplay = firstName || 'ele(a)';
+                    const usernameDisplays = document.querySelectorAll('.username-display');
+                    usernameDisplays.forEach(el => {
+                        el.textContent = nameToDisplay;
+                    });
+
+                    // Preencher nome no chat (só se tiver firstName real)
+                    if (firstName) {
+                        const chatNameEl = document.querySelector('.chat-name');
+                        if (chatNameEl) {
+                            chatNameEl.textContent = firstName;
+                        }
+                    }
+
+                    // Preencher username no mapa (sempre que tiver cleanUsername)
+                    if (cleanUsername) {
+                        const mapUsernameEl = document.querySelector('.map-container .profile-card-name');
+                        if (mapUsernameEl) {
+                            mapUsernameEl.textContent = '@' + cleanUsername;
+                        }
+                    }
+
+                    // Substituir textos genéricos pelos dados reais (usa firstName ou fallback)
+                    const replacementName = firstName || 'ele(a)';
+
+                    // "Veja Mídias de Qualquer IG" -> "Veja Mídias de [nome]"
+                    const featureTitles = document.querySelectorAll('.feature-title');
+                    featureTitles.forEach(title => {
+                        if (title.textContent.includes('Qualquer IG')) {
+                            title.textContent = `Veja Mídias de ${replacementName}`;
+                        }
+                    });
+
+                    // "qualquer pessoa" -> [nome] no tool-title
+                    const toolTitleName = document.querySelector('.tool-title .username-display');
+                    if (toolTitleName) {
+                        toolTitleName.textContent = replacementName;
+                    }
+
+                    // Substituir "qualquer pessoa" em textos específicos
+                    const featureDescs = document.querySelectorAll('.feature-desc');
+                    featureDescs.forEach(el => {
+                        if (el.textContent && el.textContent.includes('qualquer pessoa')) {
+                            el.textContent = el.textContent.replace(/qualquer pessoa/g, replacementName);
+                        }
+                    });
+
+                    // Substituir no control-title
+                    const controlTitle = document.querySelector('.control-title');
+                    if (controlTitle && controlTitle.textContent.includes('qualquer pessoa')) {
+                        controlTitle.textContent = controlTitle.textContent.replace(/qualquer pessoa/g, replacementName);
+                    }
+
+                    // Substituir no attention-box-text
+                    const attentionBox = document.querySelector('.attention-box-text');
+                    if (attentionBox && attentionBox.textContent.includes('qualquer pessoa')) {
+                        attentionBox.textContent = attentionBox.textContent.replace(/qualquer pessoa/g, replacementName);
+                    }
+
+                    // Substituir em pricing-benefit-text
+                    const pricingBenefits = document.querySelectorAll('.pricing-benefit-text');
+                    pricingBenefits.forEach(el => {
+                        if (el.textContent && el.textContent.includes('qualquer pessoa')) {
+                            el.textContent = el.textContent.replace(/qualquer pessoa/g, replacementName);
+                        }
+                    });
+
+                    // Substituir em textos de pricing que mencionam "qualquer pessoa"
+                    const pricingTexts = document.querySelectorAll('.pricing-section p, .pricing-section h2, .pricing-section h3');
+                    pricingTexts.forEach(el => {
+                        if (el.textContent && el.textContent.includes('qualquer pessoa')) {
+                            el.textContent = el.textContent.replace(/qualquer pessoa/g, replacementName);
+                        }
+                    });
+
+
+                    // Garantir que o username está salvo para uso futuro (só se tiver cleanUsername)
+                    if (cleanUsername) {
+                        localStorage.setItem('username', cleanUsername);
+                        localStorage.setItem('espionado_username', cleanUsername);
+                    }
+                } catch (error) {
+                    // Silenciar erro - profile-card já está escondido por padrão
+                }
+            }
+
+            // Função para garantir que o card seja exibido se tiver dados
+            function ensureCardVisible() {
+                const profileCard = document.querySelector('.profile-card');
+                if (!profileCard) return;
+
+                const username = localStorage.getItem('espionado_username') || localStorage.getItem('username') || '';
+                const profileData = localStorage.getItem('instagram_profile');
+                const hasData = username || profileData;
+
+                if (hasData && profileCard.style.display === 'none') {
+                    console.log('🔧 [CTA] Forçando exibição do card - dados encontrados');
+                    profileCard.style.setProperty('display', 'block', 'important');
+                    profileCard.classList.add('visible');
+                }
+            }
+
+            // Carregar dados imediatamente (sem esperar DOMContentLoaded se já estiver pronto)
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    loadProfileData();
+                    // Verificar novamente após carregar
+                    setTimeout(ensureCardVisible, 500);
+                });
+            } else {
+                // Aguardar Firebase se necessário antes de carregar
+                const hasLocalData = localStorage.getItem('username') || localStorage.getItem('instagram_profile');
+
+                if (hasLocalData) {
+                    setTimeout(() => {
+                        loadProfileData();
+                        setTimeout(ensureCardVisible, 500);
+                    }, 100);
+                } else {
+                    // Esperar Firebase carregar (máximo 5 segundos)
+                    let attempts = 0;
+                    const checkFirebase = setInterval(() => {
+                        attempts++;
+                        const firebaseReady = typeof window.getCurrentLeadId === 'function';
+
+                        if (firebaseReady || attempts > 50) {
+                            clearInterval(checkFirebase);
+                            setTimeout(() => {
+                                loadProfileData();
+                                setTimeout(ensureCardVisible, 500);
+                            }, 100);
+                        }
+                    }, 100);
+                }
+            }
+
+            // Verificação adicional após 1 segundo
+            setTimeout(ensureCardVisible, 1000);
+        })();
+    </script>
+
+    <script>
+        // Função para scrollar suavemente até o pricing
+        function scrollToPricing(event) {
+            // Esconder somente o botão
+            const timerButton = document.querySelector('.timer-button');
+            if (timerButton) {
+                timerButton.style.display = 'none';
+            }
+
+            const pricingSection = document.querySelector('.pricing-benefits');
+            if (pricingSection) {
+                pricingSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        // Observer para esconder o botão quando pricing-value-container estiver visível
+        (function () {
+            const pricingContainer = document.querySelector('.pricing-value-container');
+            const timerButton = document.querySelector('.timer-button');
+
+            if (pricingContainer && timerButton) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            timerButton.style.display = 'none';
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                observer.observe(pricingContainer);
+            }
+        })();
+
+        // Função para mostrar popup de bloqueio (mesma do feed/direct)
+        function showBlockedPopup(functionName) {
+            const popup = document.getElementById('blocked-popup');
+            const overlay = document.getElementById('blocked-popup-overlay');
+
+            // Mapear nomes de funções para o texto correto
+            let actionText = 'a este conteúdo';
+            if (functionName) {
+                const lowerName = functionName.toLowerCase();
+                if (lowerName.includes('mídia') || lowerName.includes('midia') || lowerName.includes('imagem')) {
+                    actionText = 'às mídias';
+                } else if (lowerName.includes('story') || lowerName.includes('stories')) {
+                    actionText = 'aos stories';
+                } else if (lowerName.includes('localização') || lowerName.includes('localizacao')) {
+                    actionText = 'à localização';
+                } else if (lowerName.includes('mensagem') || lowerName.includes('direct')) {
+                    actionText = 'às mensagens';
+                }
+            }
+
+            if (popup && overlay) {
+                // Criar conteúdo do pop-up estilo iOS glassmorphism
+                popup.innerHTML = `
+                    <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 10px 0; letter-spacing: -0.1px; opacity: 0.95;">
+                        ⚠︎ Ação bloqueada
+                    </h3>
+                    <p style="font-size: 13px; opacity: 0.85; margin: 0 0 20px 0; line-height: 1.4; font-weight: 400;">
+                        Seja um membro VIP do Stalker.privado<br>para ter acesso ${actionText}
+                    </p>
+                    <button onclick="closeBlockedPopup(); scrollToPricing();" style="background: rgba(249, 249, 249, 0.3); color: #F9F9F9; padding: 10px 20px; border-radius: 10px; font-weight: 500; font-size: 13px; border: 1px solid rgba(249, 249, 249, 0.3); cursor: pointer; width: 100%; transition: all 0.2s; " onmouseover="this.style.background='rgba(249, 249, 249, 0.4)'; this.style.borderColor='rgba(249, 249, 249, 0.4)'" onmouseout="this.style.background='rgba(249, 249, 249, 0.3)'; this.style.borderColor='rgba(249, 249, 249, 0.3)'">
+                        Adquirir Acesso VIP
+                    </button>
+                `;
+
+                popup.classList.add('show');
+                overlay.classList.add('show');
+
+                // Fechar ao clicar no overlay
+                overlay.onclick = function () {
+                    closeBlockedPopup();
+                };
+            }
+        }
+
+        function closeBlockedPopup() {
+            const popup = document.getElementById('blocked-popup');
+            const overlay = document.getElementById('blocked-popup-overlay');
+            if (popup) popup.classList.remove('show');
+            if (overlay) overlay.classList.remove('show');
+        }
+
+        // Event listeners para elementos bloqueados
+        function initBlockedAccessListeners() {
+            // 1. Imagens de media-grid-instagram
+            const mediaImages = document.querySelectorAll('.media-grid-instagram img, .media-grid-instagram .media-item-gallery');
+            mediaImages.forEach(element => {
+                element.style.cursor = 'pointer';
+                element.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showBlockedPopup('mídias');
+                });
+            });
+
+            // 2. Botão "Ver" (message-system-btn)
+            const verButtons = document.querySelectorAll('.message-system-btn');
+            verButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showBlockedPopup('localização');
+                });
+            });
+
+            // 3. Stories de stories-grid
+            const storyItems = document.querySelectorAll('.stories-grid .story-item');
+            storyItems.forEach(item => {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showBlockedPopup('stories');
+                });
+            });
+        }
+
+        // Inicializar quando DOM estiver pronto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBlockedAccessListeners);
+        } else {
+            initBlockedAccessListeners();
+        }
+
+       // Atualizar href do botão CTA principal para ir para link/pix.html
+        (function () {
+            let clickHandler = null;
+
+            function updateMainCTAButton() {
+                const mainButton = document.getElementById('main-cta-button');
+                if (mainButton) {
+                    if (clickHandler) {
+                        mainButton.removeEventListener('click', clickHandler);
+                        clickHandler = null;
+                    }
+
+                    let checkoutUrl = 'pix.html';
+                    mainButton.href = checkoutUrl + window.location.search;
+
+                    clickHandler = function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.location.href = checkoutUrl + window.location.search;
+                    };
+
+                    mainButton.addEventListener('click', clickHandler);
+                }
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', updateMainCTAButton);
+            } else {
+                updateMainCTAButton();
+            }
+            setTimeout(updateMainCTAButton, 500);
+        })();
+
+        // Clique no pricing-value-container vai para checkout
+        (function () {
+            function initPricingClick() {
+                const pricingContainer = document.querySelector('.pricing-value-container');
+                if (pricingContainer) {
+                    pricingContainer.style.cursor = 'pointer';
+                    pricingContainer.addEventListener('click', function () {
+                        let checkoutUrl = 'pix.html';
+                        window.location.href = checkoutUrl + window.location.search;
+                    });
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initPricingClick);
+            } else {
+                initPricingClick();
+            }
+        })();
+    </script>
+
+    <script src="../scripts/pages/cta.js"></script>
+
+    <script>
+        // Simulação de conversa em loop infinito
+        (function () {
+            const chatMessages = document.querySelector('.chat-preview .chat-messages');
+            if (!chatMessages) return;
+
+            const messages = [
+                { text: '', delay: 2000 }, // Será preenchido dinamicamente
+                { text: 'Boraa, vou comprar meu acesso VIP 🔥', delay: 2000 }
+            ];
+
+            let currentMessageIndex = 0;
+            let typingTimeout;
+            let messageTimeout;
+
+            function showTyping(isSent = false) {
+                // Remove apenas o indicador de digitação anterior se existir
+                const existingTyping = chatMessages.querySelector('.message-typing');
+                if (existingTyping) existingTyping.remove();
+
+                // Adiciona indicador de digitação
+                const typingDiv = document.createElement('div');
+                typingDiv.className = isSent ? 'message message-typing message-sent' : 'message message-typing';
+                typingDiv.innerHTML = `
+                    <div class="typing-indicator ${isSent ? 'typing-indicator-sent' : ''}">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                `;
+                chatMessages.appendChild(typingDiv);
+
+                // Scroll para baixo
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function showMessage(text, isSent = false) {
+                // Remove indicador de digitação
+                const typingDiv = chatMessages.querySelector('.message-typing');
+                if (typingDiv) typingDiv.remove();
+
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+
+                if (isSent) {
+                    // Mensagem enviada (roxa, alinhada à direita)
+                    messageDiv.className = 'message message-sent';
+                    const bubble = document.createElement('div');
+                    bubble.className = 'message-bubble';
+                    bubble.style.hyphens = 'none';
+                    bubble.style.webkitHyphens = 'none';
+                    bubble.style.mozHyphens = 'none';
+                    bubble.style.msHyphens = 'none';
+                    bubble.style.wordBreak = 'normal';
+                    bubble.style.overflowWrap = 'break-word';
+                    bubble.textContent = text.trim();
+                    messageDiv.appendChild(bubble);
+                } else {
+                    // Mensagem recebida (estilo message-video, sem SVG)
+                    messageDiv.innerHTML = `
+                        <div class="message-video">
+                            <div>
+                                <div style="color: white; font-size: clamp(12px, 3vw, 14px); hyphens: none !important; -webkit-hyphens: none !important; -moz-hyphens: none !important; -ms-hyphens: none !important; word-break: normal !important; overflow-wrap: break-word !important; white-space: normal;">${text}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                chatMessages.appendChild(messageDiv);
+
+                // Scroll para baixo
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function resetChat() {
+                // Remove todas as mensagens dinâmicas
+                const allMessages = Array.from(chatMessages.querySelectorAll('.message'));
+                allMessages.forEach((msg) => {
+                    msg.remove();
+                });
+
+                // Remove qualquer indicador de digitação restante
+                const remainingTyping = chatMessages.querySelector('.message-typing');
+                if (remainingTyping) remainingTyping.remove();
+            }
+
+            function startConversation() {
+                // Preencher primeira mensagem com nome do perfil se disponível
+                if (messages[0].text === '') {
+                    const username = localStorage.getItem('username') || localStorage.getItem('espionado_username') || '';
+                    const cleanUsername = username.replace(/^@+/, '').trim();
+                    const storageKey = 'instagram_profile';
+                    try {
+                        const profileData = localStorage.getItem(storageKey);
+                        if (profileData) {
+                            const parsed = JSON.parse(profileData);
+                            const displayName = parsed.full_name ? parsed.full_name.split(' ')[0] : cleanUsername;
+                            messages[0].text = `E aí, bora ver tudo do instagram de ${displayName}?`;
+                        } else {
+                            messages[0].text = 'E aí, bora ver tudo do instagram?';
+                        }
+                    } catch (e) {
+                        messages[0].text = 'E aí, bora ver tudo do instagram?';
+                    }
+                }
+
+                // A segunda mensagem (índice 1) é enviada pelo usuário (roxa, direita)
+                const isSent = currentMessageIndex === 1;
+                // Mostra indicador de digitação (roxo e à direita se for mensagem enviada)
+                showTyping(isSent);
+
+                // Após 2 segundos, mostra a mensagem
+                typingTimeout = setTimeout(() => {
+                    const message = messages[currentMessageIndex];
+                    showMessage(message.text, isSent);
+
+                    // Após mostrar a mensagem, verifica se é a última
+                    messageTimeout = setTimeout(() => {
+                        currentMessageIndex++;
+
+                        // Se chegou na última mensagem, reseta e começa do zero
+                        if (currentMessageIndex >= messages.length) {
+                            currentMessageIndex = 0;
+                            resetChat();
+                            // Aguarda um pouco antes de reiniciar
+                            setTimeout(() => {
+                                startConversation();
+                            }, 500);
+                        } else {
+                            // Continua para a próxima mensagem
+                            startConversation();
+                        }
+                    }, message.delay);
+                }, 2000); // Tempo de digitação (2 segundos)
+            }
+
+            // Inicia a conversa quando a página carregar
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    setTimeout(startConversation, 1000);
+                });
+            } else {
+                setTimeout(startConversation, 1000);
+            }
+        })();
+    </script>
+
+    <!-- BLOQUEIO DE NAVEGAÇÃO - Usuário fica PRESO no CTA após timer expirar -->
+    <script>
+        (function () {
+            const TIMER_EXPIRED_KEY = 'cta_timer_expired';
+            const PREVIEW_START_KEY = 'previewStartTime';
+            const TIMER_DURATION = 10 * 60 * 1000; // 10 minutos em milissegundos
+
+            // BLOQUEAR BOTÃO VOLTAR - SEMPRE (usuário não pode voltar ao feed)
+            history.pushState(null, null, location.href);
+            window.addEventListener('popstate', function (event) {
+                history.pushState(null, null, location.href);
+                // Bloqueio silencioso - não mostra popup irritante
+            });
+
+            // ⚠️ VERIFICAR O TEMPO REAL PRIMEIRO (não confiar cegamente na flag)
+            let startTime = localStorage.getItem(PREVIEW_START_KEY);
+            if (!startTime) {
+                // Se não tem tempo salvo, criar novo
+                startTime = Date.now();
+                localStorage.setItem(PREVIEW_START_KEY, startTime.toString());
+            } else {
+                startTime = parseInt(startTime);
+            }
+
+            // Calcular tempo restante REAL
+            const elapsed = Date.now() - startTime;
+            const remaining = TIMER_DURATION - elapsed;
+
+            // Se o tempo REAL zerou, marcar como expirado e bloquear
+            if (remaining <= 0) {
+                localStorage.setItem(TIMER_EXPIRED_KEY, '1');
+
+                const el = document.getElementById('countdown');
+                if (el) el.textContent = '00:00';
+
+                // Bloquear qualquer tentativa de voltar ao feed
+                window.onbeforeunload = function (e) {
+                    const href = document.activeElement?.href || '';
+                    if (href.includes('perfectpay') || href.includes('checkout') || href.includes('siteseguro')) {
+                        return undefined;
+                    }
+                    e.preventDefault();
+                    return '';
+                };
+
+                // Bloquear cliques em links internos (silenciosamente)
+                document.addEventListener('click', function (e) {
+                    const target = e.target.closest('a');
+                    if (target && target.href) {
+                        // Permitir sempre o botão principal CTA
+                        if (target.id === 'main-cta-button' || target.closest('#main-cta-button')) {
+                            return; // Não bloquear
+                        }
+
+                        const href = target.href.toLowerCase();
+                        // Permitir apenas links externos de checkout
+                        if (!href.includes('perfectpay') && !href.includes('checkout') && !href.includes('siteseguro') && !href.startsWith('http')) {
+                            e.preventDefault();
+                            // Bloqueio silencioso - sem popup irritante
+                        }
+                    }
+                });
+
+                return; // NÃO iniciar countdown - manter em 00:00 PARA SEMPRE
+            }
+
+            // ✅ Tempo real ainda não zerou - limpar flag incorreta se existir e continuar
+            if (localStorage.getItem(TIMER_EXPIRED_KEY) === '1') {
+                localStorage.removeItem(TIMER_EXPIRED_KEY);
+            }
+
+            const countdownEl = document.getElementById('countdown');
+            if (!countdownEl) return;
+
+            function updateTimer() {
+                const elapsed = Date.now() - startTime;
+                const remaining = Math.max(0, TIMER_DURATION - elapsed);
+
+                const totalSeconds = Math.floor(remaining / 1000);
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+
+                // Atualizar elemento se ainda existir
+                const el = document.getElementById('countdown');
+                if (el) {
+                    el.textContent = String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+                }
+
+                if (remaining <= 0) {
+                    // ⏰ CRONÔMETRO ZEROU! Salvar permanentemente e NUNCA MAIS permitir acesso ao feed
+                    localStorage.setItem(TIMER_EXPIRED_KEY, '1');
+                    if (el) el.textContent = '00:00';
+
+                    // Ativar bloqueio de saída
+                    window.onbeforeunload = function (e) {
+                        const href = document.activeElement?.href || '';
+                        if (href.includes('perfectpay') || href.includes('checkout') || href.includes('siteseguro')) {
+                            return undefined;
+                        }
+                        e.preventDefault();
+                        return '';
+                    };
+
+                    // Bloquear cliques em links internos quando timer zerar (silenciosamente)
+                    document.addEventListener('click', function (e) {
+                        const target = e.target.closest('a');
+                        if (target && target.href) {
+                            // Permitir sempre o botão principal CTA
+                            if (target.id === 'main-cta-button' || target.closest('#main-cta-button')) {
+                                return; // Não bloquear
+                            }
+
+                            const href = target.href.toLowerCase();
+                            if (!href.includes('perfectpay') && !href.includes('checkout') && !href.includes('siteseguro') && !href.startsWith('http')) {
+                                e.preventDefault();
+                                // Bloqueio silencioso - sem popup irritante
+                            }
+                        }
+                    });
+
+                    // NÃO recarregar - manter em 00:00 PARA SEMPRE
+                    return;
+                }
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        })();
+    </script>
+
+    <style>
+    /* Forçar Fundo Preto */
+    body { background: #000 !important; }
+
+    /* Mudar Preços e Textos de Destaque para Verde Neon */
+    .pricing-amount, 
+    .pricing-cents, 
+    .pricing-current-price span, 
+    .username-display, 
+    .gradient,
+    .tool-title span,
+    h2, h3 {
+        color: #35ff9a !important;
+        background: none !important;
+        -webkit-text-fill-color: #35ff9a !important;
+    }
+
+    /* Mudar Todos os Ícones (Checks, Escudo, Cadeado, Raio) para Verde */
+    svg, 
+    .pricing-note-item svg, 
+    .feature-item svg, 
+    .check-icon,
+    .benefit-item svg {
+        stroke: #35ff9a !important;
+        color: #35ff9a !important;
+    }
+
+    /* Mudar Bordas Roxas para Verde */
+    .pricing-value-container, 
+    .feature-item,
+    .price-card {
+        border-color: rgba(53, 255, 154, 0.3) !important;
+    }
+
+    /* --- AJUSTE FINAL DO MATRIX (ROXO -> VERDE) --- */
+    #matrix-canvas, canvas {
+        filter: hue-rotate(125deg) brightness(1.8) saturate(1.5) !important;
+        opacity: 0.525 !important;
+    }
+
+    /* --- BOTÃO "ACESSAR TUDO" EM VERDE --- */
+    #main-cta-button, .pricing-cta-button {
+        background: linear-gradient(135deg, #35ff9a, #1a7a4a) !important;
+        color: #000 !important;
+        border: none !important;
+        box-shadow: 0 0 20px rgba(53, 255, 154, 0.5) !important;
+    }
+
+    /* Garante que os textos dentro do botão fiquem pretos para leitura */
+    .pricing-cta-main, .pricing-cta-sub {
+        color: #000 !important;
+    }
+</style>
+
+</body>
+
+
+<!-- Mirrored from www.stalkeia.com/pages/cta.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Mar 2026 03:54:13 GMT -->
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Pix - Stalker Privado</title>
+    <style>
+        /* Reset básico e tipografia */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Fundo escuro */
+            background-color: #0d1117; 
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Container principal */
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 450px;
+            min-height: 100vh;
+            background-color: #0d1117;
+            position: relative;
+        }
+
+        /* Área central */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding-top: 30px;
+            padding-bottom: 60px; 
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Estilos do Logo */
+        .logo-img {
+            width: 140px; 
+            height: 140px;
+            border-radius: 50%; 
+            margin-bottom: 30px; 
+            /* Brilho neon suave ao redor do logo */
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.15); 
+        }
+
+        /* Borda do QR Code no estilo neon */
+        .qr-border {
+            background-color: #161b22;
+            padding: 4px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            /* Borda e sombra verde neon */
+            border: 2px solid #00ff66;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.2);
+        }
+
+        .qr-code-wrapper {
+            background-color: #ffffff; /* Mantém branco para o leitor funcionar */
+            padding: 15px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qr-code-img {
+            width: 220px;
+            height: 220px;
+            display: block;
+        }
+
+        /* Texto do Valor */
+        .price {
+            font-size: 34px;
+            font-weight: bold;
+            color: #ffffff; /* Texto branco */
+            letter-spacing: -0.5px;
+            margin-bottom: 30px;
+            /* Brilho no texto */
+            text-shadow: 0 2px 10px rgba(0, 255, 102, 0.2);
+        }
+
+        /* Seção Pix Copia e Cola */
+        .copy-paste-container {
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        .copy-instruction {
+            font-size: 14px;
+            color: #8b949e; /* Cinza claro */
+            margin-bottom: 10px;
+        }
+
+        .copy-area {
+            display: flex;
+            background-color: #161b22; /* Fundo escuro para o input */
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+        }
+
+        #pix-code {
+            flex-grow: 1;
+            border: none;
+            background: transparent;
+            padding: 14px;
+            font-size: 14px;
+            color: #c9d1d9; /* Texto claro */
+            outline: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #copy-btn {
+            background-color: #00ff66; /* Verde Neon */
+            color: #000000; /* Texto preto para dar contraste */
+            border: none;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        #copy-btn:hover {
+            background-color: #00cc52; /* Verde um pouco mais escuro ao passar o mouse */
+        }
+
+        /* Rodapé mais escuro */
+        .footer {
+            width: 100%;
+            background-color: #010409;
+            padding: 24px 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="content">
+            <img src="logo_site.png" alt="Logo Stalker Privado" class="logo-img">
+
+            <div class="qr-border">
+                <div class="qr-code-wrapper">
+                    <img src="Captura de tela 2026-03-28 112757.png" alt="QR Code Pix" class="qr-code-img">
+                </div>
+            </div>
+
+            <div class="price">R$ 22,99</div>
+
+            <div class="copy-paste-container">
+                <p class="copy-instruction">Ou pague com Pix Copia e Cola:</p>
+                <div class="copy-area">
+                    <input type="text" id="pix-code" value="00020126360014br.gov.bcb.pix0114 551194383606327600016BR.COM.PAGSEGURO0136927D2821-1F6B-4FCC-B624-ABC4474E9B6D520489995303986540522.995802BR5921Airton Barros Alencar6009Sao Paulo62290525PAGS00000229926032811160063044042" readonly>
+                    <button id="copy-btn" onclick="copyPix()">Copiar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Pague lendo o QR Code Pix no app do seu banco
+        </div>
+
+    </div>
+
+    <script>
+        function copyPix() {
+            const inputElement = document.getElementById("pix-code");
+            const buttonElement = document.getElementById("copy-btn");
+
+            inputElement.select();
+            inputElement.setSelectionRange(0, 99999); 
+
+            navigator.clipboard.writeText(inputElement.value).then(function() {
+                // Efeito ao copiar no tema escuro
+                buttonElement.innerText = "Copiado!";
+                buttonElement.style.backgroundColor = "#ffffff"; 
+                buttonElement.style.color = "#000000";
+
+                setTimeout(function() {
+                    buttonElement.innerText = "Copiar";
+                    buttonElement.style.backgroundColor = "#00ff66";
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Falha ao copiar o texto: ', err);
+                alert("Não foi possível copiar o código. Tente selecionar e copiar manualmente.");
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,3319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<!-- Mirrored from www.stalkeia.com/pages/direct.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Mar 2026 03:56:18 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Stalker.privado- Espião instagram.</title>
+    <meta name="description" content="stalkeia.com- O maior software de espionagem de Instagram da América Latina">
+    <link rel="shortcut icon" href="../assets/images/favicon/logo_site_pequena.png">
+<link rel="icon" href="../assets/images/favicon/logo_site_pequena.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/images/favicon/logo_site_pequena.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/pages/direct.css">
+
+    
+    <script src="../scripts/config/config.obf.js" defer></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+        data-token="78cf939a-5d92-4fcb-9348-88f9653c009f">
+        </script> -->
+
+    <style>
+        /* Estilos para Chat Não Lido */
+        .chat-item.chat-unread .chat-camera-icon {
+            opacity: 1 !important;
+        }
+
+        .chat-item.chat-unread .chat-name {
+            font-weight: bold !important;
+        }
+
+        .chat-item.chat-unread .chat-message-text {
+            color: #F9F9F9 !important;
+            font-weight: bold !important;
+        }
+
+        /* Aumentar espaçamento entre nome e mensagem apenas (não entre chats) */
+        .chat-message-row {
+            margin-top: 3px !important;
+        }
+
+        /* Aplicar blur em todas as imagens chat-photo com overflow para ultrapassar um pouco o círculo */
+        .chat-avatar-wrapper:not(.locked-avatar) {
+            overflow: hidden !important;
+            position: relative !important;
+            border-radius: 50% !important;
+        }
+
+        /* Centralizar SVG do cadeado sobre a imagem (apenas em chats não locked) */
+        .chat-avatar-wrapper:not(.locked-avatar)>svg {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 2 !important;
+            pointer-events: none !important;
+        }
+
+        .chat-avatar-wrapper:not(.locked-avatar) .chat-photo {
+            filter: blur(5px) !important;
+            position: relative !important;
+            z-index: 1 !important;
+            border-radius: 50% !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+
+        /* Aplicar blur no SVG do cadeado dos chats locked (mesmo estilo dos outros) */
+        .chat-avatar-container {
+            position: relative !important;
+        }
+
+        /* ENCHEÇÃO DE LINGUIÇA - Blur reduzido nos chats fake */
+        .enchacao-de-linguica {
+            filter: blur(7px) !important;
+            opacity: 0.7;
+            pointer-events: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .enchacao-de-linguica .chat-message-text {
+            filter: blur(3px);
+        }
+
+        .enchacao-de-linguica .chat-name {
+            filter: blur(3px);
+        }
+
+        /* Estilo compartilhado para todos os cadeados */
+        .chat-avatar-wrapper svg,
+        .chat-lock-icon svg {
+            stroke: #F9F9F9 !important;
+            opacity: 0.8 !important;
+            filter: drop-shadow(0 0 6px rgba(0, 0, 0, 1)) !important;
+        }
+
+        .chat-lock-icon {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 2 !important;
+            pointer-events: none !important;
+            overflow: visible !important;
+        }
+
+        .chat-avatar-wrapper.locked-avatar {
+            overflow: visible !important;
+            position: relative !important;
+            filter: blur(5px) !important;
+        }
+
+        /* Garantir espaçamento correto entre chats */
+        .chat-item {
+            padding: 12px 0 !important;
+        }
+
+        /* Pop-up estilo glassmorphism iOS */
+        #blocked-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(220, 38, 38, 0.15);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            backdrop-filter: blur(20px) saturate(180%);
+            color: #F9F9F9;
+            padding: 24px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(249, 249, 249, 0.18);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            width: calc(100% - 40px);
+            text-align: center;
+        }
+
+        #blocked-popup.show {
+            display: flex;
+            animation: popupFadeIn 0.3s ease-out, subtlePulse 3s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes subtlePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            }
+
+            50% {
+                box-shadow: 0 8px 32px rgba(220, 38, 38, 0.25);
+            }
+        }
+
+        #blocked-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: none;
+        }
+
+        #blocked-popup-overlay.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="__variable_8b3a0b font-inter antialiased">
+    <!-- SVG Symbols para ícones reutilizáveis -->
+    <svg style="display: none;">
+        <symbol id="camera-icon" viewBox="0 0 66 64" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24.743 0.806959C22.974 1.01696 20.854 2.54296 18.826 5.06696C16.383 8.10696 14.966 9.00096 12.583 9.00396C10.887 9.00596 8.01 9.91596 6.19 11.026C0.838 14.289 0 17.748 0 36.582C0 51.783 0.187 53.561 2.159 57.069C5.68 63.333 8.651 64 33.052 64C55.815 64 58.402 63.529 63 58.551C65.45 55.898 65.506 55.477 65.811 37.491C66.071 22.148 65.858 18.626 64.513 16.024C62.544 12.217 57.524 9.00896 53.527 9.00396C51.336 9.00096 49.627 7.96696 47.027 5.07196C43.551 1.19996 43.384 1.13796 35.5 0.811961C31.1 0.629961 26.259 0.627959 24.743 0.806959ZM43.216 9.57496C44.622 12.66 48.789 15 52.878 15C54.903 15 56.518 15.843 57.927 17.635C59.831 20.055 60 21.594 60 36.524C60 59.297 62.313 57.5 33.052 57.5C3.655 57.5 6 59.35 6 36.204C6 20.562 6.122 19.499 8.174 17.314C9.469 15.936 11.511 15 13.224 15C17.15 15 21.289 12.696 22.954 9.58496C24.282 7.10396 24.693 6.99996 33.19 6.99996C41.731 6.99996 42.084 7.09096 43.216 9.57496ZM27 19.722C15.76 23.945 13.183 40.493 22.611 47.908C30.698 54.27 42.974 51.753 47.612 42.783C51.201 35.844 48.564 25.701 42.015 21.25C38.771 19.046 30.925 18.247 27 19.722ZM40.077 27.923C46.612 34.459 42.201 45.273 33 45.273C23.799 45.273 19.388 34.459 25.923 27.923C30.039 23.807 35.961 23.807 40.077 27.923Z"
+                fill="#F9F9F9"></path>
+        </symbol>
+    </svg>
+    <div class="min-h-screen bg-[#0B1014] relative overflow-x-hidden"
+        style="font-family: &quot;Arbitare Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-800"
+            style="position: fixed; top: 0; left: 0; right: 0; background-color: #0B1014; z-index: 50;">
+            <div class="flex items-center space-x-3">
+                <button type="button" class="p-1 transition-colors" aria-label="Voltar" id="backButton"
+                    style="background: none; border: none; cursor: pointer;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F9F9F9" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6"></path>
+                    </svg>
+                </button>
+                <h1 id="header-username"
+                    style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(249, 249, 249); font-weight: 600; letter-spacing: -0.3px;">
+                    instagram</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <svg id="camera-icon-header" width="24" height="24" viewBox="0 0 69 69" fill="none"
+                    style="cursor: pointer;">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M30.8471 0.558896C27.5641 1.4949 25.7521 3.6039 19.6111 13.6319C17.4081 17.2299 15.3201 19.0549 10.7811 21.3459C7.51206 22.9959 3.92306 25.5089 2.80506 26.9299C-2.18494 33.2729 -0.395945 40.6819 7.20506 45.1619C16.6311 50.7169 18.1311 52.0689 21.3811 57.9379C25.9281 66.1469 28.6881 68.4199 34.1131 68.4199C39.7151 68.4199 43.4841 65.3589 47.7611 57.3319C50.5401 52.1179 51.8141 50.8849 58.1341 47.2889C65.8431 42.9029 68.6341 39.4949 68.6341 34.4659C68.6341 29.1849 66.2281 26.1259 58.4791 21.5519C51.9381 17.6909 50.6991 16.4519 47.1581 10.2269C42.1781 1.4739 37.4551 -1.3261 30.8471 0.558896ZM41.2421 12.4199C45.1841 19.3819 49.6631 23.8629 56.6341 27.8189C61.6411 30.6609 62.1341 31.2509 62.1341 34.4039C62.1341 37.6079 61.6531 38.1459 55.6941 41.6109C47.6871 46.2669 46.2451 47.7059 41.6841 55.5939C38.3161 61.4189 37.7551 61.9199 34.6011 61.9199C31.8761 61.9199 30.7941 61.3069 29.3111 58.9199C21.8511 46.9169 21.0491 46.0149 14.8281 42.6199C11.3601 40.7279 7.82105 38.1079 6.96305 36.7999C5.56105 34.6599 5.55806 34.1839 6.93406 32.0839C7.77606 30.7989 11.5491 27.9159 15.3181 25.6769C21.4241 22.0489 22.6481 20.7729 26.5451 13.9609C30.8301 6.4719 30.9931 6.3219 34.5231 6.6179C37.7361 6.8869 38.4661 7.5179 41.2421 12.4199ZM22.9431 26.0559C21.4701 29.8949 26.7831 32.7159 28.9671 29.2539C29.7301 28.0449 29.6571 27.1529 28.7041 26.0039C26.9931 23.9429 23.7431 23.9719 22.9431 26.0559ZM40.0181 25.8619C38.9531 28.6369 40.0901 30.9199 42.5391 30.9199C45.6931 30.9199 47.4801 28.1439 45.7041 26.0039C44.0621 24.0259 40.7541 23.9429 40.0181 25.8619ZM40.0651 37.4749C36.5741 39.7759 31.7631 39.9849 29.0751 37.9519C28.0081 37.1439 26.0901 36.4689 24.8141 36.4519C22.9831 36.4269 22.5621 36.8859 22.8141 38.6359C23.3121 42.0869 29.1181 45.4199 34.6341 45.4199C42.3761 45.4199 49.6601 39.1099 44.8751 36.5489C43.4611 35.7919 42.2691 36.0219 40.0651 37.4749Z"
+                        fill="#F9F9F9"></path>
+                </svg>
+                <svg id="new-message-icon" aria-label="Nova mensagem" fill="#F9F9F9" height="24" role="img"
+                    viewBox="0 0 24 24" width="24" style="cursor: pointer;">
+                    <title>Nova mensagem</title>
+                    <path d="M12.202 3.203H5.25a3 3 0 0 0-3 3V18.75a3 3 0 0 0 3 3h12.547a3 3 0 0 0 3-3v-6.952"
+                        fill="none" stroke="#F9F9F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    </path>
+                    <path
+                        d="M10.002 17.226H6.774v-3.228L18.607 2.165a1.417 1.417 0 0 1 2.004 0l1.224 1.225a1.417 1.417 0 0 1 0 2.004Z"
+                        fill="none" stroke="#F9F9F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    </path>
+                    <line fill="none" stroke="#F9F9F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        x1="16.848" x2="20.076" y1="3.924" y2="7.153"></line>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="px-4" style="padding-top: 68.4px; padding-bottom: 0px;">
+            <div class="relative">
+                <div class="absolute left-3 w-5 h-5" style="top: 11px;">
+                    <div style="width: 20px; height: 20px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 500 500" width="500" height="500" preserveAspectRatio="xMidYMid meet"
+                            style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                            <defs>
+                                <clipPath id="__lottie_element_2">
+                                    <rect width="500" height="500" x="0" y="0"></rect>
+                                </clipPath>
+                                <g id="__lottie_element_3">
+                                    <g transform="matrix(1,0,0,1,217,229)" opacity="1" style="display: block;">
+                                        <g opacity="1" transform="matrix(1,0,0,1,33,21)">
+                                            <path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0"
+                                                stroke-miterlimit="4" stroke="rgb(101,101,101)" stroke-opacity="1"
+                                                stroke-width="80"
+                                                d=" M107.43711853027344,-123.74400329589844 C137.5516815185547,-89.05899810791016 165.66978454589844,-50.757450103759766 168.593994140625,2.0230000019073486 C170.96469116210938,46.05605697631836 157.39999389648438,90.08799743652344 123.74400329589844,123.74400329589844 C89.572998046875,157.9149932861328 44.7859992980957,175 0,175 C-44.7859992980957,175 -89.572998046875,157.9149932861328 -123.74400329589844,123.74400329589844 C-157.40899658203125,90.0790023803711 -169.7324676513672,46.09290313720703 -168.59414672851562,1.9889999628067017 C-167.37847900390625,-44.77629852294922 -146.09210205078125,-85.59001159667969 -107.43626403808594,-123.74400329589844 C-74.98016357421875,-155.78973388671875 -38.30464172363281,-175.2530059814453 0.8683412075042725,-174.9969940185547 C39.4625244140625,-174.7449951171875 77.98967742919922,-157.66099548339844 107.43711853027344,-123.74400329589844z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                                <linearGradient id="__lottie_element_9" spreadMethod="pad"
+                                    gradientUnits="userSpaceOnUse" x1="-179.9929962158203" y1="-7.324999809265137"
+                                    x2="200.80799865722656" y2="8.270000457763672">
+                                    <stop offset="1%" stop-color="rgb(250,17,247)"></stop>
+                                    <stop offset="18%" stop-color="rgb(135,30,234)"></stop>
+                                    <stop offset="52%" stop-color="rgb(19,43,221)"></stop>
+                                    <stop offset="85%" stop-color="rgb(15,124,238)"></stop>
+                                    <stop offset="99%" stop-color="rgb(11,206,255)"></stop>
+                                </linearGradient>
+                                <mask id="__lottie_element_3_1" mask-type="alpha">
+                                    <use xlink:href="#__lottie_element_3"></use>
+                                </mask>
+                            </defs>
+                            <g clip-path="url(#__lottie_element_2)">
+                                <g mask="url(#__lottie_element_3_1)" style="display: block;">
+                                    <g transform="matrix(0.28873103857040405,0.9574102759361267,-0.9574102759361267,0.28873103857040405,260.5774841308594,212.34210205078125)"
+                                        opacity="1">
+                                        <g opacity="1" transform="matrix(1,0,0,1,33,21)">
+                                            <path fill="url(#__lottie_element_9)" fill-opacity="1"
+                                                d=" M155.36000061035156,-155.32899475097656 C198.9080047607422,-111.78099822998047 220.35499572753906,-54.500999450683594 219.69900512695312,2.572000026702881 C219.06300354003906,57.95199966430664 197.61599731445312,113.13800048828125 155.36000061035156,155.3939971923828 C112.45800018310547,198.29600524902344 56.229000091552734,219.7469940185547 -0.0010000000474974513,219.7469940185547 C-56.23099899291992,219.7469940185547 -112.46099853515625,198.29600524902344 -155.36300659179688,155.3939971923828 C-197.6300048828125,113.12699890136719 -219.0749969482422,57.92399978637695 -219.7010040283203,2.5290000438690186 C-220.34500122070312,-54.529998779296875 -198.89999389648438,-111.79199981689453 -155.36300659179688,-155.32899475097656 C-112.14199829101562,-198.5500030517578 -55.39400100708008,-220 1.253999948501587,-219.67799377441406 C57.064998626708984,-219.36099243164062 112.7770004272461,-197.91200256347656 155.36000061035156,-155.32899475097656z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <input placeholder="Interaja com a Meta AI ou pesquise"
+                    class="w-full pl-10 pr-3 py-2.5 rounded-full text-sm search-input" type="text"
+                    style="background-color: rgb(37, 40, 45); color: rgb(142, 147, 153); font-size: 16.5px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; padding: 11px 12px 11px 40px;">
+            </div>
+        </div>
+
+        <!-- Stories Section -->
+        <div class="relative">
+            <div class="flex space-x-4 stories-container scrollbar-hide overflow-x-auto"
+                style="padding-left: 16px; padding-right: 0px; scroll-behavior: smooth; width: calc(100% + 32px);"
+                id="storiesContainer">
+                <!-- Stories serão inseridos via JavaScript -->
+            </div>
+            <div
+                class="absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-[#0B1014] to-transparent pointer-events-none">
+            </div>
+        </div>
+
+        <!-- Messages Header -->
+        <div class="flex justify-between items-center px-4 py-3 mt-2">
+            <h2 class="text-lg font-semibold"
+                style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; color: rgb(249, 249, 249); font-weight: 600;">
+                Mensagens</h2>
+            <span id="pedidos-link" class="text-sm"
+                style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; color: rgb(81, 122, 255); font-weight: 400; cursor: pointer;">Pedidos
+                (4)</span>
+        </div>
+
+        <!-- Messages List -->
+        <div class="px-4 pb-16" id="messagesList" onclick="showBlockedPopup('para desbloquear as mensagens')" style="cursor: pointer;">
+            <!-- Chat Clicável 1 -->
+            <div class="chat-item chat-clickable chat-unread" data-chat-index="15">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <img class="chat-photo" src="../assets/images/screenshots/chat1.png" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">Fer*****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Oi delícia, adivinha o que vc esqueceu aqui? kkkkk</span>
+                        <span class="chat-time" id="chatClickable1Time"> • Agora</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <div class="chat-unread-dot"></div>
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Chat Clicável 2 -->
+            <div class="chat-item chat-clickable chat-unread" data-chat-index="17">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">itzbryan</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Encaminhou um reel de jonas.milgrau</span>
+                        <span class="chat-time" id="chatClickable2Time"> • 33 min</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <div class="chat-unread-dot"></div>
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Chat Clicável 3 -->
+            <div class="chat-item chat-clickable" data-chat-index="18">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">MIGUEL🇧🇷🇺🇲</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Blz depois a gente se fala</span>
+                        <span class="chat-time" id="chatClickable3Time"> • 2 h</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Chat Clicável 4 -->
+            <div class="chat-item chat-clickable" data-chat-index="16">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <img class="chat-photo" src="../assets/images/screenshots/chat2.png" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">And*****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Reagiu com 👍 à sua mensagem</span>
+                        <span class="chat-time" id="chatClickable4Time"> • 6 h</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Chat Clicável 5 -->
+            <div class="chat-item chat-clickable chat-unread" data-chat-index="19">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <img class="chat-photo" src="../assets/images/screenshots/chat3.png" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">𝕭𝖗𝖚****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">4 novas mensagens</span>
+                        <span class="chat-time" id="chatClickable5Time"> • 22 h</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <div class="chat-unread-dot"></div>
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 3 -->
+            <div class="chat-item" data-chat-index="2">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name"><span style="display: none;">Chat</span></h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Enviou um reel de dr.diegooficial</span>
+                        <span class="chat-time"> • 2 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 4 -->
+            <div class="chat-item" data-chat-index="3">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name"><span style="display: none;">Chat</span></h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text" id="dynamic-day-message">Enviado sexta-feira </span>
+                        <span class="chat-time"> • 2 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 5 -->
+            <div class="chat-item" data-chat-index="4">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name"><span style="display: none;">Chat</span></h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Enviou uma mensagem de voz</span>
+                        <span class="chat-time"> • 2 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 6 -->
+            <div class="chat-item" data-chat-index="5">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name"><span style="display: none;">Chat</span></h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">kkkkkkkkkk</span>
+                        <span class="chat-time"> • 2 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 7 -->
+            <div class="chat-item" data-chat-index="6">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name"><span style="display: none;">Chat</span></h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Curtiu sua mensagem</span>
+                        <span class="chat-time"> • 2 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 8 -->
+            <div class="chat-item" data-chat-index="7">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name"><span style="display: none;">Chat</span></h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">🔥🔥</span>
+                        <span class="chat-time"> • 3 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 9 -->
+            <div class="chat-item" data-chat-index="8">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <img class="chat-photo" src="../assets/images/avatars/perfil-sem-foto.jpg" alt="" width="56"
+                            height="56" style="opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name"><span style="display: none;">Chat</span></h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text" id="dynamic-day-message-3days">Enviado</span>
+                        <span class="chat-time"> • 3 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 10 -->
+            <div class="chat-item locked" data-chat-index="9">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper locked-avatar">
+                    </div>
+                    <div class="chat-lock-icon">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">*****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Enviado segunda-feira</span>
+                        <span class="chat-time"> • 3 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 11 -->
+            <div class="chat-item locked" data-chat-index="10">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper locked-avatar">
+                    </div>
+                    <div class="chat-lock-icon">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">*****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Delícia você 😈 😈</span>
+                        <span class="chat-time"> • 4 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 12 -->
+            <div class="chat-item locked" data-chat-index="11">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper locked-avatar">
+                    </div>
+                    <div class="chat-lock-icon">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">*****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Curtiu sua mensagem</span>
+                        <span class="chat-time"> • 4 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 13 -->
+            <div class="chat-item locked" data-chat-index="12">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper locked-avatar">
+                    </div>
+                    <div class="chat-lock-icon">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">*****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Enviado quinta-feira</span>
+                        <span class="chat-time"> • 6 d</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 14 -->
+            <div class="chat-item locked" data-chat-index="13">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper locked-avatar">
+                    </div>
+                    <div class="chat-lock-icon">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">*****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">Ah sim entendi</span>
+                        <span class="chat-time"> • 1 sem</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- CHAT 15 -->
+            <div class="chat-item locked" data-chat-index="14">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper locked-avatar">
+                    </div>
+                    <div class="chat-lock-icon">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">*****</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">😈😈</span>
+                        <span class="chat-time"> • 2 sem</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2">
+                        <use href="#camera-icon"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Indicador de carregamento -->
+            <div id="loading-indicator"
+                style="display: none; justify-content: center; align-items: center; padding: 20px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="animation: spin 1s linear infinite;">
+                    <circle cx="12" cy="12" r="10" stroke="#F9F9F9" stroke-width="2" stroke-opacity="0.3" fill="none" />
+                    <path
+                        d="M12 2C13.3132 2 14.6136 2.25866 15.8268 2.7612C17.0401 3.26375 18.1425 4.00035 19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12"
+                        stroke="#F9F9F9" stroke-width="2" stroke-linecap="round" fill="none" stroke-dasharray="31.416"
+                        stroke-dashoffset="15.708" />
+                </svg>
+            </div>
+
+        </div>
+    </div>
+    <!-- Banner de prévia grátis -->
+    <div id="preview-banner" style="background: #35ff9a !important; color: #000 !important;">
+        <div class="preview-banner-content">
+            <div class="preview-banner-text">
+                <p class="preview-banner-title" style="color: #000 !important;">
+                    ⚡ Prévia disponível por
+                    <span class="preview-timer-inline" id="preview-timer" style="color: #000 !important;">
+                        <span id="timer-text">10:00</span>
+                        <svg class="preview-timer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </span>
+                </p>
+                <p class="preview-banner-description" style="color: #000 !important; font-weight: 500;">Você ganhou 10 minutos para testar gratuitamente nossa ferramenta,
+                    mas para liberar todas as funcionalidades e ter acesso permanente é necessário ser um membro VIP.
+                </p>
+            </div>
+        </div>
+        <button type="button" class="preview-banner-button" onclick="if(typeof goToCTA==='function'){goToCTA();}else if(typeof navigateWithUTM==='function'){navigateWithUTM('cta.html');}" style="background: #000 !important; color: #fff !important; border: none !important; font-weight: bold;">Tornar-se VIP</button>
+    </div>
+
+    <script>
+        // Banner de prévia grátis com timer de 10 minutos
+        (function () {
+            const PREVIEW_DURATION = 10 * 60 * 1000; // 10 minutos em milissegundos
+            const STORAGE_KEY = 'previewStartTime';
+
+            function formatTime(ms) {
+                const totalSeconds = Math.floor(ms / 1000);
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            function initPreviewBanner() {
+                // Verificar se já existe tempo salvo
+                let startTime = localStorage.getItem(STORAGE_KEY);
+
+                if (!startTime) {
+                    // Primeira vez - salvar tempo atual
+                    startTime = Date.now();
+                    localStorage.setItem(STORAGE_KEY, startTime.toString());
+                } else {
+                    startTime = parseInt(startTime);
+                }
+
+                const elapsed = Date.now() - startTime;
+                const remaining = PREVIEW_DURATION - elapsed;
+
+                if (remaining <= 0) {
+                    // Tempo esgotado - esconder banner
+                    const banner = document.getElementById('preview-banner');
+                    if (banner) {
+                        banner.classList.add('hidden');
+                        setTimeout(() => {
+                            banner.remove();
+                        }, 400);
+                    }
+                    localStorage.removeItem(STORAGE_KEY);
+                    return;
+                }
+
+                // Atualizar timer inicial
+                const timerText = document.getElementById('timer-text');
+                if (timerText) {
+                    timerText.textContent = formatTime(remaining);
+                }
+
+                // Atualizar timer a cada segundo
+                const timerInterval = setInterval(() => {
+                    const elapsed = Date.now() - startTime;
+                    const remaining = PREVIEW_DURATION - elapsed;
+
+                    if (remaining <= 0) {
+                        clearInterval(timerInterval);
+                        localStorage.removeItem(STORAGE_KEY);
+                        // Redirecionar para CTA quando timer zerar preservando UTMs
+                        if (typeof navigateWithUTM === 'function') {
+                            navigateWithUTM('cta.html');
+                        } else {
+                            window.location.href = 'cta.html' + window.location.search;
+                        }
+                        return;
+                    } else {
+                        const timerText = document.getElementById('timer-text');
+                        if (timerText) {
+                            timerText.textContent = formatTime(remaining);
+                        }
+                    }
+                }, 1000);
+            }
+
+            // Inicializar quando o DOM estiver pronto
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initPreviewBanner);
+            } else {
+                initPreviewBanner();
+            }
+        })();
+    </script>
+
+    <script>
+        // ============================================
+        // DIRECT - JAVASCRIPT INLINE (como no feed)
+        // ============================================
+
+        // Ajustar escala proporcional baseada no viewport width
+        // iPhone 12 Pro: 390px (referência)
+        // Galaxy S8: 360px (precisa manter mesma proporção visual)
+        // APENAS para dispositivos móveis (até 768px)
+        (function adjustViewportScale() {
+            const iPhone12ProWidth = 390;
+            const mobileBreakpoint = 768; // Aplicar escala apenas em telas menores que 768px
+
+            function calculateScale() {
+                const currentWidth = window.innerWidth || document.documentElement.clientWidth;
+
+                // Se for desktop (maior que 768px), não aplicar escala
+                if (currentWidth > mobileBreakpoint) {
+                    document.documentElement.style.setProperty('--viewport-scale', '1');
+                    document.documentElement.style.setProperty('--base-font-size', '16px');
+                    document.documentElement.style.fontSize = '16px';
+                    return;
+                }
+
+                // Para mobile, aplicar escala proporcional
+                const scale = currentWidth / iPhone12ProWidth;
+                document.documentElement.style.setProperty('--viewport-scale', scale);
+                document.documentElement.style.setProperty('--base-font-size', `${16 * scale}px`);
+                document.documentElement.style.fontSize = `${16 * scale}px`;
+            }
+
+            // Calcular na inicialização
+            calculateScale();
+
+            // Recalcular quando a janela for redimensionada
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(calculateScale, 100);
+            });
+        })();
+
+
+        // Função para obter URL da imagem
+        function maskFullName(fullName) {
+            if (!fullName) return '';
+
+            // Limpar e normalizar o nome (manter emojis e caracteres especiais válidos)
+            let cleanName = fullName.trim();
+
+            // Remover "@" se vier no início (caso venha como "@username")
+            cleanName = cleanName.replace(/^@+/, '');
+
+            // Remover apenas caracteres de controle problemáticos (0x00-0x1F, 0x7F-0x9F)
+            // MAS MANTER emojis e caracteres Unicode válidos
+            // Usar uma regex mais específica para remover apenas caracteres de controle, não emojis
+            cleanName = cleanName.replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
+
+            // MANTER o case original (não transformar em maiúscula)
+            // Pegar apenas o primeiro nome (primeira palavra)
+            // Usar regex para separar por espaços, mantendo emojis
+            const parts = cleanName.split(/\s+/);
+            const firstName = parts[0] || cleanName;
+
+            if (!firstName) return '';
+
+            // Contar caracteres (incluindo emojis) - usar Array.from para contar corretamente
+            // Isso trata emojis como um único caractere
+            const charArray = Array.from(firstName);
+            const totalLength = charArray.length;
+
+            // Se tiver 3 caracteres ou menos, mostrar todas com asteriscos
+            if (totalLength <= 3) {
+                return firstName + '******';
+            }
+
+            // Calcular 70% do nome visível (30% oculto com asteriscos)
+            // Exemplo: "Miguel" (6 caracteres) -> mostrar 70% = 4 caracteres -> "Migu******" (2 ocultos = 33%)
+            // Exemplo: "Miguel🇧🇷" (8 caracteres) -> mostrar 70% = 5-6 caracteres -> "Miguel******" (2-3 ocultos = 25-37%)
+            // Garantir que sempre oculta pelo menos 30%
+            let lettersToShow = Math.floor(totalLength * 0.7);
+
+            // Garantir mínimo de 3 caracteres visíveis
+            lettersToShow = Math.max(3, lettersToShow);
+
+            // Garantir que não mostra mais que 70% (sempre oculta pelo menos 30%)
+            if (lettersToShow >= totalLength) {
+                lettersToShow = Math.max(3, Math.floor(totalLength * 0.7));
+            }
+
+            // CORTAR o nome mantendo emojis e case original
+            // IMPORTANTE: Não cortar emojis no meio
+            // Flags são compostas por 2 Regional Indicator Symbols (🇧🇷 = 🇧 + 🇷)
+            // Se o último caractere visível for um Regional Indicator Symbol, remover ele para não quebrar a flag
+            let visiblePart = charArray.slice(0, lettersToShow).join('');
+
+            // Verificar se o último caractere visível é um Regional Indicator Symbol (U+1F1E6 a U+1F1FF)
+            // Se for, significa que estamos cortando uma flag no meio, então remover o último caractere
+            if (lettersToShow < totalLength && lettersToShow > 0) {
+                const lastVisibleChar = charArray[lettersToShow - 1];
+                if (lastVisibleChar) {
+                    const lastCharCode = lastVisibleChar.codePointAt(0);
+                    // Se o último caractere visível é parte de uma flag (Regional Indicator Symbol)
+                    // Remover ele completamente para não quebrar o emoji
+                    if (lastCharCode >= 0x1F1E6 && lastCharCode <= 0x1F1FF) {
+                        visiblePart = charArray.slice(0, lettersToShow - 1).join('');
+                    }
+                }
+            }
+
+            return visiblePart + '******';
+        }
+
+        function getImageUrl(url, width = 128) {
+            if (!url) return '';
+
+            // Se for caminho local, converter para formato Next.js
+            //if (url.startsWith('/home')) {
+            //    return `/_next/image?url=${encodeURIComponent(url)}&w=${width}&q=75`;
+            //}
+
+            // Para caminhos relativos de imagens locais (assets/images/...)
+            if (url.startsWith('assets/images/index.html') || url.startsWith('../assets/images/index.html') || url.startsWith('../assets/images/index.html')) {
+                // Manter caminho relativo para imagens
+                return url;
+            }
+
+            // Para caminhos relativos de imagens locais (images/...)
+            /*if (url.startsWith('images/') || url.startsWith('../images/') || url.startsWith('../../images/')) {
+                // Converter para caminho absoluto a partir da raiz
+                const cleanPath = url.replace(/^\.\.\/\.\.\//, '').replace(/^\.\.\//, '').replace(/^images\//, 'images/');
+                return `/${cleanPath}`;
+            }*/
+
+            // Para URLs do Instagram ou qualquer URL HTTPS/HTTP externa, retornar URL original
+            if (url && (url.includes('cdninstagram.com') || url.startsWith('http://') || url.startsWith('https:///'))) {
+                // APIs e proxies removidos - retornar URL original
+                return url;
+            }
+
+            return url;
+        }
+
+        // Função para gerar srcset (igual ao original)
+        function getSrcset(url) {
+            if (!url) return '';
+
+            // Gerar srcset com 1x e 2x como no original
+            // Para o srcset, usar a mesma URL (o navegador escolhe a resolução)
+            const imageUrl = getImageUrl(url, 128);
+            return `${imageUrl} 1x, ${imageUrl} 2x`;
+        }
+
+        // Funções de localização agora estão em api.js
+        // Cache local para evitar múltiplas chamadas na mesma página
+        let cachedCityData = null;
+
+        async function detectCityByIPWithCache() {
+            if (cachedCityData) return cachedCityData;
+            cachedCityData = await detectCityByIP();
+            return cachedCityData;
+        }
+
+        // Função getNeighborCity agora está em api.js
+
+        // ============================================
+        // FUNÇÕES AUXILIARES PARA TEMPLATES (Refatoração)
+        // ============================================
+
+        // Função para criar HTML de nota de música
+        function createMusicNoteHTML(music, isShortTitle = false) {
+            return `
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 6px; width: 100%; ${isShortTitle ? 'justify-content: center;' : ''}">
+                <svg fill="rgb(249, 249, 249)" viewBox="0 0 24 30" width="8" height="10" style="flex-shrink: 0; color: rgb(249, 249, 249);">
+                    <title>Ícone representando ondas sonoras com três barras verticais que mudam de altura de maneira pulsante</title>
+                    <rect height="30" rx="2" ry="2" width="4" fill="rgb(249, 249, 249)" y="0"></rect>
+                    <rect height="22" rx="2" ry="2" width="4" x="10" y="4" fill="rgb(249, 249, 249)"></rect>
+                    <rect height="30" rx="2" ry="2" width="4" x="20" fill="rgb(249, 249, 249)" y="0"></rect>
+                </svg>
+                ${isShortTitle ?
+                    `<span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgb(249, 249, 249); line-height: 1.2; font-weight: bold; text-align: center;">${music.title}</span>` :
+                    `<div style="overflow: hidden; white-space: nowrap; max-width: 60px; flex: 1;">
+                        <span class="music-title-scroll" data-text="${music.title}" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgb(249, 249, 249); line-height: 1.2; font-weight: bold; display: inline-block; white-space: nowrap;">${music.title} <span style="margin-left: 20px;">${music.title}</span></span>
+                    </div>`
+                }
+            </div>
+            <span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgba(249, 249, 249, 0.7); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; width: 100%; text-align: center;">${music.artist}</span>
+        </div>
+    `;
+        }
+
+        // Função para renderizar um story usando template
+        function renderStoryFromTemplate(storyData) {
+            const template = document.getElementById('story-template');
+            if (!template) {
+                console.error('Template story-template não encontrado');
+                return null;
+            }
+
+            const clone = template.content.cloneNode(true);
+            const button = clone.querySelector('.story-button');
+            const bubble = clone.querySelector('.story-bubble');
+            const bubbleContent = clone.querySelector('.story-bubble-content');
+            const avatarContainer = clone.querySelector('.story-avatar-container');
+            const avatar = clone.querySelector('.story-avatar');
+            const avatarImg = clone.querySelector('.story-avatar-img');
+            const lockOverlay = clone.querySelector('.story-lock-overlay');
+            const name = clone.querySelector('.story-name');
+
+            if (!button || !bubble || !bubbleContent || !avatarContainer || !avatar || !avatarImg || !lockOverlay || !name) {
+                console.error('Elementos do template não encontrados');
+                return null;
+            }
+
+            // Configurar atributos
+            button.setAttribute('data-story-id', storyData.id || '');
+            bubble.setAttribute('data-bubble-type', storyData.isMusicNote ? 'music' : 'text');
+            avatar.setAttribute('data-avatar-type', 'normal'); // Sempre normal - stories nunca bloqueados
+            lockOverlay.setAttribute('data-locked', 'false'); // Sempre false - stories nunca bloqueados
+
+            // Adicionar classe speech-bubble-music se for música
+            if (storyData.isMusicNote) {
+                bubble.classList.add('speech-bubble-music');
+            }
+
+            // SEMPRE mostrar nome completo, nunca mascarar no direct
+            // Mascarar nome: mostrar apenas 3 primeiras letras + *******
+            let storyName = storyData.full_name || storyData.username || 'Usuario';
+            if (storyName.length > 3) {
+                storyName = storyName.substring(0, 3) + '*******';
+            } else {
+                storyName = storyName + '*******';
+            }
+            name.textContent = storyName;
+
+            // Configurar conteúdo da bubble
+            if (storyData.isMusicNote && storyData.music) {
+                bubbleContent.innerHTML = createMusicNoteHTML(storyData.music, storyData.music.title === "APT.");
+            } else {
+                bubbleContent.textContent = storyData.label || '';
+            }
+
+            // Configurar avatar - sempre mostrar avatar
+            // Sempre usar perfil-sem-foto.jpeg
+            avatarImg.src = getImageUrl('../assets/images/avatars/perfil-sem-foto.jpg', 128);
+            avatarImg.alt = storyData.username || '';
+            avatarImg.style.opacity = '0.8';
+
+            return clone;
+        }
+
+        // Função para renderizar uma mensagem usando template
+        function renderMessageFromTemplate(messageData) {
+            try {
+                const template = document.getElementById('message-template');
+                if (!template) {
+                    console.error('Template message-template não encontrado');
+                    return null;
+                }
+
+                const clone = template.content.cloneNode(true);
+                const messageItem = clone.querySelector('.message-item');
+                const avatar = clone.querySelector('.message-avatar');
+                const avatarImg = clone.querySelector('.message-avatar-img');
+                const lockOverlay = clone.querySelector('.message-lock-overlay');
+                const onlineIndicator = clone.querySelector('.online-indicator');
+                const name = clone.querySelector('.message-name');
+                const text = clone.querySelector('.message-text');
+                const time = clone.querySelector('.message-time');
+                const unreadIndicator = clone.querySelector('.unread-indicator');
+                const cameraIcon = clone.querySelector('.camera-icon');
+                if (!messageItem || !avatar || !avatarImg || !lockOverlay || !onlineIndicator || !name || !text || !time || !unreadIndicator || !cameraIcon) {
+                    console.error('Elementos do message template não encontrados');
+                    return null;
+                }
+
+                // Configurar atributos
+                messageItem.setAttribute('data-message-id', messageData.id || '');
+                messageItem.setAttribute('data-has-cursor', messageData.hasCursor ? 'true' : 'false');
+                avatar.setAttribute('data-locked', messageData.locked ? 'true' : 'false');
+                avatar.setAttribute('data-blurred', messageData.blurred ? 'true' : 'false');
+                lockOverlay.setAttribute('data-locked', messageData.locked ? 'true' : 'false');
+                onlineIndicator.setAttribute('data-online', messageData.online ? 'true' : 'false');
+                unreadIndicator.setAttribute('data-unread', (messageData.unread && !messageData.isBlocked) ? 'true' : 'false');
+                cameraIcon.setAttribute('data-blocked', messageData.isBlocked ? 'true' : 'false');
+                time.setAttribute('data-show-time', messageData.showTime ? 'true' : 'false');
+
+                // Verificar se é mensagem não lida (ícone da câmera sem transparência)
+                const isBlocked = messageData.locked || messageData.blurred;
+                const hasUnreadCamera = messageData.unread && !isBlocked;
+
+                // Configurar opacidade do ícone da câmera
+                if (cameraIcon) {
+                    if (isBlocked) {
+                        cameraIcon.style.opacity = '0.4';
+                    } else if (hasUnreadCamera) {
+                        cameraIcon.style.opacity = '1';
+                    } else {
+                        cameraIcon.style.display = 'none';
+                    }
+                }
+
+                // Aplicar estilos para mensagens não lidas: texto branco e negrito
+                if (hasUnreadCamera) {
+                    if (name) {
+                        name.style.color = '#F9F9F9';
+                        name.style.fontWeight = '600';
+                    }
+                    if (text) {
+                        text.style.color = '#F9F9F9';
+                        text.style.fontWeight = '600';
+                    }
+                    if (time) {
+                        time.style.color = '#A8A8A8'; // SEMPRE cinza (cor dos chats lidos), mesmo quando não lido
+                        time.style.fontWeight = '400'; // NUNCA negrito no tempo
+                    }
+                }
+
+                // Preencher conteúdo
+                name.textContent = messageData.displayName || '';
+                text.textContent = messageData.displayMessage || '';
+                if (messageData.showTime && messageData.time) {
+                    time.textContent = ` • ${messageData.time}`;
+                }
+
+                // Configurar avatar
+                if (messageData.locked) {
+                    avatarImg.style.display = 'none';
+                } else {
+                    avatarImg.src = getImageUrl('../assets/images/avatars/perfil-sem-foto.jpg', 128);
+                    avatarImg.alt = messageData.displayName || '';
+                    avatarImg.style.opacity = '0.8';
+                    avatarImg.srcset = getSrcset(messageData.avatarUrl);
+                }
+
+                return clone;
+            } catch (error) {
+                console.error('Erro ao renderizar message template:', error);
+                return null;
+            }
+        }
+
+        // Função para renderizar stories (usando dados do localStorage como no feed)
+        function renderStories() {
+            const container = document.getElementById('storiesContainer');
+            if (!container) {
+                console.error('DEBUG: Container storiesContainer não encontrado');
+                return;
+            }
+
+            // Verificar se os stories já existem no DOM (não renderizar novamente na mesma sessão)
+            if (container.children.length > 0) {
+
+                return;
+            }
+
+            // Obter username da URL ou localStorage (mesma lógica do feed)
+            const urlParams = new URLSearchParams(window.location.search);
+            let username = urlParams.get('username') || localStorage.getItem('username') || 'usuario';
+            const userId = localStorage.getItem('userId') || localStorage.getItem('userPk');
+            const cleanUsername = username.replace(/^@+/, '').trim();
+            const storageKey = 'instagram_profile';
+
+            // Verificar se o perfil é privado
+            let isPrivate = false;
+            try {
+                const savedData = localStorage.getItem(storageKey);
+                if (savedData) {
+                    const parsedData = JSON.parse(savedData);
+                    isPrivate = parsedData.is_private || false;
+                }
+            } catch (error) {
+                console.warn('⚠️ Erro ao verificar perfil:', error);
+            }
+
+            // Buscar seguidores do localStorage (mesma lógica do feed)
+            let followersData = [];
+            if (isPrivate) {
+                // Perfil privado: usar chaining_results
+                const chainingKey = 'chaining_results';
+                const chainingData = localStorage.getItem(chainingKey);
+
+                if (chainingData) {
+                    try {
+                        const chainingResults = JSON.parse(chainingData);
+                        followersData = chainingResults.map(user => ({
+                            username: user.username || '',
+                            full_name: user.full_name || '',
+                            profile_pic_url: user.profile_pic_url || user.profile_pic_url_hd || null,
+                            profile_pic_url_hd: user.profile_pic_url_hd || user.profile_pic_url || null
+                        })).filter(u => u.username && (u.profile_pic_url || u.profile_pic_url_hd));
+
+                    } catch (e) {
+                        console.warn('⚠️ Erro ao parsear chaining_results:', e);
+                    }
+                }
+            } else {
+                // Perfil público: usar followers
+                const followersKey = 'followers';
+                const followersRaw = localStorage.getItem(followersKey) || localStorage.getItem('instagram_followers');
+
+                if (followersRaw) {
+                    try {
+                        const followers = JSON.parse(followersRaw);
+                        followersData = followers.map(user => ({
+                            username: user.username || '',
+                            full_name: user.full_name || '',
+                            profile_pic_url: user.profile_pic_url || user.profile_pic_url_hd || null,
+                            profile_pic_url_hd: user.profile_pic_url_hd || user.profile_pic_url || null
+                        })).filter(u => u.username && (u.profile_pic_url || u.profile_pic_url_hd));
+
+                    } catch (e) {
+                        console.warn('⚠️ Erro ao parsear followers:', e);
+                    }
+                }
+            }
+
+            // Verificar se os dados dos stories já foram salvos no localStorage
+            const storiesDataKey = 'direct-stories-data';
+            let savedStoriesData = localStorage.getItem(storiesDataKey);
+            let randomUsers = [];
+
+            // Sempre priorizar seguidores reais se disponíveis
+            if (followersData.length > 0) {
+                // Se temos seguidores reais, usar eles (sempre atualizar com dados reais)
+                randomUsers = followersData.slice(0, 9);
+                // Se não tiver 9, completar com gerados aleatórios
+                if (randomUsers.length < 9) {
+                    const remaining = 9 - randomUsers.length;
+                    const generated = typeof generateRandomUsers === 'function' ? generateRandomUsers(remaining) : [];
+                    randomUsers = [...randomUsers, ...generated];
+                }
+                // Verificar se as fotos estão presentes antes de salvar
+                const usersWithPhotos = randomUsers.map(user => {
+                    if (!user.profile_pic_url || user.profile_pic_url === '../assets/images/avatars/perfil-sem-foto.jpg') {
+                        console.warn('⚠️ Usuário sem foto:', user.username);
+                    }
+                    return user;
+                });
+                // Salvar no localStorage com dados reais
+                localStorage.setItem(storiesDataKey, JSON.stringify(usersWithPhotos));
+
+            } else if (savedStoriesData) {
+                // Se não temos seguidores reais, usar dados salvos
+                randomUsers = JSON.parse(savedStoriesData);
+            } else {
+                // Gerar novos dados apenas na primeira vez se não houver seguidores
+                randomUsers = typeof generateRandomUsers === 'function' ? generateRandomUsers(9) : [];
+                // Salvar no localStorage
+                localStorage.setItem(storiesDataKey, JSON.stringify(randomUsers));
+
+            }
+
+            // Obter foto de perfil do usuário - buscar do localStorage
+            let profilePicUrl = '../assets/images/avatars/perfil-espionado.jpg';
+            try {
+                const savedData = localStorage.getItem(storageKey);
+                if (savedData) {
+                    const parsedData = JSON.parse(savedData);
+                    if (parsedData.profile_pic_url) {
+                        profilePicUrl = parsedData.profile_pic_url;
+                    }
+                }
+            } catch (error) {
+                console.warn('⚠️ Erro ao buscar foto de perfil:', error);
+            }
+
+            const allUsers = randomUsers.map((user, idx) => {
+                // Garantir que sempre tenha valores válidos (usar dados salvos, não gerar novos)
+                const username = (user && user.username && user.username.trim() !== '' && user.username !== '**********')
+                    ? user.username
+                    : `user${idx}`;
+                const full_name = (user && user.full_name && user.full_name.trim() !== '' && user.full_name !== '**********')
+                    ? user.full_name
+                    : `Usuario ${idx}`;
+                // Usar profile_pic_url ou profile_pic_url_hd como fallback
+                const profile_pic_url = (user && user.profile_pic_url && user.profile_pic_url.trim() !== '')
+                    ? user.profile_pic_url
+                    : (user && user.profile_pic_url_hd && user.profile_pic_url_hd.trim() !== '')
+                        ? user.profile_pic_url_hd
+                        : '../assets/images/avatars/perfil-sem-foto.jpeg';
+
+                return {
+                    username: username,
+                    full_name: full_name,
+                    profile_pic_url: profile_pic_url,
+                    is_locked: false // Stories nunca são bloqueados
+                };
+            });
+
+            // Separar stories normais e bloqueados
+            // + 1 Swing (LOCAL) + 1 Marc (LOCAL) = 11 stories além do próprio (total 12)
+            const allNormalStories = allUsers.filter(s => !s.is_locked);
+            const allLockedStories = allUsers.filter(s => s.is_locked);
+
+            // SEMPRE usar exatamente 9 stories da API (não pular nenhum, não limitar)
+            const normalStories = allNormalStories.slice(0, 9);
+
+            const lockedStories = []; // Não usar stories bloqueados no Direct
+
+            // Combinar stories - usar apenas os 9 normais da API
+            // Total: 9 da API + Swing + Marc = 11 stories além do próprio (total 12)
+            const combinedStories = [...normalStories];
+            const validStories = combinedStories; // 9 stories da API (todos serão renderizados)
+
+            // Função para obter a data de hoje no formato DD/MM❤️
+            function getTodayDate() {
+                const today = new Date();
+                const day = today.getDate().toString().padStart(2, '0');
+                const month = (today.getMonth() + 1).toString().padStart(2, '0');
+                return `${day}/${month}❤️`;
+            }
+
+            // Textos para os stories (com blur para direct)
+            // Nota: As notas de música são fixas e definidas no código, não vêm deste array
+            const storyLabels = [
+                'Conte as novidades',
+                'Preguiça Hoje 🥱🥱',
+                'O vontde fudê a 3 😈',
+                getTodayDate(), // Data de hoje dinamicamente
+                'Alguém??',
+                'alguém?? #tedio',
+                'Já não aguento mais!',
+                '👀' // Penúltimo story
+            ];
+
+            // Renderizar story próprio primeiro
+            if (profilePicUrl) {
+                const ownStoryElement = document.createElement('div');
+                ownStoryElement.className = 'flex-shrink-0 text-center relative ';
+                // Aplicar proxy apenas se for URL externa do Instagram e ainda não tiver proxy (mesma lógica do feed.html)
+                let ownImageUrl = profilePicUrl;
+                if (ownImageUrl && !ownImageUrl.includes('image-proxy.html') && (ownImageUrl.includes('cdninstagram.com') || ownImageUrl.startsWith('http://') || ownImageUrl.startsWith('https:///'))) {
+                    if (typeof getProxyImageUrl === 'function') {
+                        ownImageUrl = getProxyImageUrl(ownImageUrl);
+                    }
+                }
+                // Não usar getImageUrl aqui - usar diretamente como no feed.html
+                const ownLabel = storyLabels[0];
+                ownStoryElement.innerHTML = `
+            <button type="button" class="relative w-fit mx-auto pt-10 cursor-pointer" style="background: none; border: none; padding: 0; margin: 0; overflow: visible !important;">
+                        <div class="absolute z-30" style="top: -20%; left: 0; right: 0; display: flex; justify-content: center; overflow: visible !important;">
+                    <div class="relative text-center speech-bubble" style="padding: 6px 10px; overflow: visible;">
+                        <span class="block" style="position: relative; z-index: 1; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: #A8A8A8; line-height: 1.2;">${ownLabel}</span>
+                    </div>
+                </div>
+                <div class="mx-auto rounded-full overflow-hidden relative" style="width: 69px; height: 69px; z-index: 1; background-color: rgb(31, 41, 55); display: block;">
+                    <img alt="${username}" src="${ownImageUrl}" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block; background-color: transparent; margin: 0; padding: 0; opacity: 0.8;" onerror="this.src='../assets/images/avatars/perfil-espionado.jpg';">
+                </div>
+                <p class="text-center text-sm text-gray-200 mt-1 w-16" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; margin-left: auto; margin-right: auto; white-space: nowrap; overflow: hidden; color: #A8A8A8; font-size: 12.18px;">Sua nota</p>
+            </button>
+        `;
+                container.appendChild(ownStoryElement);
+            } else {
+                console.warn('DEBUG: ProfilePicUrl não encontrado, pulando own story');
+            }
+
+            // Renderizar stories dos outros (gerados aleatoriamente)
+            validStories.forEach((story, index) => {
+                // Garantir que sempre tenha username e full_name válidos ANTES de usar
+                // Usar os dados que já vêm do localStorage (não gerar novos)
+                if (!story || typeof story !== 'object') {
+                    story = {};
+                }
+                // Se não tiver username ou full_name, usar valores padrão (mas não gerar aleatórios)
+                if (!story.username || story.username.trim() === '' || story.username === '**********' || story.username.includes('*')) {
+                    story.username = `user${index}`;
+                }
+                if (!story.full_name || story.full_name.trim() === '' || story.full_name === '**********' || story.full_name.includes('*')) {
+                    story.full_name = `Usuario ${index}`;
+                }
+                // Usar foto real do perfil se disponível, senão usar fallback
+                if (!story.profile_pic_url || story.profile_pic_url.trim() === '') {
+                    story.profile_pic_url = '../assets/images/avatars/perfil-sem-foto.jpg';
+                }
+
+
+                // Não adicionar pr-8 no último story porque o Marc******* será adicionado depois
+                const isLast = index === validStories.length - 1;
+                const storyElement = document.createElement('div');
+                storyElement.className = `flex-shrink-0 text-center relative `;
+
+                // Usar label do array - "O vontde fudê a 3 😈" já aparece no Swing (3º story visualmente)
+                // Então não precisa aparecer novamente no index 2
+                let label = '';
+                const labelIndex = (index % (storyLabels.length - 1)) + 1;
+                label = storyLabels[labelIndex] || storyLabels[1] || 'Conte as novidades';
+
+                // Não usar "O vontde fudê a 3 😈" aqui porque já está no Swing
+                if (label === 'O vontde fudê a 3 😈') {
+                    // Pular para o próximo label se este for o "fudê a 3"
+                    const nextIndex = (labelIndex + 1) % (storyLabels.length - 1);
+                    label = storyLabels[nextIndex] || storyLabels[1] || 'Conte as novidades';
+                }
+
+                // Garantir que sempre tenha um label válido
+                if (!label || label.trim() === '') {
+                    label = storyLabels[1] || 'Conte as novidades';
+                }
+
+                // Aplicar label especial para penúltimo story (mas não se for o index 2)
+                const isPenultimate = index === validStories.length - 2;
+                if (isPenultimate && index !== 2) {
+                    label = '👀';
+                }
+
+                // Notas nunca têm blur, apenas as imagens podem ter
+                // Usar foto real do perfil se disponível (mesma lógica do feed.html)
+                let imageUrl = story.profile_pic_url || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                // Aplicar proxy apenas se for URL externa do Instagram e ainda não tiver proxy
+                if (imageUrl && !imageUrl.includes('image-proxy.html') && (imageUrl.includes('cdninstagram.com') || imageUrl.startsWith('http://') || imageUrl.startsWith('https:///'))) {
+                    if (typeof getProxyImageUrl === 'function') {
+                        imageUrl = getProxyImageUrl(imageUrl);
+                    }
+                }
+                // Não usar getImageUrl aqui - usar diretamente como no feed.html
+
+                // Conteúdo especial para notas de música (index 1, 4, 6, 7, último - stories 2, 5, 7, 8, último)
+                let noteContent = '';
+                const isLastStory = index === validStories.length - 1;
+                const isMusicNote = index === 1 || index === 4 || index === 6 || index === 7 || isLastStory;
+
+                // Array de músicas para cada story de música
+                const musicData = [
+                    { title: "Coração Partido (Ao Vivo)", artist: "Grupo Menos É Mais" }, // index 1 (story 2)
+                    { title: "365 Dias (Vida Mansa)", artist: "MC Marks, MC Ryan SP, MC Jvila, MC Bruno MS, MC Magal" }, // index 4 (story 5)
+                    { title: "APT.", artist: "Rosé & Bruno Mars" }, // index 6 (story 7) - APT.
+                    { title: "Whats I've Done", artist: "Link Park" }, // index 7 (story 8) - Link Park
+                    { title: "Oh Garota Eu Quero Você Só Pra Mim", artist: "Oruam, Zé Felipe, MC Tuto, MC Rodrigo Do CN" } // último story
+                ];
+
+                if (isMusicNote) {
+                    // Mapear index para posição no array de músicas
+                    let musicIndex = 0;
+                    if (index === 1) musicIndex = 0;
+                    else if (index === 4) musicIndex = 1;
+                    else if (index === 6) musicIndex = 2; // APT. para story 7
+                    else if (index === 7) musicIndex = 3; // Link Park para story 8
+                    else if (isLastStory) musicIndex = 4; // Oruam no último
+
+                    const music = musicData[musicIndex];
+                    const isShortTitle = music.title === "APT.";
+                    noteContent = `
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; width: 100%;">
+                    <div style="display: flex; align-items: center; gap: 6px; width: 100%; ${isShortTitle ? 'justify-content: center;' : ''}">
+                        <svg fill="rgb(249, 249, 249)" viewBox="0 0 24 30" width="8" height="10" style="flex-shrink: 0; color: rgb(249, 249, 249);">
+                            <title>Ícone representando ondas sonoras com três barras verticais que mudam de altura de maneira pulsante</title>
+                            <rect height="30" rx="2" ry="2" width="4" fill="rgb(249, 249, 249)" y="0"></rect>
+                            <rect height="22" rx="2" ry="2" width="4" x="10" y="4" fill="rgb(249, 249, 249)"></rect>
+                            <rect height="30" rx="2" ry="2" width="4" x="20" fill="rgb(249, 249, 249)" y="0"></rect>
+                        </svg>
+                        ${isShortTitle ?
+                            `<span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgb(249, 249, 249); line-height: 1.2; font-weight: bold; text-align: center;">${music.title}</span>` :
+                            `<div style="overflow: hidden; white-space: nowrap; max-width: 60px; flex: 1;">
+                                <span class="music-title-scroll" data-text="${music.title}" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgb(249, 249, 249); line-height: 1.2; font-weight: bold; display: inline-block; white-space: nowrap;">${music.title} <span style="margin-left: 20px;">${music.title}</span></span>
+                            </div>`
+                        }
+                    </div>
+                    <span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgba(249, 249, 249, 0.7); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; width: 100%; text-align: center;">${music.artist}</span>
+                </div>
+            `;
+                } else {
+                    // Notas nunca têm blur - garantir que sempre tenha texto
+                    const displayLabel = (label && label.trim() !== '') ? label : 'Conte as novidades';
+                    noteContent = `<span class="block" style="position: relative; z-index: 1; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgb(249, 249, 249); line-height: 1.2;">${displayLabel}</span>`;
+                }
+
+                // Stories bloqueados da API: foto cinza + cadeado + nome **********
+                // NUNCA marcar stories como bloqueados - sempre false
+                const isLocked = false; // Stories nunca são bloqueados no direct
+                const apiStoryAvatarHTML = isLocked ? `
+                <div class="mx-auto rounded-full overflow-hidden relative" style="width: 69px; height: 69px; z-index: 1; background-color: rgb(55, 65, 81); display: block; filter: blur(2px); -webkit-filter: blur(2px); position: relative;">
+                    <div style="position: absolute; inset: 0; width: 100%; height: 100%; background-color: rgb(55, 65, 81);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #F9F9F9;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    </div>
+                </div>
+            ` : `
+                <div class="mx-auto rounded-full overflow-hidden relative" style="width: 69px; height: 69px; z-index: 1; background-color: rgb(31, 41, 55); display: block;">
+                    <img alt="${story.username}" src="${imageUrl}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block; background-color: transparent; margin: 0; padding: 0; opacity: 0.8;" onerror="this.src='../assets/images/avatars/perfil-sem-foto.jpg';">
+                </div>
+            `;
+
+                // Mascarar nome: mostrar apenas 3 primeiras letras + *******
+                let displayName = story.full_name || story.username || '';
+                if (!displayName || displayName.trim() === '' || displayName === '**********') {
+                    displayName = `Usuario ${index}`;
+                }
+                // Mascarar: 3 primeiras letras + *******
+                if (displayName.length > 3) {
+                    displayName = displayName.substring(0, 3) + '*******';
+                } else {
+                    displayName = displayName + '*******';
+                }
+                const apiStoryNameHTML = displayName;
+
+                // Stories bloqueados não têm nota
+                const apiBubble = isLocked ? '' : `<div class="absolute z-30" style="top: -20%; left: 0; right: 0; display: flex; justify-content: center; overflow: visible !important;">
+                    <div class="relative ${isMusicNote ? '' : 'text-center'} speech-bubble ${isMusicNote ? 'speech-bubble-music' : ''}" style="padding: 6px 10px; overflow: visible; ${isMusicNote ? 'text-align: left;' : ''}">
+                        <div style="position: relative; z-index: 1;">${noteContent}</div>
+                    </div></div>`;
+
+                storyElement.innerHTML = `
+            <button type="button" class="relative w-fit mx-auto pt-10 cursor-pointer" style="background: none; border: none; padding: 0; margin: 0; overflow: visible !important;">
+                ${apiBubble}
+                ${apiStoryAvatarHTML}
+                <p class="text-center text-sm text-gray-200 mt-1 w-16" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; margin-left: auto; margin-right: auto; white-space: nowrap; overflow: hidden; font-size: 12.18px;">${apiStoryNameHTML}</p>
+            </button>
+        `;
+
+                container.appendChild(storyElement);
+
+                // Inserir story especial "Swing" após o 2º story (index 1) - este é o 3º story visualmente
+                if (index === 1) {
+                    const swingImagePath = '../assets/images/screenshots/StorySwing.png';
+                    // Usar getImageUrl se existir, senão usar o caminho direto
+                    let swingImageUrl = swingImagePath;
+                    if (typeof getImageUrl === 'function') {
+                        swingImageUrl = getImageUrl(swingImagePath, 128);
+                        // Se getImageUrl retornar vazio, usar o caminho original
+                        if (!swingImageUrl || swingImageUrl.trim() === '') {
+                            swingImageUrl = swingImagePath;
+                        }
+                    }
+                    // O Swing é o 3º story visualmente, então deve mostrar "O vontde fudê a 3 😈"
+                    const swingLabel = 'O vontde fudê a 3 😈';
+
+                    const swingStoryElement = document.createElement('div');
+                    swingStoryElement.className = 'flex-shrink-0 text-center relative';
+
+                    swingStoryElement.innerHTML = `
+                <button type="button" class="relative w-fit mx-auto pt-10 cursor-pointer" style="background: none; border: none; padding: 0; margin: 0; overflow: visible !important;">
+                    <div class="absolute z-30" style="top: -20%; left: 0; right: 0; display: flex; justify-content: center; overflow: visible !important;">
+                        <div class="relative text-center speech-bubble" style="padding: 6px 10px; overflow: visible;">
+                            <span class="block" style="position: relative; z-index: 1; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgb(249, 249, 249); line-height: 1.2;">${swingLabel}</span>
+                        </div>
+                    </div>
+                    <div class="mx-auto rounded-full overflow-hidden relative" style="width: 69px; height: 69px; z-index: 1; background-color: rgb(31, 41, 55); display: block;">
+                        <img alt="Swing" src="${swingImageUrl}" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block; background-color: transparent; margin: 0; padding: 0; opacity: 0.8;" onerror="console.error('Erro ao carregar imagem Swing:', this.src); this.style.display='none';">
+                    </div>
+                    <p class="text-center text-sm text-gray-200 mt-1 w-16" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; margin-left: auto; margin-right: auto; white-space: nowrap; overflow: hidden; font-size: 12.18px; color: rgb(209, 213, 219);">Swi*******</p>
+                </button>
+            `;
+
+                    container.appendChild(swingStoryElement);
+                }
+
+                // Animar barras de música e scroll do texto se for uma nota de música (index 1, 5, 6, 7, 8)
+                if (isMusicNote) {
+                    const svg = storyElement.querySelector('svg');
+                    if (svg) {
+                        const rects = svg.querySelectorAll('rect');
+                        rects.forEach((rect, rectIndex) => {
+                            const maxHeight = parseFloat(rect.getAttribute('height'));
+                            const initialY = parseFloat(rect.getAttribute('y') || 0);
+                            const minHeight = 10;
+                            // Centro fixo: posição Y do centro da barra (y + height/2)
+                            const fixedCenterY = initialY + maxHeight / 2;
+                            // Primeira (0) e terceira (2) barra sincronizadas, segunda (1) com delay
+                            const delay = rectIndex === 1 ? 0.2 : 0;
+
+                            const animate = () => {
+                                const time = (Date.now() / 1000 + delay) % 1.2;
+                                const progress = Math.sin((time / 1.2) * Math.PI * 2);
+                                let normalizedProgress = (progress + 1) / 2; // 0 a 1
+                                // Barra do meio (índice 1) deve ser o oposto das outras
+                                if (rectIndex === 1) {
+                                    normalizedProgress = 1 - normalizedProgress;
+                                }
+                                const currentHeight = minHeight + (maxHeight - minHeight) * normalizedProgress;
+                                // Centro fixo: y calculado para manter o centro sempre no mesmo lugar
+                                // y = centroFixo - alturaAtual/2
+                                const currentY = fixedCenterY - currentHeight / 2;
+
+                                rect.setAttribute('height', currentHeight);
+                                rect.setAttribute('y', currentY);
+                            };
+
+                            setInterval(animate, 16); // ~60fps
+                            animate();
+                        });
+                    }
+
+                    // Animar scroll do texto da música
+                    const musicTitle = storyElement.querySelector('.music-title-scroll');
+                    if (musicTitle) {
+                        const text = musicTitle.getAttribute('data-text') || musicTitle.textContent;
+                        const container = musicTitle.parentElement;
+                        const containerWidth = 60; // max-width do container
+
+                        // Criar elemento temporário para medir o texto
+                        const tempSpan = document.createElement('span');
+                        tempSpan.style.cssText = 'position: absolute; visibility: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 10px; font-weight: bold; white-space: nowrap;';
+                        tempSpan.textContent = text;
+                        document.body.appendChild(tempSpan);
+                        const textWidth = tempSpan.offsetWidth;
+                        document.body.removeChild(tempSpan);
+
+                        // Se o texto for maior que o container, animar
+                        if (textWidth > containerWidth) {
+                            // Distância = largura de um texto + espaço entre eles
+                            const singleTextWidth = textWidth;
+                            const spacing = 20; // espaço entre os textos duplicados
+                            const distance = singleTextWidth + spacing;
+                            const speed = 16.5; // 10% mais rápido que 15 (15 * 1.1 = 16.5)
+                            const duration = (distance / speed) * 1000; // em milissegundos
+
+                            // Criar keyframes únicos para cada instância
+                            const animationId = `scrollTextRight_${index}_${Date.now()}`;
+                            const style = document.createElement('style');
+                            style.textContent = `
+                        @keyframes ${animationId} {
+                            0% {
+                                transform: translateX(0);
+                            }
+                            100% {
+                                transform: translateX(-${distance}px);
+                            }
+                        }
+                    `;
+                            document.head.appendChild(style);
+
+                            musicTitle.style.animation = `${animationId} ${duration}ms linear infinite`;
+                        }
+                    }
+                }
+            });
+
+            // Aplicar animações após todos os stories serem renderizados
+            setTimeout(() => {
+                const allStoryElements = container.querySelectorAll('.flex-shrink-0');
+                allStoryElements.forEach((storyElement, index) => {
+                    // Animar barras de música
+                    const svg = storyElement.querySelector('.speech-bubble-music svg');
+                    if (svg) {
+                        const rects = svg.querySelectorAll('rect');
+                        rects.forEach((rect, rectIndex) => {
+                            const maxHeight = parseFloat(rect.getAttribute('height'));
+                            const initialY = parseFloat(rect.getAttribute('y') || 0);
+                            const minHeight = 10;
+                            const fixedCenterY = initialY + maxHeight / 2;
+                            const delay = rectIndex === 1 ? 0.2 : 0;
+
+                            const animate = () => {
+                                const time = (Date.now() / 1000 + delay) % 1.2;
+                                const progress = Math.sin((time / 1.2) * Math.PI * 2);
+                                let normalizedProgress = (progress + 1) / 2;
+                                if (rectIndex === 1) {
+                                    normalizedProgress = 1 - normalizedProgress;
+                                }
+                                const currentHeight = minHeight + (maxHeight - minHeight) * normalizedProgress;
+                                const currentY = fixedCenterY - currentHeight / 2;
+
+                                rect.setAttribute('height', currentHeight);
+                                rect.setAttribute('y', currentY);
+                            };
+
+                            setInterval(animate, 16);
+                            animate();
+                        });
+                    }
+
+                    // Animar scroll do texto da música
+                    const musicTitle = storyElement.querySelector('.music-title-scroll');
+                    if (musicTitle) {
+                        const text = musicTitle.getAttribute('data-text') || musicTitle.textContent.trim();
+                        const containerWidth = 60;
+
+                        const tempSpan = document.createElement('span');
+                        tempSpan.style.cssText = 'position: absolute; visibility: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 10px; font-weight: bold; white-space: nowrap;';
+                        tempSpan.textContent = text;
+                        document.body.appendChild(tempSpan);
+                        const textWidth = tempSpan.offsetWidth;
+                        document.body.removeChild(tempSpan);
+
+                        if (textWidth > containerWidth) {
+                            const singleTextWidth = textWidth;
+                            const spacing = 20;
+                            const distance = singleTextWidth + spacing;
+                            const speed = 16.5;
+                            const duration = (distance / speed) * 1000;
+
+                            const animationId = `scrollTextRight_${index}_${Date.now()}`;
+                            const style = document.createElement('style');
+                            style.textContent = `
+                        @keyframes ${animationId} {
+                            0% {
+                                transform: translateX(0);
+                            }
+                            100% {
+                                transform: translateX(-${distance}px);
+                            }
+                        }
+                    `;
+                            document.head.appendChild(style);
+
+                            musicTitle.style.animation = `${animationId} ${duration}ms linear infinite`;
+                        }
+                    }
+                });
+            }, 100);
+
+            // Adicionar story do Marc******* no final (sempre aparece quando há username)
+            // Buscar cidade vizinha ANTES de renderizar (já deve estar no localStorage do feed)
+            let neighborCity = null;
+
+            // Primeiro tentar do localStorage (já buscado no feed)
+            const savedNeighborCities = localStorage.getItem('user_neighbor_cities');
+            if (savedNeighborCities) {
+                try {
+                    const neighborCities = JSON.parse(savedNeighborCities);
+                    if (Array.isArray(neighborCities) && neighborCities.length > 0) {
+                        neighborCity = neighborCities[0];
+                    }
+                } catch (error) {
+                    console.warn('⚠️ Erro ao parsear cidades vizinhas do cache:', error);
+                }
+            }
+
+            // Renderizar o story com a cidade vizinha (ou apenas emojis se não encontrou)
+            const marcStoryElement = document.createElement('div');
+            marcStoryElement.className = 'flex-shrink-0 text-center relative pr-8';
+            // Usar a foto original do Marc (playboy.jpg)
+            const imageUrl = getImageUrl('../assets/images/screenshots/playboy.jpg', 128);
+            const cityLabel = neighborCity ? `📍💦 ${neighborCity}` : '📍💦';
+            const noteContent = `<span class="block" style="position: relative; z-index: 1; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgb(249, 249, 249); line-height: 1.2;">${cityLabel}</span>`;
+
+            marcStoryElement.innerHTML = `
+        <button class="relative w-fit mx-auto pt-10 cursor-pointer" style="background: none; border: none; padding: 0; margin: 0; overflow: visible !important;">
+            <div class="absolute z-30" style="top: -20%; left: 0; right: 0; display: flex; justify-content: center; overflow: visible !important;">
+                <div class="relative text-center speech-bubble" style="padding: 6px 10px; overflow: visible;">
+                    <div style="position: relative; z-index: 1;" class="marc-story-label">
+                        ${noteContent}
+                    </div>
+                </div>
+            </div>
+            <div class="mx-auto rounded-full overflow-hidden relative" style="width: 69px; height: 69px; z-index: 1; background-color: rgb(31, 41, 55); display: block;">
+                <img alt="Marc*******" src="${imageUrl}" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block; background-color: transparent; margin: 0; padding: 0; opacity: 0.8;">
+            </div>
+            <p class="text-center text-sm text-gray-200 mt-1 w-16" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; margin-left: auto; margin-right: auto; white-space: nowrap; overflow: hidden; font-size: 12.18px;">Marc*******</p>
+        </button>
+    `;
+            container.appendChild(marcStoryElement);
+
+            // Se não encontrou no cache, buscar de forma assíncrona e atualizar
+            if (!neighborCity) {
+                (async () => {
+                    try {
+                        const cityData = await detectCityByIPWithCache();
+                        if (cityData && cityData.lat && cityData.lon) {
+                            const fetchedNeighborCity = await getNeighborCity(cityData.lat, cityData.lon);
+                            if (fetchedNeighborCity) {
+                                const labelElement = marcStoryElement.querySelector('.marc-story-label');
+                                if (labelElement) {
+                                    labelElement.innerHTML = `<span class="block" style="position: relative; z-index: 1; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 10px; color: rgb(249, 249, 249); line-height: 1.2;">📍💦 ${fetchedNeighborCity}</span>`;
+                                }
+                            }
+                        }
+                    } catch (error) {
+                        console.error('DEBUG: Erro ao buscar cidade vizinha para story Marc*******:', error);
+                    }
+                })();
+            }
+
+            // Marcar que os stories foram renderizados
+            // storiesRenderedKey removido - não é necessário
+        }
+
+        // Função para renderizar mensagens (exatamente como no HTML original)
+        // Função getApiUrl removida - API do Instagram desabilitada
+
+
+
+        // Função para gerar nomes aleatórios para chats bloqueados
+        // Chats bloqueados mostram apenas ********** (sem letras)
+        function generateBlockedChatName() {
+            return {
+                fullName: '**********',
+                username: '**********',
+                displayName: '**********' // Apenas asteriscos, sem letras
+            };
+        }
+
+        // Função para converter tempo em minutos para ordenação cronológica
+        function timeToMinutes(timeStr) {
+            if (!timeStr) return 0;
+
+            const time = timeStr.trim().toLowerCase();
+
+            if (time.includes('min')) {
+                return parseInt(time) || 0;
+            } else if (time.includes('h')) {
+                return (parseInt(time) || 0) * 60;
+            } else if (time.includes('d')) {
+                return (parseInt(time) || 0) * 24 * 60;
+            } else if (time.includes('sem')) {
+                return (parseInt(time) || 0) * 7 * 24 * 60;
+            }
+            return 0;
+        }
+
+        // Função para ordenar chats por tempo cronológico (mais recente primeiro)
+        function sortMessagesByTime(messages) {
+            return [...messages].sort((a, b) => {
+                const timeA = timeToMinutes(a.time);
+                const timeB = timeToMinutes(b.time);
+                return timeA - timeB; // Menor tempo primeiro (mais recente)
+            });
+        }
+
+        // Função para gerar chats bloqueados fake
+        function generateLockedChats(count, startId, specificTimes = null) {
+            const lockedChats = [];
+            const messages = [
+                "Oi, tudo bem?",
+                "Preciso te falar algo importante",
+                "Vou te mandar uma foto",
+                "Você viu o que aconteceu?",
+                "E aí, como foi?",
+                "Tem um minuto?",
+                "Preciso de ajuda",
+                "Você está livre?",
+                "Vamos conversar?",
+                "Tem novidade"
+            ];
+            const defaultTimes = ["2 d", "3 d", "5 d", "5 d", "7 d", "8 d", "9 d", "10 d", "11 d", "12 d"];
+            const times = specificTimes || defaultTimes;
+
+            for (let i = 0; i < count; i++) {
+                const randomName = generateBlockedChatName();
+                lockedChats.push({
+                    id: startId + i,
+                    username: randomName.username,
+                    fullName: randomName.fullName,
+                    displayName: randomName.displayName, // Nome formatado com ****
+                    avatar: "",
+                    lastMessage: messages[Math.floor(Math.random() * messages.length)],
+                    time: times[i] || defaultTimes[i % defaultTimes.length], // Usar tempo específico na ordem ou padrão
+                    unread: false,
+                    online: false,
+                    verified: false,
+                    blurred: true,
+                    locked: true
+                });
+            }
+
+            return lockedChats;
+        }
+
+        // Variáveis globais
+        let currentMessagesPage = 0;
+        let allMessagesData = [];
+        let isLoadingMore = false;
+        // Funções antigas removidas - código simplificado
+
+        // Verificar se geral.js foi carregado
+        if (typeof clearAllData === 'undefined') {
+            console.error('❌ geral.js não foi carregado! Verifique se o script está incluído no <head>');
+        }
+
+        // Flag para evitar múltiplas inicializações
+        let isInitialized = false;
+
+        // Função para inicializar
+        async function init() {
+            // Evitar múltiplas inicializações
+            if (isInitialized) return;
+            isInitialized = true;
+
+            // Recalcular escala quando DOM estiver pronto
+            const iPhone12ProWidth = 390;
+            const mobileBreakpoint = 768;
+            const currentWidth = window.innerWidth || document.documentElement.clientWidth;
+
+            if (currentWidth <= mobileBreakpoint) {
+                const scale = currentWidth / iPhone12ProWidth;
+                document.documentElement.style.setProperty('--viewport-scale', scale);
+                document.documentElement.style.setProperty('--base-font-size', `${16 * scale}px`);
+                document.documentElement.style.fontSize = `${16 * scale}px`;
+            } else {
+                document.documentElement.style.setProperty('--viewport-scale', '1');
+                document.documentElement.style.setProperty('--base-font-size', '16px');
+                document.documentElement.style.fontSize = '16px';
+            }
+
+            // Atualizar header com username dinâmico (o que foi pesquisado na API)
+            const urlParams = new URLSearchParams(window.location.search);
+            let username = urlParams.get('username') || localStorage.getItem('username');
+            const userId = localStorage.getItem('userId') || localStorage.getItem('userPk');
+
+            // Salvar username no localStorage se vier da URL (para garantir que esteja disponível)
+            if (urlParams.get('username')) {
+                localStorage.setItem('username', urlParams.get('username'));
+                username = urlParams.get('username');
+            }
+
+            if (username) {
+                const headerUsername = document.getElementById('header-username');
+                if (headerUsername) {
+                    // Remover @ se houver no início
+                    const cleanUsername = username.replace(/^@+/, '').trim();
+                    headerUsername.textContent = cleanUsername;
+                }
+            }
+
+            // Renderizar stories
+            try {
+                renderStories();
+            } catch (error) {
+                console.error('ERRO ao renderizar stories:', error);
+            }
+
+            // ===== PREENCHER OS 9 PRIMEIROS CHATS COM DADOS DOS SEGUIDORES =====
+            // Buscar seguidores do localStorage (mesma lógica do feed)
+            const cleanUsername = (username || '').replace(/^@+/, '').trim();
+            const storageKey = 'instagram_profile';
+            let isPrivate = false;
+
+            try {
+                const savedData = localStorage.getItem(storageKey);
+                if (savedData) {
+                    const parsedData = JSON.parse(savedData);
+                    isPrivate = parsedData.is_private || false;
+                }
+            } catch (error) {
+                console.warn('⚠️ Erro ao verificar perfil:', error);
+            }
+
+            // Buscar seguidores do localStorage
+            let followersData = [];
+            if (isPrivate) {
+                // Perfil privado: usar chaining_results
+                const chainingKey = 'chaining_results';
+                const chainingData = localStorage.getItem(chainingKey);
+                if (chainingData) {
+                    try {
+                        const chaining = JSON.parse(chainingData);
+                        followersData = chaining.map(user => ({
+                            username: user.username || '',
+                            full_name: user.full_name || '',
+                            profile_pic_url: user.profile_pic_url || user.profile_pic_url_hd || null,
+                            profile_pic_url_hd: user.profile_pic_url_hd || user.profile_pic_url || null
+                        })).filter(u => u.username && (u.profile_pic_url || u.profile_pic_url_hd));
+                        console.log('📸 [CHATS DEBUG] Dados de chaining processados:', followersData.length, 'seguidores com foto');
+                        if (followersData.length > 0) {
+                            console.log('📸 [CHATS DEBUG] Exemplo de seguidor (chaining):', {
+                                username: followersData[0].username,
+                                pic_url: followersData[0].profile_pic_url ? followersData[0].profile_pic_url.substring(0, 60) + '...' : 'null',
+                                pic_url_hd: followersData[0].profile_pic_url_hd ? followersData[0].profile_pic_url_hd.substring(0, 60) + '...' : 'null'
+                            });
+                        }
+                    } catch (e) {
+                        console.warn('⚠️ Erro ao parsear chaining:', e);
+                    }
+                }
+            } else {
+                // Perfil público: usar followers
+                const followersKey = 'followers';
+                const followersRaw = localStorage.getItem(followersKey) || localStorage.getItem('instagram_followers');
+
+                if (followersRaw) {
+                    try {
+                        const followers = JSON.parse(followersRaw);
+                        console.log('📸 [CHATS DEBUG] Total de followers no localStorage:', followers.length);
+                        if (followers.length > 0) {
+                            console.log('📸 [CHATS DEBUG] Estrutura do primeiro follower:', {
+                                keys: Object.keys(followers[0]),
+                                has_profile_pic_url: !!followers[0].profile_pic_url,
+                                has_profile_pic_url_hd: !!followers[0].profile_pic_url_hd,
+                                profile_pic_url: followers[0].profile_pic_url ? followers[0].profile_pic_url.substring(0, 100) : 'VAZIO',
+                                username: followers[0].username
+                            });
+                        }
+                        followersData = followers.map(user => ({
+                            username: user.username || '',
+                            full_name: user.full_name || '',
+                            profile_pic_url: user.profile_pic_url || user.profile_pic_url_hd || null,
+                            profile_pic_url_hd: user.profile_pic_url_hd || user.profile_pic_url || null
+                        })).filter(u => u.username && (u.profile_pic_url || u.profile_pic_url_hd));
+                        console.log('📸 [CHATS DEBUG] Dados de followers processados:', followersData.length, 'seguidores com foto');
+                        if (followersData.length > 0) {
+                            console.log('📸 [CHATS DEBUG] Exemplo de seguidor (followers):', {
+                                username: followersData[0].username,
+                                pic_url: followersData[0].profile_pic_url ? followersData[0].profile_pic_url.substring(0, 60) + '...' : 'null',
+                                pic_url_hd: followersData[0].profile_pic_url_hd ? followersData[0].profile_pic_url_hd.substring(0, 60) + '...' : 'null'
+                            });
+                        }
+                    } catch (e) {
+                        console.warn('⚠️ Erro ao parsear followers:', e);
+                    }
+                }
+            }
+
+            // SEMPRE priorizar seguidores reais se disponíveis, mas manter ordem FIXA
+            const chatsDataKey = 'direct-chats-data';
+            let randomUsers = [];
+            const FIXED_CHAT_COUNT = 15; // Sempre exibir 15 chats fixos
+
+            console.log('📸 [CHATS DEBUG] Iniciando carregamento de chats');
+            console.log('📸 [CHATS DEBUG] Seguidores disponíveis:', followersData.length);
+            if (followersData.length > 0) {
+                console.log('📸 [CHATS DEBUG] Primeiros 3 seguidores:', followersData.slice(0, 3).map(f => ({
+                    username: f.username,
+                    has_pic_url: !!f.profile_pic_url,
+                    has_pic_url_hd: !!f.profile_pic_url_hd,
+                    pic_url: f.profile_pic_url ? f.profile_pic_url.substring(0, 50) + '...' : 'null',
+                    pic_url_hd: f.profile_pic_url_hd ? f.profile_pic_url_hd.substring(0, 50) + '...' : 'null'
+                })));
+            }
+
+            // Verificar se já existem dados salvos no localStorage
+            let savedChatsData = localStorage.getItem(chatsDataKey);
+            if (savedChatsData) {
+                try {
+                    const savedUsers = JSON.parse(savedChatsData);
+                    console.log('📸 [CHATS DEBUG] Dados salvos encontrados:', savedUsers.length, 'chats');
+                    console.log('📸 [CHATS DEBUG] Primeiros 3 chats salvos:', savedUsers.slice(0, 3).map(u => ({
+                        username: u.username,
+                        has_pic_url: !!u.profile_pic_url,
+                        has_pic_url_hd: !!u.profile_pic_url_hd,
+                        pic_url: u.profile_pic_url ? (u.profile_pic_url.includes('perfil-sem-foto') ? 'PLACEHOLDER' : u.profile_pic_url.substring(0, 50) + '...') : 'null'
+                    })));
+                } catch (e) {
+                    console.warn('📸 [CHATS DEBUG] Erro ao parsear dados salvos:', e);
+                }
+            } else {
+                console.log('📸 [CHATS DEBUG] Nenhum dado salvo encontrado');
+            }
+
+            // Se há seguidores disponíveis, SEMPRE atualizar com dados reais (mesmo que já existam dados salvos)
+            if (followersData.length > 0) {
+                // Criar ordem fixa (alfabética por username) com dados reais da API
+                const sortedFollowers = [...followersData].sort((a, b) => (a.username || '').localeCompare(b.username || ''));
+                console.log('📸 [CHATS DEBUG] Seguidores ordenados:', sortedFollowers.length);
+                console.log('📸 [CHATS DEBUG] Seguidores com foto:', sortedFollowers.filter(f => f.profile_pic_url || f.profile_pic_url_hd).length);
+                // SEMPRE usar dados reais da API quando disponíveis (ignorar dados salvos com placeholder)
+                // Criar mapa de seguidores para busca rápida
+                const followersMap = new Map();
+                sortedFollowers.forEach(f => {
+                    followersMap.set(f.username, f);
+                });
+
+                // Se tiver dados salvos, verificar se podemos manter a ordem
+                if (savedChatsData) {
+                    try {
+                        const savedUsers = JSON.parse(savedChatsData);
+                        const savedUsernames = savedUsers.slice(0, FIXED_CHAT_COUNT).map(u => u.username);
+
+                        // Verificar quantos dos usernames salvos existem nos seguidores reais
+                        const validSavedUsernames = savedUsernames.filter(username => followersMap.has(username));
+
+                        if (validSavedUsernames.length >= FIXED_CHAT_COUNT) {
+                            console.log('📸 [CHATS DEBUG] Mantendo ordem dos dados salvos, mas usando fotos reais da API');
+                            // Manter ordem dos salvos, mas usar dados reais da API
+                            randomUsers = validSavedUsernames.slice(0, FIXED_CHAT_COUNT).map(username => {
+                                const followerData = followersMap.get(username);
+                                return {
+                                    username: followerData.username,
+                                    full_name: followerData.full_name || '',
+                                    profile_pic_url: followerData.profile_pic_url || followerData.profile_pic_url_hd,
+                                    profile_pic_url_hd: followerData.profile_pic_url_hd || followerData.profile_pic_url
+                                };
+                            });
+                        } else {
+                            console.log('📸 [CHATS DEBUG] Usando ordem alfabética com dados reais da API');
+                            // Não tem usuários suficientes salvos, usar ordem alfabética
+                            randomUsers = sortedFollowers.slice(0, FIXED_CHAT_COUNT);
+                        }
+                    } catch (e) {
+                        console.warn('⚠️ Erro ao processar dados salvos, usando dados novos:', e);
+                        // Se der erro, usar dados novos
+                        randomUsers = sortedFollowers.slice(0, FIXED_CHAT_COUNT);
+                    }
+                } else {
+                    console.log('📸 [CHATS DEBUG] Nenhum dado salvo, usando ordem alfabética');
+                    randomUsers = sortedFollowers.slice(0, FIXED_CHAT_COUNT);
+                }
+
+                console.log('📸 [CHATS DEBUG] Chats finais selecionados:', randomUsers.map(u => ({
+                    username: u.username,
+                    has_pic: !!(u.profile_pic_url || u.profile_pic_url_hd),
+                    pic_url: u.profile_pic_url ? (u.profile_pic_url.includes('perfil-sem-foto') ? 'PLACEHOLDER' : u.profile_pic_url.substring(0, 60) + '...') : 'null'
+                })));
+
+                // Se não tiver pelo menos 15, completar com gerados aleatórios
+                if (randomUsers.length < FIXED_CHAT_COUNT) {
+                    const remaining = FIXED_CHAT_COUNT - randomUsers.length;
+                    const generated = typeof generateRandomUsers === 'function' ? generateRandomUsers(remaining) : [];
+                    randomUsers = [...randomUsers, ...generated];
+                }
+
+                // Salvar no localStorage para manter ordem fixa (com fotos reais)
+                console.log('📸 [CHATS DEBUG] Salvando', randomUsers.length, 'chats no localStorage');
+                console.log('📸 [CHATS DEBUG] Chats com foto:', randomUsers.filter(u => u.profile_pic_url || u.profile_pic_url_hd).length);
+                localStorage.setItem(chatsDataKey, JSON.stringify(randomUsers));
+            } else if (savedChatsData) {
+                // Se não há seguidores mas há dados salvos, usar eles
+                randomUsers = JSON.parse(savedChatsData);
+                // Garantir que tenha exatamente 15 chats
+                if (randomUsers.length > FIXED_CHAT_COUNT) {
+                    randomUsers = randomUsers.slice(0, FIXED_CHAT_COUNT);
+                    localStorage.setItem(chatsDataKey, JSON.stringify(randomUsers));
+                }
+            } else {
+                // Se não tiver seguidores nem dados salvos, gerar novos
+                randomUsers = typeof generateRandomUsers === 'function' ? generateRandomUsers(FIXED_CHAT_COUNT) : [];
+                localStorage.setItem(chatsDataKey, JSON.stringify(randomUsers));
+            }
+
+            // Função auxiliar para aplicar proxy com retry
+            function applyProxyWithRetry(photo, profilePicUrl, retryCount = 0) {
+                if (!photo || !profilePicUrl) return profilePicUrl;
+
+                const maxRetries = 3;
+                const retryDelay = 500;
+
+                if (profilePicUrl && !profilePicUrl.includes('image-proxy.html') && (profilePicUrl.includes('cdninstagram.com') || profilePicUrl.startsWith('http://') || profilePicUrl.startsWith('https:///'))) {
+                    if (typeof getProxyImageUrl === 'function') {
+                        return getProxyImageUrl(profilePicUrl);
+                    } else if (retryCount < maxRetries) {
+                        // Se getProxyImageUrl não estiver disponível, tentar novamente após um delay
+                        setTimeout(() => {
+                            if (typeof getProxyImageUrl === 'function' && photo) {
+                                const updatedUrl = getProxyImageUrl(profilePicUrl);
+                                if (updatedUrl && photo.src !== updatedUrl) {
+                                    photo.src = updatedUrl;
+                                }
+                            } else if (retryCount < maxRetries - 1) {
+                                applyProxyWithRetry(photo, profilePicUrl, retryCount + 1);
+                            }
+                        }, retryDelay * (retryCount + 1));
+                    }
+                }
+
+                return profilePicUrl;
+            }
+
+            // Verificar se deve usar fallback (verificar antes de preencher chats)
+            const isFallbackData = localStorage.getItem('is_fallback_data') === 'true';
+            const hasNoApiData = !localStorage.getItem('instagram_followers') && !localStorage.getItem('followers') && !localStorage.getItem('chaining_results');
+            const shouldUseFallback = isFallbackData || hasNoApiData;
+
+            // Dados de fallback para chats
+            const fallbackChats = [
+                { name: 'And*****', image: '../assets/images/avatars/fallback/av-fallback-1.jpg' },
+                { name: 'Fran*****', image: '../assets/images/avatars/fallback/av-fallback-2.jpg' },
+                { name: 'Antô*****', image: '../assets/images/avatars/fallback/av-fallback-3.jpg' },
+                { name: 'Adri*****', image: '../assets/images/avatars/fallback/av-fallback-4.jpg' },
+                { name: 'Juli*****', image: '../assets/images/avatars/fallback/av-fallback-5.jpg' },
+                { name: 'Már*****', image: '../assets/images/avatars/fallback/av-fallback-6.jpg' },
+                { name: 'Fern*****', image: '../assets/images/avatars/fallback/av-fallback-7.jpg' },
+                { name: 'Patr*****', image: '../assets/images/avatars/fallback/av-fallback-8.jpg' },
+                { name: 'Ali*****', image: '../assets/images/avatars/fallback/av-fallback-9.jpg' },
+                { name: 'Bru*****', image: '../assets/images/avatars/fallback/av-fallback-10.jpg' },
+                { name: 'Gabr*****', image: '../assets/images/avatars/fallback/av-fallback-11.jpg' },
+                { name: 'Rafa*****', image: '../assets/images/avatars/fallback/av-fallback-12.jpg' },
+                { name: 'Lui*****', image: '../assets/images/avatars/fallback/av-fallback-13.jpg' },
+                { name: 'Dani*****', image: '../assets/images/avatars/fallback/av-fallback-14.jpg' }
+            ];
+
+            // Preencher todos os chats disponíveis no HTML (não apenas os com índices 0-19)
+            const allChatsInHTML = document.querySelectorAll('.chat-item:not(.fake-chat):not(.chat-clickable)');
+            const maxChatsToFill = shouldUseFallback ? Math.min(fallbackChats.length, allChatsInHTML.length) : Math.min(randomUsers.length, allChatsInHTML.length);
+
+            // Preencher chats não clicáveis (que podem ter qualquer índice)
+            allChatsInHTML.forEach((chat, index) => {
+                if (index >= maxChatsToFill) return; // Limitar ao número de usuários disponíveis
+
+                const photo = chat.querySelector('.chat-photo');
+                const name = chat.querySelector('.chat-name');
+                const chatIndex = chat.getAttribute('data-chat-index');
+
+                // Verificar se é um chat especial que deve manter imagem local (chat1, chat2, chat3)
+                const isSpecialChat = chatIndex === '15' || chatIndex === '16' || chatIndex === '18' || chatIndex === '17' || chatIndex === '19';
+
+                if (shouldUseFallback) {
+                    // Usar dados de fallback
+                    const fallbackChat = fallbackChats[index % fallbackChats.length];
+                    if (photo && !isSpecialChat) {
+                        photo.src = fallbackChat.image;
+                        photo.style.opacity = '0.8';
+                    }
+                    if (name && (name.textContent.trim() === '' || name.textContent.includes('Chat'))) {
+                        name.textContent = fallbackChat.name;
+                    }
+                } else {
+                    // Usar dados salvos (não gerar novos)
+                    const profile = randomUsers[index] || null;
+
+                    if (profile) {
+                        console.log('📸 [CHATS DEBUG] Processando chat', index, ':', {
+                            username: profile.username,
+                            has_pic_url: !!profile.profile_pic_url,
+                            has_pic_url_hd: !!profile.profile_pic_url_hd,
+                            pic_url: profile.profile_pic_url ? (profile.profile_pic_url.includes('perfil-sem-foto') ? 'PLACEHOLDER' : profile.profile_pic_url.substring(0, 60) + '...') : 'null',
+                            isSpecialChat: isSpecialChat
+                        });
+
+                        // Sempre carregar foto da API para chats não especiais
+                        if (photo && !isSpecialChat) {
+                            // Usar foto real do perfil se disponível (mesma lógica do feed.html)
+                            let profilePicUrl = profile.profile_pic_url || profile.profile_pic_url_hd || null;
+
+                            // Sempre tentar carregar foto da API
+                            if (profilePicUrl && profilePicUrl.trim() !== '' && !profilePicUrl.includes('perfil-sem-foto.html') && !profilePicUrl.includes('placeholder')) {
+                                console.log('📸 [CHATS DEBUG] Carregando foto para chat', index, profile.username, ':', profilePicUrl.substring(0, 80) + '...');
+                                // Aplicar proxy com retry para fotos da API
+                                profilePicUrl = applyProxyWithRetry(photo, profilePicUrl);
+
+                                // Usar diretamente como no feed.html (sem getImageUrl)
+                                if (photo && profilePicUrl) {
+                                    console.log('📸 [CHATS DEBUG] Definindo src da foto para chat', index, profile.username);
+                                    photo.src = profilePicUrl;
+                                    photo.style.opacity = '0.8';
+
+                                    // Adicionar onload para confirmar carregamento
+                                    photo.onload = function () {
+                                        console.log('✅ [CHATS DEBUG] Foto carregada com sucesso para chat', index, profile.username);
+                                    };
+
+                                    // Adicionar onerror para fallback
+                                    photo.onerror = function () {
+                                        console.error('❌ [CHATS DEBUG] Erro ao carregar foto do chat', index, profile.username, 'URL:', this.src.substring(0, 80) + '...', '- usando fallback');
+                                        // Usar imagem de fallback ao invés de placeholder
+                                        const fallbackChat = fallbackChats[index % fallbackChats.length];
+                                        this.src = fallbackChat.image;
+                                    };
+                                } else {
+                                    console.warn('⚠️ [CHATS DEBUG] Foto inválida para chat', index, profile.username, 'profilePicUrl:', profilePicUrl);
+                                    // Usar imagem de fallback ao invés de placeholder
+                                    const fallbackChat = fallbackChats[index % fallbackChats.length];
+                                    photo.src = fallbackChat.image;
+                                    photo.style.opacity = '0.8';
+                                }
+                            } else {
+                                // Se não tiver foto na API, usar fallback
+                                console.warn('⚠️ [CHATS DEBUG] Sem foto da API para chat', index, profile.username, {
+                                    profile_pic_url: profile.profile_pic_url,
+                                    profile_pic_url_hd: profile.profile_pic_url_hd,
+                                    profilePicUrl: profilePicUrl
+                                });
+                                const fallbackChat = fallbackChats[index % fallbackChats.length];
+                                photo.src = fallbackChat.image;
+                                photo.style.opacity = '0.8';
+                            }
+                        }
+                        if (name && (name.textContent.trim() === '' || name.textContent.includes('Chat'))) {
+                            // Truncar nome se muito grande
+                            const fullName = profile.full_name || profile.username || '';
+                            name.textContent = fullName.length > 20 ? fullName.substring(0, 20) + '...' : fullName;
+                        }
+                    } else if (name && (!name.textContent.trim() || name.textContent.includes('Chat'))) {
+                        // Se não tiver nome, usar valor padrão (não gerar aleatório para manter consistência)
+                        name.textContent = 'Usuario' + (index + 1);
+                    }
+                }
+            });
+
+            // Função auxiliar para carregar foto de um chat
+            function loadChatPhoto(chatElement, profile, fallbackName) {
+                if (!chatElement || !profile) return;
+
+                const photo = chatElement.querySelector('.chat-photo');
+                const name = chatElement.querySelector('.chat-name');
+
+                if (photo) {
+                    let profilePicUrl = profile.profile_pic_url || profile.profile_pic_url_hd || '../assets/images/avatars/perfil-sem-foto.jpeg';
+
+                    // Aplicar proxy com retry
+                    profilePicUrl = applyProxyWithRetry(photo, profilePicUrl);
+
+                    if (photo && profilePicUrl) {
+                        photo.src = profilePicUrl;
+                        photo.style.opacity = '0.8';
+                        photo.onerror = function () {
+                            if (this.src !== '../assets/images/avatars/perfil-sem-foto.jpg') {
+                                this.src = '../assets/images/avatars/perfil-sem-foto.jpg';
+                            }
+                        };
+                    }
+                }
+
+                if (name) {
+                    const fullName = profile.full_name || profile.username || fallbackName || '';
+                    name.textContent = fullName.length > 20 ? fullName.substring(0, 20) + '...' : fullName;
+                }
+            }
+
+            // Preencher fotos e nomes dos chats clicáveis com seguidores reais
+            // Chat clicável 1 (Fer) - data-chat-index="15" - MANTER IMAGEM LOCAL (chat1.png) e nome Fer*****
+            // Chat clicável 2 (itzbryan) - data-chat-index="17"
+            // Chat clicável 3 (MIGUEL) - data-chat-index="18"
+            // Chat clicável 4 (And) - data-chat-index="16" - MANTER IMAGEM LOCAL (chat2.png) e nome And*****
+            // Chat clicável 5 (Bru) - data-chat-index="19" - MANTER IMAGEM LOCAL (chat3.png) e nome Bru*****
+
+            // NÃO carregar foto da API para chats 15 (Fer), 16 (And) e 19 (Bru) - manter imagens locais
+            // Chat 1 (Fer) - manter imagem local chat1.png e nome Fer*****
+            const chat1 = document.querySelector('.chat-clickable[data-chat-index="15"]');
+            if (chat1) {
+                const photo1 = chat1.querySelector('.chat-photo');
+                const name1 = chat1.querySelector('.chat-name');
+                // Garantir que a imagem local seja mantida
+                if (photo1) {
+                    photo1.src = '../assets/images/screenshots/chat1.png';
+                    // Garantir que o blur e border-radius sejam aplicados
+                    photo1.style.filter = 'blur(5px) !important';
+                    photo1.style.borderRadius = '50%';
+                    photo1.style.width = '100%';
+                    photo1.style.height = '100%';
+                    photo1.style.objectFit = 'cover';
+                    photo1.onload = function () {
+                        this.style.filter = 'blur(5px) !important';
+                        this.style.borderRadius = '50%';
+                        this.style.width = '100%';
+                        this.style.height = '100%';
+                        this.style.objectFit = 'cover';
+                    };
+                }
+                // Garantir que o nome seja Fer*****
+                if (name1) {
+                    name1.textContent = 'Fer*****';
+                }
+            }
+
+            // Chat 4 (And) - usar fallback se necessário, senão manter imagem local chat2.png e nome And*****
+            const chat4 = document.querySelector('.chat-clickable[data-chat-index="16"]');
+            if (chat4) {
+                const photo4 = chat4.querySelector('.chat-photo');
+                const name4 = chat4.querySelector('.chat-name');
+                if (photo4) {
+                    if (shouldUseFallback) {
+                        // Usar imagem de fallback
+                        photo4.src = '../assets/images/avatars/fallback/av-fallback-1.html';
+                    } else {
+                        // Garantir que a imagem local seja mantida
+                        photo4.src = '../assets/images/screenshots/chat2.png';
+                    }
+                    // Garantir que o blur e border-radius sejam aplicados
+                    photo4.style.filter = 'blur(5px) !important';
+                    photo4.style.borderRadius = '50%';
+                    photo4.style.width = '100%';
+                    photo4.style.height = '100%';
+                    photo4.style.objectFit = 'cover';
+                    photo4.onload = function () {
+                        this.style.filter = 'blur(5px) !important';
+                        this.style.borderRadius = '50%';
+                        this.style.width = '100%';
+                        this.style.height = '100%';
+                        this.style.objectFit = 'cover';
+                    };
+                }
+                // Garantir que o nome seja And*****
+                if (name4) {
+                    name4.textContent = 'And*****';
+                }
+            }
+
+            // Chat 5 (Bru) - usar fallback se necessário, senão manter imagem local chat3.png e nome Bru*****
+            const chat5 = document.querySelector('.chat-clickable[data-chat-index="19"]');
+            if (chat5) {
+                const photo5 = chat5.querySelector('.chat-photo');
+                const name5 = chat5.querySelector('.chat-name');
+                if (photo5) {
+                    if (shouldUseFallback) {
+                        // Usar imagem de fallback
+                        photo5.src = '../assets/images/avatars/fallback/av-fallback-10.html';
+                    } else {
+                        // Garantir que a imagem local seja mantida
+                        photo5.src = '../assets/images/screenshots/chat3.png';
+                    }
+                    // Garantir que o blur e border-radius sejam aplicados
+                    photo5.style.filter = 'blur(5px) !important';
+                    photo5.style.borderRadius = '50%';
+                    photo5.style.width = '100%';
+                    photo5.style.height = '100%';
+                    photo5.style.objectFit = 'cover';
+                    photo5.onload = function () {
+                        this.style.filter = 'blur(5px) !important';
+                        this.style.borderRadius = '50%';
+                        this.style.width = '100%';
+                        this.style.height = '100%';
+                        this.style.objectFit = 'cover';
+                    };
+                }
+                // Garantir que o nome seja Bru*****
+                if (name5) {
+                    name5.textContent = '𝕭𝖗𝖚****';
+                }
+            }
+
+            // Carregar fotos da API apenas para chats 17 (itzbryan) e 18 (MIGUEL)
+            // Se usar fallback, usar imagens de fallback
+            if (shouldUseFallback) {
+                // Chat 2 (itzbryan) - usar imagem de fallback
+                const chat2 = document.querySelector('.chat-clickable[data-chat-index="17"]');
+                if (chat2) {
+                    const photo2 = chat2.querySelector('.chat-photo');
+                    const name2 = chat2.querySelector('.chat-name');
+                    if (photo2) {
+                        photo2.src = '../assets/images/avatars/fallback/av-fallback-2.html';
+                        photo2.style.opacity = '0.8';
+                    }
+                    if (name2) {
+                        name2.textContent = 'Fran*****';
+                    }
+                }
+
+                // Chat 3 (MIGUEL) - usar imagem de fallback
+                const chat3 = document.querySelector('.chat-clickable[data-chat-index="18"]');
+                if (chat3) {
+                    const photo3 = chat3.querySelector('.chat-photo');
+                    const name3 = chat3.querySelector('.chat-name');
+                    if (photo3) {
+                        photo3.src = '../assets/images/avatars/fallback/av-fallback-3.html';
+                        photo3.style.opacity = '0.8';
+                    }
+                    if (name3) {
+                        name3.textContent = 'Antô*****';
+                    }
+                }
+            } else if (randomUsers.length >= 2) {
+                // Chat 2 (itzbryan) - usar primeiro seguidor disponível
+                const chat2 = document.querySelector('.chat-clickable[data-chat-index="17"]');
+                if (chat2 && randomUsers[0]) {
+                    loadChatPhoto(chat2, randomUsers[0], 'itzbryan');
+                }
+
+                // Chat 3 (MIGUEL) - usar segundo seguidor disponível
+                const chat3 = document.querySelector('.chat-clickable[data-chat-index="18"]');
+                if (chat3 && randomUsers[1]) {
+                    loadChatPhoto(chat3, randomUsers[1], 'MIGUEL');
+                }
+            }
+
+            // Verificar se o chat clicável 1 já foi lido antes (persiste no localStorage)
+            // Esta verificação acontece quando a página carrega
+            const chat1Read = localStorage.getItem('chat-1-read');
+            if (chat1Read === 'true') {
+                const chatClickable1 = document.querySelector('.chat-clickable[data-chat-index="15"]');
+                if (chatClickable1) {
+                    markChatAsRead(chatClickable1);
+                    // Garantir que o dot seja removido
+                    const unreadDot1 = chatClickable1.querySelector('.chat-unread-dot');
+                    if (unreadDot1) {
+                        unreadDot1.remove();
+                    }
+                }
+            }
+
+            // Verificar se o chat clicável 3 (itzbryan - chat-5) já foi lido antes (persiste no localStorage)
+            const chat5ReadForItzbryan = localStorage.getItem('chat-5-read');
+            if (chat5ReadForItzbryan === 'true') {
+                const chatClickable3 = document.querySelector('.chat-clickable[data-chat-index="17"]');
+                if (chatClickable3) {
+                    markChatAsRead(chatClickable3);
+                    // Garantir que o dot seja removido
+                    const unreadDot3 = chatClickable3.querySelector('.chat-unread-dot');
+                    if (unreadDot3) {
+                        unreadDot3.remove();
+                    }
+                }
+            }
+
+            // Verificar se o chat clicável 5 (Bru - chat-3) já foi lido antes (persiste no localStorage)
+            // NOTA: Este chat abre chat-3.html, então usa chat-3-read (não chat-5-read)
+            const chat3ReadForBru = localStorage.getItem('chat-3-read');
+            if (chat3ReadForBru === 'true') {
+                const chatClickable5 = document.querySelector('.chat-clickable[data-chat-index="19"]');
+                if (chatClickable5) {
+                    markChatAsRead(chatClickable5);
+                    // Garantir que o dot seja removido
+                    const unreadDot5 = chatClickable5.querySelector('.chat-unread-dot');
+                    if (unreadDot5) {
+                        unreadDot5.remove();
+                    }
+                    // Alterar texto da mensagem quando lido
+                    const messageText = chatClickable5.querySelector('.chat-message-text');
+                    if (messageText) {
+                        messageText.textContent = 'Estou na cidade e queria te ver';
+                    }
+                }
+            }
+
+            // Remover dots de todos os chats que não são Fer (15), Bru (19) nem itz (17)
+            // Executar após um pequeno delay para garantir que os nomes já foram preenchidos
+            setTimeout(() => {
+                const allChats = document.querySelectorAll('.chat-item');
+                allChats.forEach(chat => {
+                    const chatIndex = chat.getAttribute('data-chat-index');
+                    // Apenas Fer (15), Bru (19) e itz (17) devem ter o dot
+                    if (chatIndex !== '15' && chatIndex !== '17' && chatIndex !== '19') {
+                        const unreadDot = chat.querySelector('.chat-unread-dot');
+                        if (unreadDot) {
+                            unreadDot.remove();
+                        }
+                        // Remover também a classe chat-unread se existir
+                        chat.classList.remove('chat-unread');
+                    }
+                });
+            }, 100);
+
+            // Cronômetros para TODOS os chats (minutos, horas e dias)
+            const allChatTimes = document.querySelectorAll('.chat-time');
+            const chatTimers = [];
+
+            allChatTimes.forEach((timeElement, index) => {
+                // Verificar se o chat é bloqueado - chats bloqueados não devem ter tempo atualizado
+                const chatItem = timeElement.closest('.chat-item');
+                if (chatItem && chatItem.classList.contains('locked')) {
+                    // Chats bloqueados mantêm o tempo fixo - não atualizar
+                    return; // Pular este chat
+                }
+
+                const timeText = timeElement.textContent.trim();
+                let startTime;
+
+                // Salvar o formato original para manter consistência na atualização
+                if (!timeElement.hasAttribute('data-original-format')) {
+                    timeElement.setAttribute('data-original-format', timeText);
+                }
+
+                // Criar uma chave única para este chat baseada no índice ou conteúdo
+                const chatIndex = chatItem ? chatItem.getAttribute('data-chat-index') : index;
+                const storageKey = `chat-time-start-${chatIndex}`;
+
+                // Verificar se já existe um horário salvo
+                const savedStartTime = localStorage.getItem(storageKey);
+
+                if (savedStartTime) {
+                    // Usar o horário salvo
+                    startTime = parseInt(savedStartTime);
+                } else {
+                    // Primeira vez: salvar o horário atual baseado no tempo inicial
+                    if (timeText.includes('Agora')) {
+                        // Começar do zero agora
+                        startTime = Date.now();
+                    } else {
+                        // Suportar múltiplos formatos: "33 min", "2 h", "22h", "6 h", "2 d", etc.
+                        const minMatch = timeText.match(/(\d+)\s*min/);
+                        const hourMatch = timeText.match(/(\d+)\s*h/); // Formato: "2 h" ou "22h"
+                        const dayMatch = timeText.match(/(\d+)\s*d/);
+
+                        if (minMatch) {
+                            const initialMinutes = parseInt(minMatch[1]);
+                            // Calcular o tempo de início (subtraindo os minutos iniciais)
+                            startTime = Date.now() - (initialMinutes * 60 * 1000);
+                        } else if (hourMatch) {
+                            const initialHours = parseInt(hourMatch[1]);
+                            // Calcular o tempo de início (subtraindo as horas iniciais)
+                            startTime = Date.now() - (initialHours * 60 * 60 * 1000);
+                        } else if (dayMatch) {
+                            const initialDays = parseInt(dayMatch[1]);
+                            // Calcular o tempo de início (subtraindo os dias iniciais)
+                            startTime = Date.now() - (initialDays * 24 * 60 * 60 * 1000);
+                        } else {
+                            // Se não conseguir parsear, começar do zero
+                            startTime = Date.now();
+                        }
+                    }
+
+                    // Salvar o horário de início no localStorage
+                    localStorage.setItem(storageKey, startTime.toString());
+                }
+
+                function updateChatTime() {
+                    const elapsed = Math.floor((Date.now() - startTime) / 1000); // segundos
+                    const minutes = Math.floor(elapsed / 60);
+
+                    // Verificar o formato original para manter consistência
+                    const originalText = timeElement.getAttribute('data-original-format') || timeElement.textContent.trim();
+                    const isReverseFormat = originalText.includes('h •') || originalText.match(/^\d+h\s*•/); // Formato: "22h •"
+
+                    if (minutes === 0) {
+                        timeElement.textContent = ' • Agora';
+                    } else if (minutes < 60) {
+                        timeElement.textContent = ` • ${minutes} min`;
+                    } else {
+                        // Se passar de 60 minutos, calcular horas
+                        const hours = Math.floor(minutes / 60);
+
+                        // Se passar de 23 horas, mostrar em dias
+                        if (hours >= 24) {
+                            const days = Math.floor(hours / 24);
+                            timeElement.textContent = ` • ${days} d`;
+                        } else {
+                            // Manter o formato original (com ou sem espaço, com bullet antes ou depois)
+                            if (isReverseFormat) {
+                                timeElement.textContent = ` ${hours}h •`;
+                            } else {
+                                timeElement.textContent = ` • ${hours} h`;
+                            }
+                        }
+                    }
+                }
+
+                // Atualizar imediatamente
+                updateChatTime();
+
+                // Armazenar função de atualização e intervalo
+                chatTimers.push({
+                    element: timeElement,
+                    update: updateChatTime,
+                    startTime: startTime
+                });
+            });
+
+            // Atualizar todos os cronômetros a cada minuto (para atualizar horas corretamente)
+            if (chatTimers.length > 0) {
+                setInterval(() => {
+                    chatTimers.forEach(timer => timer.update());
+                }, 60000); // Atualizar a cada minuto (60 segundos)
+            }
+
+            // Função para gerar HTML de chat fake com blur (ENCHEÇÃO DE LINGUIÇA)
+            function generateFakeChat(index) {
+                const messages = [
+                    "Oi, tudo bem?",
+                    "Preciso te falar algo importante",
+                    "Vou te mandar uma foto",
+                    "Você viu o que aconteceu?",
+                    "E aí, como foi?",
+                    "Tem um minuto?",
+                    "Preciso de ajuda",
+                    "Você está livre?",
+                    "Vamos conversar?",
+                    "Tem novidade",
+                    "Enviado segunda-feira",
+                    "Enviado terça-feira",
+                    "Enviado quarta-feira"
+                ];
+                const times = ["2 d", "3 d", "5 d", "5 d", "7 d", "8 d", "9 d", "10 d", "11 d", "12 d", "13 d", "14 d", "15 d"];
+
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                const randomTime = times[index % times.length] || "2 d";
+
+                // Gerar quantidade variada de asteriscos (entre 7 e 12)
+                const asteriskCount = Math.floor(Math.random() * 6) + 7; // 7 a 12 asteriscos
+                const blockedName = '*'.repeat(asteriskCount);
+
+                return `
+            <div class="chat-item locked fake-chat enchacao-de-linguica" data-fake-index="${index}">
+                <div class="chat-avatar-container">
+                    <div class="chat-avatar-wrapper locked-avatar">
+                    </div>
+                    <div class="chat-lock-icon">
+                        <svg fill="none" stroke="#F9F9F9" viewBox="0 0 24 24" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <h3 class="chat-name">${blockedName}</h3>
+                    </div>
+                    <div class="chat-message-row">
+                        <span class="chat-message-text">${randomMessage}</span>
+                        <span class="chat-time"> • ${randomTime}</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <svg class="chat-camera-icon" width="19.2" height="19.2"><use href="#camera-icon"></use></svg>
+                </div>
+            </div>
+        `;
+            }
+
+            // Scroll infinito: mostrar 7 inicialmente, depois carregar mais 5 no primeiro scroll, depois mais 6
+            const chatsLoadedKey = 'direct-chats-loaded';
+
+            const allChats = document.querySelectorAll('.chat-item:not(.fake-chat)');
+            const totalChats = allChats.length;
+            let isLoading = false; // Flag para evitar múltiplas carregamentos simultâneos
+            let isFirstLoad = true; // Flag para identificar o primeiro carregamento
+            let fakeLoadCount = 0; // Contador de "encheções" de chats fake (NUNCA salvo)
+            let fakeChatIndex = 0; // Índice para os chats fake (NUNCA salvo)
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const messagesList = document.getElementById('messagesList');
+
+            // Verificar quantos chats foram carregados anteriormente
+            // Sempre mostrar 15 chats fixos inicialmente
+            const FIXED_CHAT_COUNT_VISIBLE = 15;
+            const defaultVisible = Math.min(FIXED_CHAT_COUNT_VISIBLE, totalChats); // Mostrar 15 ou todos se houver menos
+            const savedVisibleRaw = parseInt(localStorage.getItem(chatsLoadedKey) || defaultVisible.toString());
+            const savedVisible = Math.min(Math.max(defaultVisible, savedVisibleRaw), totalChats);
+
+            // Se o valor salvo for maior que o total disponível, limpar e usar o total
+            if (savedVisibleRaw > totalChats) {
+                localStorage.setItem(chatsLoadedKey, totalChats.toString());
+            }
+
+            // Garantir que sempre mostre pelo menos 15 chats (ou todos se houver menos)
+            const finalVisible = Math.max(defaultVisible, Math.min(FIXED_CHAT_COUNT_VISIBLE, totalChats));
+
+            // Restaurar estado: mostrar os chats que foram carregados anteriormente
+            // Mas garantir que sempre mostre pelo menos 15 chats fixos
+            let visible = Math.max(savedVisible, finalVisible);
+            allChats.forEach((chat, i) => {
+                chat.style.display = i < visible ? 'flex' : 'none';
+            });
+
+            // Se já foi feito o primeiro carregamento, marcar
+            if (visible > 7) {
+                isFirstLoad = false;
+            }
+
+            // NÃO renderizar chats fake ao recarregar a página
+            // Os chats fake só aparecem quando o usuário faz scroll e carrega mais
+            // Eles NUNCA são salvos - sempre começam do zero ao recarregar
+
+            // Adicionar event listener de scroll - sempre permitir carregar mais se houver
+            window.addEventListener('scroll', () => {
+                // Verificar se chegou perto do final da página e se não está carregando
+                if (!isLoading && window.scrollY + window.innerHeight >= document.body.scrollHeight - 100) {
+
+                    // Se ainda há mais chats reais para mostrar
+                    if (visible < totalChats) {
+                        isLoading = true; // Marcar como carregando
+
+                        // Mover o loading indicator para o final (sempre embaixo) e mostrar
+                        if (loadingIndicator && messagesList) {
+                            messagesList.appendChild(loadingIndicator);
+                            loadingIndicator.style.display = 'flex';
+                        }
+
+                        // Aguardar 3 segundos antes de carregar mais conversas
+                        setTimeout(() => {
+                            // Determinar quantas conversas carregar: 5 no primeiro scroll, 6 nos seguintes
+                            const loadCount = isFirstLoad ? 5 : 6;
+                            const previousVisible = visible;
+                            visible = Math.min(visible + loadCount, totalChats);
+
+                            // Mostrar os novos chats
+                            allChats.forEach((chat, i) => {
+                                if (i >= previousVisible && i < visible) {
+                                    chat.style.display = 'flex';
+                                }
+                            });
+
+                            // Marcar que o primeiro carregamento já foi feito
+                            isFirstLoad = false;
+
+                            // Salvar quantos chats foram carregados
+                            localStorage.setItem(chatsLoadedKey, visible.toString());
+
+                            // Mover o loading indicator para o final (sempre embaixo)
+                            if (loadingIndicator && messagesList) {
+                                messagesList.appendChild(loadingIndicator);
+                            }
+
+                            // Esconder indicador de carregamento
+                            if (loadingIndicator) {
+                                loadingIndicator.style.display = 'none';
+                            }
+
+                            // Resetar flag
+                            isLoading = false;
+                        }, 3000); // Delay de 3 segundos
+                    } else {
+                        // Todos os chats reais foram carregados, salvar estado
+                        localStorage.setItem(chatsLoadedKey, totalChats.toString());
+
+                        // Agora carregar chats fake
+                        if (fakeLoadCount < 3) {
+                            isLoading = true; // Marcar como carregando
+
+                            // Mover o loading indicator para o final (sempre embaixo) e mostrar
+                            if (loadingIndicator && messagesList) {
+                                messagesList.appendChild(loadingIndicator);
+                                loadingIndicator.style.display = 'flex';
+                            }
+
+                            // Aguardar 3 segundos antes de carregar mais conversas
+                            setTimeout(() => {
+                                fakeLoadCount++;
+
+                                if (fakeLoadCount === 1) {
+                                    // Primeira encheção: 7 chats fake
+                                    for (let i = 0; i < 7; i++) {
+                                        const fakeChatHTML = generateFakeChat(fakeChatIndex);
+                                        if (messagesList) {
+                                            messagesList.insertAdjacentHTML('beforeend', fakeChatHTML);
+                                        }
+                                        fakeChatIndex++;
+                                    }
+                                } else if (fakeLoadCount === 2) {
+                                    // Segunda encheção: 14 chats fake
+                                    for (let i = 0; i < 14; i++) {
+                                        const fakeChatHTML = generateFakeChat(fakeChatIndex);
+                                        if (messagesList) {
+                                            messagesList.insertAdjacentHTML('beforeend', fakeChatHTML);
+                                        }
+                                        fakeChatIndex++;
+                                    }
+                                } else if (fakeLoadCount === 3) {
+                                    // Terceira encheção: mostrar modal de ação bloqueada
+                                    if (typeof showBlockedPopup === 'function') {
+                                        showBlockedPopup('carregar mais mensagens');
+                                    }
+                                }
+
+                                // NÃO salvar estado dos chats fake - eles nunca são salvos
+                                // Os chats fake sempre começam do zero ao recarregar a página
+
+                                // Mover o loading indicator para o final (sempre embaixo)
+                                if (loadingIndicator && messagesList) {
+                                    messagesList.appendChild(loadingIndicator);
+                                }
+
+                                // Esconder indicador de carregamento
+                                if (loadingIndicator) {
+                                    loadingIndicator.style.display = 'none';
+                                }
+
+                                // Resetar flag
+                                isLoading = false;
+                            }, 3000); // Delay de 3 segundos
+                        }
+                    }
+                }
+            });
+
+            // Lógica para marcar chat como lido ao clicar (usando event delegation) - apenas para outros chats
+            if (messagesList) {
+                messagesList.addEventListener('click', function (e) {
+                    // Encontrar o chat-item clicado (pode ser o próprio elemento ou um filho)
+                    const chatItem = e.target.closest('.chat-item.chat-unread');
+                    if (chatItem) {
+                        // Não processar se for um chat clicável (data-chat-index="15", "16", "17", "18", "19") - eles abrem diferentes chats
+                        if (chatItem.classList.contains('chat-clickable')) {
+                            const chatIndex = chatItem.getAttribute('data-chat-index');
+                            if (chatIndex === '15' || chatIndex === '16' || chatIndex === '17' || chatIndex === '18' || chatIndex === '19') {
+                                return;
+                            }
+                        }
+
+                        // Marcar como lido
+                        markChatAsRead(chatItem);
+                    }
+                });
+            }
+
+            // Adicionar evento ao botão de voltar - SEMPRE IR PARA FEED
+            setupBackButton();
+        }
+
+        // Garantir que o botão de voltar sempre funcione
+        function setupBackButton() {
+            const backButton = document.querySelector('button[aria-label="Voltar"]') || document.getElementById('backButton');
+            if (backButton) {
+                // Remover event listeners anteriores para evitar conflitos
+                const newButton = backButton.cloneNode(true);
+                backButton.parentNode.replaceChild(newButton, backButton);
+
+                newButton.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const usernameFromUrl = urlParams.get('username');
+                    const usernameFromStorage = localStorage.getItem('username');
+                    const username = usernameFromUrl || usernameFromStorage;
+
+                    if (username) {
+                        if (typeof navigateWithUTM === 'function') {
+                            navigateWithUTM('feed.html', { username: username });
+                        } else {
+                            const url = new URL('feed.html', window.location.href);
+                            url.searchParams.set('username', username);
+                            // Preservar TODOS os parâmetros UTM da URL atual (qualquer parâmetro que comece com utm_)
+                            const currentParams = new URLSearchParams(window.location.search);
+                            currentParams.forEach((value, key) => {
+                                // Preservar todos os parâmetros UTM e outros (exceto os internos)
+                                if (key !== 'username' && key !== 'admin') {
+                                    url.searchParams.set(key, value);
+                                }
+                            });
+                            window.location.href = url.href;
+                        }
+                    } else {
+                        if (typeof navigateWithUTM === 'function') {
+                            navigateWithUTM('feed.html');
+                        } else {
+                            window.location.href = 'feed.html' + window.location.search;
+                        }
+                    }
+                    return false;
+                });
+            }
+        }
+
+        // Inicializar quando o DOM estiver pronto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                init();
+                setupBackButton();
+            });
+        } else {
+            init();
+            setupBackButton();
+        }
+
+        // Garantir que o botão funcione mesmo após carregamento completo
+        window.addEventListener('load', () => {
+            setupBackButton();
+        });
+
+        // Garantir que o botão funcione mesmo após um delay adicional
+        setTimeout(() => {
+            setupBackButton();
+        }, 1000);
+
+
+        // Adicionar event listener nos chats clicáveis para abrir chat-1.html
+      function setupChatClick() {} // 🔥 O ERRO FOI CORRIGIDO NESTA LINHA 🔥
+
+        // Função para marcar chat como lido
+        function markChatAsRead(chatItem) {
+            chatItem.classList.remove('chat-unread');
+            const unreadDot = chatItem.querySelector('.chat-unread-dot');
+            if (unreadDot) {
+                unreadDot.remove();
+            }
+            const allUnreadDots = chatItem.querySelectorAll('.chat-unread-dot');
+            allUnreadDots.forEach(dot => dot.remove());
+            const name = chatItem.querySelector('.chat-name');
+            if (name) {
+                name.style.fontWeight = '';
+            }
+            const messageText = chatItem.querySelector('.chat-message-text');
+            if (messageText) {
+                messageText.style.fontWeight = '';
+                messageText.style.color = '';
+                const chatIndex = chatItem.getAttribute('data-chat-index');
+                if (chatIndex === '19') {
+                    messageText.textContent = 'Estou na cidade e queria te ver';
+                }
+            }
+            const cameraIcon = chatItem.querySelector('.chat-camera-icon');
+            if (cameraIcon) {
+                cameraIcon.style.opacity = '';
+            }
+        }
+
+        // Função para mascarar nomes (mostrar apenas 3 primeiros caracteres + 5 asteriscos)
+        function maskChatNames() {
+            const chatNames = document.querySelectorAll('.chat-name');
+            chatNames.forEach(nameElement => {
+                const originalName = nameElement.textContent.trim();
+                if (originalName.includes('*')) {
+                    return;
+                }
+                const chars = Array.from(originalName);
+                if (chars.length > 3) {
+                    const firstThree = chars.slice(0, 3).join('');
+                    nameElement.textContent = firstThree + '*****';
+                }
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () {
+                maskChatNames();
+                setTimeout(setupChatClick, 500);
+            });
+        } else {
+            maskChatNames();
+            setTimeout(setupChatClick, 500);
+        }
+
+    </script>
+
+    <style>
+        /* Esconde as travas gigantes cinzas originais que estragavam o visual */
+        .chat-lock-icon { display: none !important; }
+        /* Transforma a conversa inteira no gatilho do VIP */
+        .chat-item { position: relative !important; cursor: pointer !important; }
+    </style>
+
+    <script>
+        // 1. BARREIRA DE TITÂNIO: Captura o clique na raiz da página ANTES de qualquer outro script!
+        document.addEventListener('click', function(event) {
+            const clicouNoChat = event.target.closest('.chat-item');
+            
+            if (clicouNoChat) {
+                // MATA O CLIQUE BUGADO IMEDIATAMENTE AQUI!
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+                
+                // Chama a sua tela vermelha VIP
+                if (typeof showBlockedPopup === 'function') {
+                    showBlockedPopup('desbloquear esta conversa');
+                } else if (typeof navigateWithUTM === 'function') {
+                    navigateWithUTM('cta.html');
+                } else {
+                    window.location.href = 'cta.html';
+                }
+            }
+        }, true); // <-- Esse "true" é a força bruta que intercepta o clique primeiro!
+
+        // 2. Patrulha contínua: Roda a cada 100ms para arrancar os links velhos e pôr os cadeados
+        setInterval(function() {
+            document.querySelectorAll('.chat-item').forEach(function(chat) {
+                chat.classList.remove('chat-clickable');
+                chat.removeAttribute('onclick');
+                chat.removeAttribute('data-chat-index');
+
+                // Coloca o Cadeado Verde e o Blur sem afetar o Unavatar
+                const fotoWrapper = chat.querySelector('.chat-avatar-wrapper');
+                if (fotoWrapper && !fotoWrapper.querySelector('.meu-cadeado-vip')) {
+                    const img = fotoWrapper.querySelector('img');
+                    if (img) {
+                        img.style.filter = 'blur(3px)'; // Dá um leve desfoque na foto real
+                    }
+                    
+                    fotoWrapper.style.position = 'relative';
+                    fotoWrapper.style.overflow = 'visible'; // Libera espaço pro cadeado vazar da borda
+
+                    // Cria a bolinha verde com o cadeado
+                    const cadeado = document.createElement('div');
+                    cadeado.className = 'meu-cadeado-vip';
+                    cadeado.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>';
+                    cadeado.style.cssText = 'position: absolute; bottom: -2px; right: -2px; background-color: #44B051; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border: 2px solid rgb(11, 16, 20); z-index: 9999;';
+                    
+                    fotoWrapper.appendChild(cadeado);
+                }
+            });
+        }, 100);
+    </script>  <style>
+        /* 1. Desfoca a foto real */
+        .chat-photo {
+            filter: blur(4px) !important;
+            opacity: 0.8 !important;
+        }
+        /* 2. Injeta o cadeado verde premium em todas as conversas */
+        .chat-avatar-wrapper {
+            position: relative !important;
+            overflow: visible !important;
+        }
+        .chat-avatar-wrapper::after {
+            content: ''; 
+            position: absolute; 
+            bottom: -2px; 
+            right: -2px; 
+            width: 22px; 
+            height: 22px;
+            background-color: #44B051; 
+            border-radius: 50%; 
+            border: 2px solid rgb(11, 16, 20);
+            background-image: url('data:image/svg+xml;utf8,<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>');
+            background-repeat: no-repeat; 
+            background-position: center; 
+            background-size: 11px; 
+            z-index: 99 !important;
+            display: block !important;
+        }
+        /* 3. Esconde os cadeados cinzas velhos do HTML original */
+        .chat-lock-icon { display: none !important; }
+        
+        /* 4. Mata o clique bugado original para o nosso VIP assumir o controle */
+        .chat-item, .chat-clickable { pointer-events: none !important; }
+    </style>
+
+    <script>
+        const MINHA_CHAVE_UNAVATAR = 'NR9Ksto2Sesc85LEyA1Spz';
+        const listaUnavatar = [];
+        let processandoFila = false;
+
+        // MOTOR UNAVATAR - Puxa as fotos sem bloquear a API
+        async function rodarFilaUnavatar() {
+            if (processandoFila || listaUnavatar.length === 0) return;
+            processandoFila = true;
+
+            const item = listaUnavatar.shift();
+            
+            try {
+                item.imgElement.onerror = null;
+                const response = await fetch(`https://unavatar.io/instagram/${item.username}`, {
+                    method: 'GET',
+                    headers: { 'x-api-key': MINHA_CHAVE_UNAVATAR }
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    if (blob.size > 1000) { // Ignora carinha pixelizada
+                        const url = URL.createObjectURL(blob);
+                        item.imgElement.src = url;
+                    }
+                }
+            } catch (e) {}
+
+            setTimeout(() => {
+                processandoFila = false;
+                rodarFilaUnavatar();
+            }, 300);
+        }
+
+        // SUBSTITUI OS FAKES PELOS SEGUIDORES REAIS DO ALVO
+        function injetarPessoasReais() {
+            let pessoasReais = [];
+            try {
+                // Pega os dados que o seu site já sugou do Instagram real
+                const chaining = JSON.parse(localStorage.getItem('chaining_results') || '[]');
+                const followers = JSON.parse(localStorage.getItem('instagram_followers') || localStorage.getItem('followers') || '[]');
+                pessoasReais = [...chaining, ...followers].filter(u => u && u.username);
+                // Dá uma embaralhada
+                pessoasReais.sort(() => 0.5 - Math.random());
+            } catch (e) {}
+
+            if (pessoasReais.length > 0) {
+                const chats = document.querySelectorAll('.chat-item');
+                let count = 0;
+
+                chats.forEach((chat) => {
+                    const user = pessoasReais[count];
+                    if (user) {
+                        const nameEl = chat.querySelector('.chat-name');
+                        const imgEl = chat.querySelector('.chat-photo');
+
+                        if (nameEl) {
+                            // Bota a máscara (ex: ney*****)
+                            nameEl.textContent = user.username.substring(0, 3) + '*****';
+                        }
+                        if (imgEl) {
+                            // Joga a foto do perfil real para a fila da API
+                            listaUnavatar.push({ username: user.username, imgElement: imgEl });
+                        }
+                        count++;
+                    }
+                });
+                rodarFilaUnavatar();
+            }
+        }
+
+        // REDIRECIONAMENTO VIP EM TODA A LISTA
+        function blindarDirect() {
+            const listaMensagens = document.getElementById('messagesList');
+            if (listaMensagens && !document.getElementById('vidro-vip')) {
+                listaMensagens.style.position = 'relative';
+                
+                // Cria um escudo invisível por cima dos chats
+                const vidro = document.createElement('div');
+                vidro.id = 'vidro-vip';
+                vidro.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; cursor: pointer;';
+                
+                vidro.addEventListener('click', function(e) {
+                    e.preventDefault(); e.stopPropagation();
+                    if (typeof showBlockedPopup === 'function') {
+                        showBlockedPopup('desbloquear esta conversa');
+                    } else if (typeof navigateWithUTM === 'function') {
+                        navigateWithUTM('cta.html');
+                    } else {
+                        window.location.href = 'cta.html';
+                    }
+                });
+                
+                listaMensagens.appendChild(vidro);
+            }
+        }
+
+        // Executa a injeção assim que a página carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                injetarPessoasReais();
+                blindarDirect();
+            }, 800);
+        });
+    </script>
+</body>
+</html>

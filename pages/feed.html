@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<!-- Mirrored from www.stalkeia.com/pages/feed.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Mar 2026 03:54:14 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stalker.privado- Feed</title>
+   <link rel="shortcut icon" href="../assets/images/favicon/logo_site_pequena.png">
+<link rel="icon" href="../assets/images/favicon/logo_site_pequena.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/images/favicon/logo_site_pequena.png">
+    <link rel="stylesheet" href="../styles/main.css">
+
+    <!-- Scripts críticos com defer para não bloquear parsing -->
+    <script src="../scripts/core/geral.obf.js" defer></script>
+    <script src="../scripts/api/api.obf.js" defer></script>
+    <!-- UTMify Pixel ID - DEFINIR PRIMEIRO (síncrono) -->
+
+    <script src="../scripts/config/config.obf.js" defer></script>
+    <script src="../scripts/api/instagram-api.obf30f4.js?v=3" defer></script>
+
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            '../../connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1471215137893260');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1471215137893260&amp;ev=PageView&amp;noscript=1" /></noscript>
+
+    <!-- <script src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+        data-token="78cf939a-5d92-4fcb-9348-88f9653c009f">
+        </script> -->
+
+    <script>
+        // BACKREDIRECT: Impedir usuário de voltar - redirecionar para CTA
+        (function () {
+            // Adicionar estado no histórico para detectar "voltar"
+            history.pushState(null, '', location.href);
+
+            window.addEventListener('popstate', function (e) {
+                // Quando usuário tenta voltar, redirecionar para direct preservando UTMs
+                if (typeof navigateWithUTM === 'function') {
+                    navigateWithUTM('direct.html');
+                } else {
+                    window.location.href = 'direct.html' + window.location.search;
+                }
+            });
+        })();
+    </script>
+
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Header com comportamento de scroll */
+        #main-header {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #main-header.hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Pop-up estilo glassmorphism iOS */
+        #blocked-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(220, 38, 38, 0.15);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            backdrop-filter: blur(20px) saturate(180%);
+            color: #F9F9F9;
+            padding: 24px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(249, 249, 249, 0.18);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            width: calc(100% - 40px);
+            text-align: center;
+        }
+
+        #blocked-popup.show {
+            display: flex;
+            animation: popupFadeIn 0.3s ease-out, subtlePulse 3s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes subtlePulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.98;
+                transform: translate(-50%, -50%) scale(1.005);
+            }
+        }
+
+        #blocked-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            display: none;
+        }
+
+        #blocked-popup-overlay.show {
+            display: block;
+        }
+
+        /* Notificação estilo Instagram iOS - Glassmorphism */
+        #ios-notification {
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            cursor: pointer;
+            transform: translateX(-50%);
+            background: rgba(28, 28, 30, 0.8);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            backdrop-filter: blur(30px) saturate(180%);
+            border-radius: 14px;
+            padding: 10px 14px;
+            border: 0.5px solid rgba(249, 249, 249, 0.15);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 0.5px 0 rgba(249, 249, 249, 0.15);
+            z-index: 1001;
+            display: none;
+            align-items: center;
+            gap: 13px;
+            width: calc(100% - 20px);
+            max-width: 380px;
+            cursor: pointer;
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+
+        #ios-notification.show {
+            display: flex;
+            animation: notificationSlideIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        #ios-notification.hiding {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px) scale(0.95);
+        }
+
+        @keyframes notificationSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-30px) scale(0.92);
+            }
+
+            60% {
+                opacity: 0.8;
+                transform: translateX(-50%) translateY(5px) scale(0.98);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+        }
+
+        .notification-profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 0;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notification-profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .notification-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            min-width: 0;
+            position: relative;
+            line-height: 1.2;
+        }
+
+        .notification-time {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(249, 249, 249, 0.5);
+            white-space: nowrap;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .notification-text-line {
+            font-size: 15px;
+            font-weight: 400;
+            color: rgba(249, 249, 249, 0.8);
+            margin: 0;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            word-break: keep-all;
+            hyphens: none;
+        }
+
+        #notification-message {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: visible;
+            text-overflow: ellipsis;
+            padding-top: 2px;
+        }
+
+        .notification-text-line strong {
+            font-weight: 600;
+            color: rgba(249, 249, 249, 0.85);
+        }
+
+        /* Ajuste proporcional para Galaxy S8 e telas similares (360px) */
+        @media (max-width: 360px) {
+            #ios-notification {
+                width: calc(100% - 12px);
+                max-width: 348px;
+                padding: 9px 10px;
+                gap: 10px;
+            }
+
+            .notification-profile-pic {
+                width: 38px;
+                height: 38px;
+            }
+
+            .notification-text-line {
+                font-size: 14px;
+                letter-spacing: -0.015em;
+                padding-right: 0 !important;
+                word-break: keep-all;
+                hyphens: none;
+            }
+
+            #notification-message {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .notification-time {
+                font-size: 11px;
+            }
+
+            .notification-content {
+                padding-right: 30px;
+                overflow: hidden;
+            }
+        }
+
+        /* Stories - Tamanho padrão */
+        .story-button {
+            position: relative;
+            width: 79px;
+            height: 79px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .story-username {
+            font-size: 12px;
+            color: rgb(209, 213, 219);
+            max-width: 70px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Ajustes para telas maiores (iPhone 12 Pro e similares) */
+        @media (min-width: 390px) {
+            .story-button {
+                width: 91px;
+                height: 91px;
+            }
+
+            .story-username {
+                font-size: 13px;
+                max-width: 75px;
+            }
+        }
+
+        /* Container de stories - reduzir gap */
+        #stories-container {
+            gap: 10px !important;
+        }
+
+        /* Controles de vídeo estilo Instagram */
+        .video-mute-btn {
+            transition: transform 0.1s ease-out;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .video-mute-btn:active {
+            transform: scale(0.88);
+        }
+
+        .video-mute-btn:hover {
+            background: rgba(70, 70, 70, 0.85) !important;
+        }
+
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimizeSpeed;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        video {
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+            pointer-events: auto;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            image-rendering: optimizeSpeed;
+        }
+
+        video::-webkit-media-controls {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+
+        video::cue {
+            display: none !important;
+        }
+
+        video:focus {
+            outline: none;
+        }
+
+        /* Banner de prévia grátis - fixo acima da navegação inferior */
+        #preview-banner {
+            position: fixed;
+            bottom: 56px;
+            left: 2.5%;
+            right: 2.5%;
+            background: linear-gradient(135deg, rgba(105, 85, 210, 0.98) 0%, rgba(122, 83, 217, 0.98) 100%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            backdrop-filter: blur(24px) saturate(180%);
+            border-top: 1px solid rgba(249, 249, 249, 0.25);
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(249, 249, 249, 0.2);
+            z-index: 999;
+            padding: 10px 16px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 0;
+            animation: slideUpBanner 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 16px 16px 0 0;
+        }
+
+        @keyframes slideUpBanner {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        #preview-banner.hidden {
+            animation: slideDownBanner 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideDownBanner {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+
+        .preview-banner-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex: 1;
+            min-width: 0;
+            width: 100%;
+            padding-right: 0;
+        }
+
+        .preview-banner-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: 100%;
+        }
+
+        .preview-banner-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #F9F9F9;
+            margin: 0;
+            margin-top: -9px;
+            padding-top: 6px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3px;
+        }
+
+        .preview-banner-description {
+            font-size: 11px;
+            color: rgba(249, 249, 249, 0.9);
+            margin: 0;
+            padding-top: 4px;
+            line-height: 1.4;
+            width: 100%;
+        }
+
+        .preview-timer-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: transparent;
+            padding: 0;
+            font-size: 13px;
+            font-weight: 700;
+            color: #F9F9F9;
+        }
+
+        .preview-timer {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(249, 249, 249, 0.25);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #F9F9F9;
+            white-space: nowrap;
+            min-width: 75px;
+            justify-content: center;
+            border: 1px solid rgba(249, 249, 249, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .preview-timer-icon {
+            width: 14px;
+            height: 14px;
+            animation: pulseTimer 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .preview-timer-inline .preview-timer-icon {
+            width: 12px;
+            height: 12px;
+        }
+
+        @keyframes pulseTimer {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        /* Animação de curtida estilo Instagram */
+        @keyframes instagramLike {
+            0% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            25% {
+                transform: translateY(-60px) scale(2.1) rotate(0deg);
+                opacity: 1;
+            }
+
+            40% {
+                transform: translateY(-84px) scale(2.34) rotate(-8deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-84px) scale(2.34) rotate(8deg);
+                opacity: 1;
+            }
+
+            65% {
+                transform: translateY(-42px) scale(1.8) rotate(0deg);
+                opacity: 1;
+            }
+
+            85% {
+                transform: translateY(-10px) scale(1.1) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 0;
+            }
+        }
+
+        .like-animation-heart {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            pointer-events: none;
+            z-index: 1001;
+            background: radial-gradient(circle, #ff3040 0%, #ff6b35 40%, #ff8c42 80%, #ffa500 100%);
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            animation: instagramLike 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            left: 0;
+            top: 0;
+        }
+
+        .like-button {
+            position: relative;
+        }
+
+        /* Banner "You've seen all new posts" */
+        #all-posts-seen-banner {
+            display: none;
+            padding: 20px 16px;
+            background: rgb(11, 16, 20);
+            margin-bottom: 16px;
+            align-items: center;
+            gap: 12px;
+        }
+
+        #all-posts-seen-banner.show {
+            display: flex;
+            animation: fadeInBanner 0.4s ease-out;
+        }
+
+        @keyframes fadeInBanner {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .all-posts-seen-icon {
+            width: 28.8px;
+            height: 28.8px;
+            border-radius: 50%;
+            background: rgb(11, 16, 20);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            padding: 2px;
+        }
+
+        .all-posts-seen-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 2px;
+            background: linear-gradient(135deg, #833AB4 0%, #C13584 20%, #E1306C 40%, #FD1D1D 60%, #F77737 75%, #FCAF45 90%, #FFD600 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            z-index: 0;
+        }
+
+        .all-posts-seen-icon>svg {
+            position: relative;
+            z-index: 1;
+            width: 16px;
+            height: 16px;
+        }
+
+        .all-posts-seen-icon>svg path {
+            stroke: url(#gradient-check);
+        }
+
+        .all-posts-seen-icon defs {
+            position: absolute;
+        }
+
+        .all-posts-seen-text {
+            font-size: 11.2px;
+            color: rgb(168, 168, 168);
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .saiba-mais-link {
+            color: rgb(0, 149, 246);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .saiba-mais-link:hover {
+            text-decoration: underline;
+        }
+
+        .preview-banner-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: white;
+            color: #6955d2;
+            border: none;
+            padding: 5px 11px;
+            border-radius: 0 16px 0 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+            letter-spacing: -0.01em;
+            z-index: 1;
+            animation: buttonPulse 2s ease-in-out infinite;
+            height: auto;
+            line-height: 1.2;
+        }
+
+        @keyframes buttonPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.9;
+                transform: scale(1.02);
+            }
+        }
+
+        /* Loading skeleton do Instagram */
+        .post-loading-skeleton {
+            padding: 16px 0;
+            background: rgb(11, 16, 20);
+            margin-bottom: 12px;
+        }
+
+        .skeleton-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 16px;
+            margin-bottom: 12px;
+        }
+
+        .skeleton-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, rgb(38, 38, 38) 25%, rgb(50, 50, 50) 50%, rgb(38, 38, 38) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .skeleton-username {
+            width: 120px;
+            height: 12px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, rgb(38, 38, 38) 25%, rgb(50, 50, 50) 50%, rgb(38, 38, 38) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .skeleton-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(90deg, rgb(38, 38, 38) 25%, rgb(50, 50, 50) 50%, rgb(38, 38, 38) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .skeleton-actions {
+            display: flex;
+            gap: 16px;
+            padding: 12px 16px;
+        }
+
+        .skeleton-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, rgb(38, 38, 38) 25%, rgb(50, 50, 50) 50%, rgb(38, 38, 38) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .skeleton-likes {
+            width: 80px;
+            height: 12px;
+            border-radius: 4px;
+            margin: 0 16px 8px;
+            background: linear-gradient(90deg, rgb(38, 38, 38) 25%, rgb(50, 50, 50) 50%, rgb(38, 38, 38) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #preview-banner {
+                padding: 10px 16px;
+            }
+
+            .preview-banner-content {
+                padding-right: 0;
+            }
+
+            .preview-banner-title {
+                font-size: 13px;
+                margin-top: -9px;
+                padding-top: 6px;
+            }
+
+            .preview-banner-description {
+                font-size: 11px;
+                padding-top: 4px;
+            }
+
+            .preview-banner-button {
+                top: 0;
+                right: 0;
+                width: fit-content;
+                padding: 5px 11px;
+                font-size: 12px;
+                line-height: 1.2;
+            }
+
+            .preview-timer {
+                padding: 5px 10px;
+                font-size: 12px;
+                min-width: 60px;
+            }
+        }
+    </style>
+
+</head>
+
+<body
+    style="background: rgb(11, 16, 20); font-family: Inter, system-ui, sans-serif; color: #F9F9F9; margin: 0; padding: 0;">
+    <!-- Header -->
+    <div id="main-header"
+        style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 12px 16px; background: rgb(11, 16, 20); display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <img alt="Instagram" src="../assets/images/logos/logo-insta.png"
+                style="height: 28px; object-fit: contain; margin-top: 4px;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <button type="button" class="blocked-action"
+                style="position: relative; background: none; border: none; cursor: pointer;">
+                <img alt="Curtidas" src="../assets/svg/coracao.svg" style="width: 26px; height: 26px;">
+                <span
+                    style="position: absolute; top: -4px; right: -4px; width: 8px; height: 8px; background: red; border-radius: 50%;"></span>
+            </button>
+            <a href="direct.html"
+                style="position: relative; background: none; border: none; cursor: pointer; text-decoration: none; display: inline-block;"
+                onclick="if(typeof navigateWithUTM==='function'){navigateWithUTM('direct.html');return false;}">
+                <img alt="Directs" src="../assets/svg/enviar.svg" style="width: 24px; height: 24px;">
+                <span id="unread-messages-count"
+                    style="position: absolute; top: -4px; right: -4px; min-width: 18px; height: 18px; background: red; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #F9F9F9; font-size: 10px; font-weight: bold; padding: 0 4px;">2</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Stories -->
+    <div style="padding-top: 60px; padding-bottom: 160px;">
+        <div style="padding: 12px 16px; overflow-x: auto;" class="hide-scrollbar">
+            <div style="display: flex; gap: 12px;" id="stories-container">
+                <!-- Stories serão inseridos aqui via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Posts -->
+        <!-- Banner "You've seen all new posts" - Fica SEMPRE aqui, mas só APARECE quando ver todos os posts -->
+        <div id="all-posts-seen-banner">
+            <div class="all-posts-seen-icon">
+                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gradient-check" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#833AB4;stop-opacity:1" />
+                            <stop offset="20%" style="stop-color:#C13584;stop-opacity:1" />
+                            <stop offset="40%" style="stop-color:#E1306C;stop-opacity:1" />
+                            <stop offset="60%" style="stop-color:#FD1D1D;stop-opacity:1" />
+                            <stop offset="75%" style="stop-color:#F77737;stop-opacity:1" />
+                            <stop offset="90%" style="stop-color:#FCAF45;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFD600;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"
+                        stroke="url(#gradient-check)"></path>
+                </svg>
+            </div>
+            <div class="all-posts-seen-text">
+                Você viu todas as publicações disponíveis na prévia grátis, seja membro VIP para ver todos os posts. <a
+                    href="cta.html" class="saiba-mais-link"
+                    onclick="if(typeof navigateWithUTM==='function'){navigateWithUTM('cta.html');return false;}">Virar
+                    VIP</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 16px;" id="posts-container">
+            <!-- Posts serão inseridos aqui via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div
+        style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1001; padding: 16px 24px; background: rgb(11, 16, 20); border-top: 1px solid rgb(38, 38, 38); display: flex; align-items: center; justify-content: space-between;">
+        <button type="button"><img alt="Home" src="../assets/svg/casa.svg"
+                style="width: 24px; height: 24px; opacity: 1;"></button>
+        <button type="button" class="blocked-action"><img alt="Buscar" src="../assets/svg/lupa.svg"
+                style="width: 24px; height: 24px;"></button>
+        <button type="button" class="blocked-action"><img alt="Adicionar" src="../assets/svg/adicionar%20conteudo.svg"
+                style="width: 24px; height: 24px;"></button>
+        <button type="button" class="blocked-action"><img alt="Reels" src="../assets/svg/reels.svg"
+                style="width: 24px; height: 24px;"></button>
+        <button style="position: relative;" class="blocked-action">
+            <div
+                style="width: 24px; height: 24px; border-radius: 50%; overflow: hidden; background: rgb(31, 41, 55); border: 2px solid #F9F9F9;">
+                <img alt="Profile" id="nav-profile-pic"
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </button>
+    </div>
+
+    <!-- Pop-up vermelho para opções bloqueadas -->
+    <div id="blocked-popup-overlay"></div>
+    <div id="blocked-popup">
+        <!-- Conteúdo será inserido dinamicamente -->
+    </div>
+
+    <!-- Notificação estilo Instagram iOS -->
+    <div id="ios-notification">
+        <div class="notification-profile-pic" id="notification-profile-pic">
+            <div
+                style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: transparent; color: rgba(249,249,249,0.3); font-size: 20px; font-weight: 600;">
+                ?</div>
+        </div>
+        <div class="notification-content">
+            <span class="notification-time">Agora</span>
+            <p class="notification-text-line"
+                style="margin: 0; margin-bottom: 2px; font-weight: 600; line-height: 1.2; padding-right: 10px;">
+                Instagram
+            </p>
+            <p class="notification-text-line" id="notification-message"
+                style="margin: 0; line-height: 1.2; padding-right: 10px;">
+                Fer****** enviou uma mensagem: "Oi delícia, adivinha o que vc esqueceu aqui? kkkk"
+            </p>
+        </div>
+    </div>
+
+    <!-- Banner de prévia grátis -->
+   <div id="preview-banner" style="background: #35ff9a !important; color: #000 !important; position: fixed; bottom: 60px; left: 0; right: 0; z-index: 9999; padding: 12px; display: flex; align-items: center; justify-content: space-between; border-radius: 12px 12px 0 0;">
+    <div class="preview-banner-content" style="display: flex; align-items: center; gap: 10px;">
+        <div class="preview-banner-text">
+            <p class="preview-banner-title" style="color: #000 !important; font-weight: 800; margin: 0; font-size: 14px; display: flex; align-items: center; gap: 5px;">
+                ⚡ Prévia disponível por <span id="timer-text" style="color: #000 !important;">10:00</span>
+                <svg class="preview-timer-icon" fill="none" stroke="#000" viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </p>
+            <p class="preview-banner-description" style="color: #000 !important; font-size: 11px; margin: 2px 0 0 0; opacity: 0.9; line-height: 1.2;">
+                Você ganhou 10 minutos para testar, para liberar tudo é necessário ser VIP.
+            </p>
+        </div>
+    </div>
+    <button class="preview-banner-button" onclick="goToCTA()" style="background: #000 !important; color: #fff !important; border: none !important; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer; flex-shrink: 0;">Tornar-se VIP</button>
+</div>
+    <!-- Script compartilhado de stories -->
+    <script src="../scripts/pages/shared-stories.js"></script>
+<script>
+       
+// 🔥 MOTOR UNAVATAR PREMIUM COM FILA E PROXY DE FEED 🔥
+        const UNAVATAR_KEY = 'NR9Ksto2Sesc85LEyA1Spz';
+        const unavatarQueue = [];
+        let isProcessingQueue = false;
+
+        async function processUnavatarQueue() {
+            if (isProcessingQueue || unavatarQueue.length === 0) return;
+            isProcessingQueue = true;
+
+            const { username, imgElement } = unavatarQueue.shift();
+
+            try {
+                imgElement.onerror = null; // Evita conflito
+                const response = await fetch(`https://unavatar.io/instagram/${username}`, {
+                    method: 'GET',
+                    headers: { 'x-api-key': UNAVATAR_KEY }
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    if (blob.size > 1000) { // Foge da carinha de erro pixelizada
+                        const url = URL.createObjectURL(blob);
+                        imgElement.src = url;
+                        imgElement.style.opacity = '1';
+                    } else {
+                        imgElement.src = '../assets/images/avatars/perfil-sem-foto.jpeg';
+                    }
+                } else {
+                    imgElement.src = '../assets/images/avatars/perfil-sem-foto.jpeg';
+                }
+            } catch (error) {
+                imgElement.src = '../assets/images/avatars/perfil-sem-foto.jpeg';
+            }
+
+            // Respiro de 200ms para a API não bloquear
+            setTimeout(() => {
+                isProcessingQueue = false;
+                processUnavatarQueue();
+            }, 200);
+        }
+
+        function fetchUnavatarImage(username, imgElement) {
+            if (!username || username.includes('*') || username.toLowerCase() === 'usuario' || username.startsWith('user')) return;
+            
+            // Fundo escuro de carregamento premium para os stories
+            imgElement.style.opacity = '0';
+            imgElement.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23314155"%3E%3Ccircle cx="12" cy="12" r="12"/%3E%3C/svg%3E';
+            setTimeout(() => imgElement.style.opacity = '1', 50);
+
+            unavatarQueue.push({ username, imgElement });
+            processUnavatarQueue();
+        }
+
+        function applyUnavatarToDOM() {
+            // 1. Processa todos os Avatares em Fila
+            document.querySelectorAll('img[data-unavatar]').forEach(img => {
+                const username = img.getAttribute('data-unavatar');
+                if (username && username.trim() !== '') {
+                    fetchUnavatarImage(username, img);
+                }
+                img.removeAttribute('data-unavatar'); 
+            });
+
+            // 2. 🔥 A MÁGICA DO FEED: Aplica o Proxy nas fotos grandes na mesma hora 🔥
+            document.querySelectorAll('.post-image-container img').forEach(img => {
+                if (!img.dataset.proxyAplicado && img.src && (img.src.includes('instagram') || img.src.includes('fbcdn') || img.src.includes('scontent'))) {
+                    img.dataset.proxyAplicado = "true";
+                    img.src = 'https://wsrv.nl/?url=' + encodeURIComponent(img.src);
+                }
+            });
+
+            // 3. Bloqueia o botão 'mais' nas legendas (VIP)
+            document.querySelectorAll('span.show-more-btn, span.blocked-action').forEach(btn => {
+                if(btn.textContent.toLowerCase().includes('mais') && !btn.dataset.bloqueado) {
+                    btn.dataset.bloqueado = "true";
+                    btn.classList.add('blocked-action');
+                    // Clona para destruir o clique original de "expandir texto"
+                    const clone = btn.cloneNode(true);
+                    btn.replaceWith(clone);
+                }
+            });
+        }
+
+        (function () {
+            history.pushState(null, null, location.href);
+            window.addEventListener('popstate', function (event) {
+                history.pushState(null, null, location.href);
+            });
+            const originalBack = history.back;
+            history.back = function () {
+                history.pushState(null, null, location.href);
+            };
+            const originalGo = history.go;
+            history.go = function (delta) {
+                if (delta < 0) {
+                    history.pushState(null, null, location.href);
+                } else {
+                    return originalGo.call(history, delta);
+                }
+            };
+        })();
+
+        function normalizeRegion(region) {
+            if (!region) return '';
+            const regionMap = {
+                'paraná': 'PR', 'parana': 'PR', 'são paulo': 'SP', 'sao paulo': 'SP', 'rio de janeiro': 'RJ',
+                'minas gerais': 'MG', 'rio grande do sul': 'RS', 'santa catarina': 'SC', 'bahia': 'BA',
+                'goiás': 'GO', 'goias': 'GO', 'pernambuco': 'PE', 'ceará': 'CE', 'ceara': 'CE',
+                'distrito federal': 'DF', 'espírito santo': 'ES', 'espirito santo': 'ES', 'mato grosso': 'MT',
+                'mato grosso do sul': 'MS', 'pará': 'PA', 'para': 'PA', 'amazonas': 'AM'
+            };
+            const regionLower = region.toLowerCase().trim();
+            if (region.length === 2 && region.match(/^[A-Z]{2}$/i)) return region.toUpperCase();
+            for (const [key, sigla] of Object.entries(regionMap)) {
+                if (regionLower.includes(key) || key.includes(regionLower)) return sigla;
+            }
+            return region;
+        }
+
+        async function getUserLocation() {
+            const cachedLocation = localStorage.getItem('userLocation');
+            if (cachedLocation) localStorage.removeItem('userLocation');
+            const apis = [
+                {
+                    url: 'https://ip-api.com/json/?fields=status,message,city,regionName,region,country,lat,lon',
+                    parser: (data) => {
+                        if (data.status === 'success' && data.city) return { city: data.city, region: normalizeRegion(data.region || data.regionName || ''), country: data.country || 'Brasil', lat: data.lat, lon: data.lon };
+                        return null;
+                    }
+                },
+                {
+                    url: 'https://ipapi.co/json/',
+                    parser: (data) => {
+                        if (data.city && !data.error) return { city: data.city, region: normalizeRegion(data.region || data.region_code || ''), country: data.country_name || 'Brasil', lat: data.latitude, lon: data.longitude };
+                        return null;
+                    }
+                }
+            ];
+
+            for (const api of apis) {
+                try {
+                    let location = null;
+                    const response = await fetch(api.url, { method: 'GET', headers: { 'Accept': 'application/json' }, mode: 'cors' });
+                    if (!response.ok) continue;
+                    const data = await response.json();
+                    location = api.parser(data);
+                    if (location && location.city) {
+                        localStorage.setItem('userLocation', JSON.stringify(location));
+                        return location;
+                    }
+                } catch (error) { continue; }
+            }
+            return null;
+        }
+
+        async function getNearbyCities(lat, lon, userCity) {
+            try {
+                if (typeof reverseGeocode === 'function' && typeof getNeighborCity === 'function') {
+                    const data = await reverseGeocode(lat, lon);
+                    if (data && data.address) {
+                        const nearbyCity = await getNeighborCity(lat, lon);
+                        if (nearbyCity) {
+                            const cities = [userCity];
+                            if (nearbyCity.toLowerCase() !== userCity.toLowerCase()) cities.push(nearbyCity);
+                            return cities;
+                        }
+                    }
+                }
+            } catch (error) { }
+            return [userCity];
+        }
+
+        async function generateNearbyCities(userCity, userRegion, lat, lon) {
+            if (lat && lon) return await getNearbyCities(lat, lon, userCity);
+            return [userCity];
+        }
+
+        function showBlockedPopup(functionName) {
+            const popup = document.getElementById('blocked-popup');
+            const overlay = document.getElementById('blocked-popup-overlay');
+
+            let actionText = 'a esta ação';
+            if (functionName) {
+                const lowerName = functionName.toLowerCase();
+                if (lowerName.includes('story') || lowerName.includes('visualizar story')) actionText = 'aos stories';
+                else if (lowerName.includes('curtir') || lowerName.includes('like')) actionText = 'às curtidas';
+                else if (lowerName.includes('reels')) actionText = 'aos reels';
+                else if (lowerName.includes('perfil') || lowerName.includes('profile')) actionText = 'ao perfil';
+                else if (lowerName.includes('notificação') || lowerName.includes('notificacao')) actionText = 'às notificações';
+                else if (lowerName.includes('comentar')) actionText = 'aos comentários';
+                else if (lowerName.includes('repost')) actionText = 'ao repostar';
+                else if (lowerName.includes('enviar')) actionText = 'ao enviar';
+                else if (lowerName.includes('salvar')) actionText = 'ao salvar';
+                else if (lowerName.includes('buscar')) actionText = 'à busca';
+                else if (lowerName.includes('adicionar')) actionText = 'ao adicionar conteúdo';
+                else if (lowerName.includes('home')) actionText = 'ao home';
+                else if (lowerName.includes('mais opções')) actionText = 'às opções';
+            }
+
+            if (popup && overlay) {
+                popup.innerHTML = `
+                    <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 10px 0; letter-spacing: -0.1px; opacity: 0.95;">⚠︎ Ação bloqueada</h3>
+                    <p style="font-size: 13px; opacity: 0.85; margin: 0 0 20px 0; line-height: 1.4; font-weight: 400;">Seja um membro VIP do Stalker.privado<br>para ter acesso ${actionText}</p>
+                    <button onclick="goToCTA()" style="background: rgba(249, 249, 249, 0.3); color: #F9F9F9; padding: 10px 20px; border-radius: 10px; font-weight: 500; font-size: 13px; border: 1px solid rgba(249, 249, 249, 0.3); cursor: pointer; width: 100%; transition: all 0.2s; backdrop-filter: blur(10px);">Adquirir Acesso VIP</button>
+                `;
+                popup.classList.add('show');
+                overlay.classList.add('show');
+
+                overlay.onclick = function () {
+                    popup.classList.remove('show');
+                    overlay.classList.remove('show');
+                };
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                    overlay.classList.remove('show');
+                }, 5000);
+            }
+        }
+
+        let blockedActionsHandler = null;
+        let storiesHandler = null;
+        let likeHandler = null;
+        let saveHandler = null;
+
+        function setupBlockedActions() {
+            if (blockedActionsHandler) document.removeEventListener('click', blockedActionsHandler, true);
+            if (storiesHandler) document.removeEventListener('click', storiesHandler, true);
+            if (likeHandler) document.removeEventListener('click', likeHandler, true);
+            if (saveHandler) document.removeEventListener('click', saveHandler, true);
+
+            blockedActionsHandler = function (e) {
+                const button = e.target.closest('.blocked-action');
+                if (button) {
+                    e.preventDefault(); e.stopPropagation();
+                    let functionName = 'Esta funcionalidade';
+                    const img = button.querySelector('img');
+                    if (img) {
+                        const alt = img.getAttribute('alt') || '';
+                        if (alt.includes('Curtidas') || alt.includes('Curtir')) functionName = 'Curtir';
+                        else if (alt.includes('Comentar')) functionName = 'Comentar';
+                        else if (alt.includes('Repost')) functionName = 'Repostar';
+                        else if (alt.includes('Enviar')) functionName = 'Enviar';
+                        else if (alt.includes('Salvar')) functionName = 'Salvar';
+                        else if (alt.includes('Buscar')) functionName = 'Buscar';
+                        else if (alt.includes('Adicionar')) functionName = 'Adicionar conteúdo';
+                        else if (alt.includes('Reels')) functionName = 'Reels';
+                    }
+                    showBlockedPopup(functionName);
+                }
+            };
+            document.addEventListener('click', blockedActionsHandler, true);
+
+            storiesHandler = function (e) {
+                const addStoryBtn = e.target.closest('.add-story-button');
+                if (addStoryBtn) { e.preventDefault(); e.stopPropagation(); showBlockedPopup('Adicionar story'); return false; }
+                const storiesContainer = document.getElementById('stories-container');
+                if (storiesContainer && storiesContainer.contains(e.target)) {
+                    const storyDiv = e.target.closest('div[style*="display: flex"][style*="flex-direction: column"]');
+                    if (storyDiv) {
+                        const storyText = storyDiv?.querySelector('span')?.textContent;
+                        if (storyText && storyText !== 'Seu story') {
+                            e.preventDefault(); e.stopPropagation(); showBlockedPopup('Visualizar story'); return false;
+                        }
+                    }
+                }
+            };
+            document.addEventListener('click', storiesHandler, true);
+
+            likeHandler = function (e) {
+                const likeButton = e.target.closest('.like-button');
+                if (likeButton) {
+                    e.preventDefault(); e.stopPropagation();
+                    const isLiked = likeButton.getAttribute('data-liked') === 'true';
+                    likeButton.setAttribute('data-liked', !isLiked);
+                    const img = likeButton.querySelector('img');
+                    if (img) img.src = !isLiked ? '../assets/svg/coracao-curtido.svg' : '../assets/svg/coracao.svg';
+                    const likesCountDisplay = likeButton.querySelector('.likes-count-display');
+                    if (likesCountDisplay) {
+                        let currentLikes = parseInt(likesCountDisplay.textContent.replace(/\./g, '')) || 0;
+                        likesCountDisplay.textContent = !isLiked ? currentLikes + 1 : currentLikes - 1;
+                    }
+                }
+            };
+            document.addEventListener('click', likeHandler, true);
+
+            saveHandler = function (e) {
+                const saveButton = e.target.closest('.save-button');
+                if (saveButton) {
+                    e.preventDefault(); e.stopPropagation();
+                    const isSaved = saveButton.getAttribute('data-saved') === 'true';
+                    saveButton.setAttribute('data-saved', !isSaved);
+                    const img = saveButton.querySelector('img');
+                    if (img) img.src = !isSaved ? '../assets/svg/salvar-salvado.svg' : '../assets/svg/salvar.svg';
+                }
+            };
+            document.addEventListener('click', saveHandler, true);
+        }
+
+        let cachedCityData = null;
+        async function detectCityByIPWithCache() {
+            if (cachedCityData) return cachedCityData;
+            if (typeof detectCityByIP === 'function') cachedCityData = await detectCityByIP();
+            return cachedCityData;
+        }
+
+        async function loadFeedData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let username = urlParams.get('username') || localStorage.getItem('username') || 'usuario';
+
+            if (urlParams.get('username')) {
+                localStorage.setItem('username', urlParams.get('username'));
+                username = urlParams.get('username');
+            }
+
+            const cleanUsername = username.replace(/^@+/, '').trim();
+            const storageKey = 'instagram_profile';
+
+            let profilePicUrl = '../assets/images/avatars/perfil-espionado.jpg';
+            let fullName = typeof generateRandomName === 'function' ? generateRandomName() : 'Usuário';
+            let isPrivate = false;
+
+            try {
+                const savedData = localStorage.getItem(storageKey);
+                if (savedData) {
+                    const parsedData = JSON.parse(savedData);
+                    if (parsedData.profile_pic_url) profilePicUrl = parsedData.profile_pic_url;
+                    if (parsedData.full_name) fullName = parsedData.full_name;
+                    isPrivate = parsedData.is_private || false;
+                }
+            } catch (error) { }
+
+            const isFallbackDataForProfile = localStorage.getItem('is_fallback_data') === 'true';
+            const hasNoApiDataForProfile = !localStorage.getItem('instagram_followers') && !localStorage.getItem('followers') && !localStorage.getItem('chaining_results');
+            const shouldUseFallbackForProfile = isFallbackDataForProfile || hasNoApiDataForProfile;
+            const hasInstagramPhoto = profilePicUrl && profilePicUrl !== '../assets/images/avatars/perfil-espionado.jpeg' && (profilePicUrl.includes('cdninstagram.com') || profilePicUrl.includes('instagram.com') || profilePicUrl.startsWith('http'));
+            
+            if (shouldUseFallbackForProfile && !hasInstagramPhoto) {
+                profilePicUrl = '../assets/images/avatars/perfil-sem-foto.jpg';
+            }
+
+            const storiesDataKey = 'feed_stories_data';
+            const storiesOrderKey = 'feed_stories_order';
+            let allUsers = [];
+
+            if (isPrivate) {
+                const chainingData = localStorage.getItem('chaining_results');
+                if (chainingData) {
+                    try {
+                        const chainingResults = JSON.parse(chainingData);
+                        allUsers = chainingResults.map(user => {
+                            let pic = user.profile_pic_url || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                            if (typeof getProxyImageUrl === 'function' && pic && !pic.startsWith('../index.html')) pic = getProxyImageUrl(pic);
+                            return { username: user.username || '', full_name: user.full_name || '', profile_pic_url: pic };
+                        }).filter(u => u.username);
+                    } catch (e) { }
+                }
+            } else {
+                const possibleFollowersKeys = ['instagram_followers', 'followers'];
+                let followersData = null;
+                for (const key of possibleFollowersKeys) {
+                    const data = localStorage.getItem(key);
+                    if (data) {
+                        try {
+                            const parsed = JSON.parse(data);
+                            if (parsed && Array.isArray(parsed) && parsed.length > 0) { followersData = data; break; }
+                        } catch (e) { continue; }
+                    }
+                }
+
+                if (followersData) {
+                    try {
+                        const followers = JSON.parse(followersData);
+                        allUsers = followers.map(user => {
+                            let pic = user.profile_pic_url || user.profile_pic_url_hd || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                            if (typeof getProxyImageUrl === 'function' && pic && !pic.startsWith('../index.html')) pic = getProxyImageUrl(pic);
+                            return { username: user.username || '', full_name: user.full_name || '', profile_pic_url: pic };
+                        }).filter(u => u.username);
+                    } catch (e) { }
+                }
+            }
+
+            const isFallbackData = localStorage.getItem('is_fallback_data') === 'true';
+            const hasNoApiData = !localStorage.getItem('instagram_followers') && !localStorage.getItem('followers') && !localStorage.getItem('chaining_results');
+            const shouldUseFallback = isFallbackData || hasNoApiData;
+
+            if (shouldUseFallback) {
+                localStorage.removeItem(storiesDataKey);
+                localStorage.removeItem('processed_stories_' + username);
+                localStorage.removeItem('stories_order_' + username);
+            }
+
+            if (allUsers.length === 0 && !shouldUseFallback) {
+                const cachedStories = localStorage.getItem(storiesDataKey);
+                if (cachedStories) allUsers = JSON.parse(cachedStories);
+            }
+
+            if (allUsers.length === 0) {
+                // 🔥 AVATARES REAIS E PERFEITOS PARA TESTES (PRAVATAR) 🔥
+                if (shouldUseFallback) {
+                    const fallbackStories = [
+                        { username: 'And*****', full_name: 'And*****', profile_pic_url: 'https://i.pravatar.cc/150?img=11' },
+                        { username: 'Fran*****', full_name: 'Fran*****', profile_pic_url: 'https://i.pravatar.cc/150?img=12' },
+                        { username: 'Antô*****', full_name: 'Antô*****', profile_pic_url: 'https://i.pravatar.cc/150?img=13' },
+                        { username: 'Adri*****', full_name: 'Adri*****', profile_pic_url: 'https://i.pravatar.cc/150?img=14' },
+                        { username: 'Juli*****', full_name: 'Juli*****', profile_pic_url: 'https://i.pravatar.cc/150?img=15' },
+                        { username: 'Már*****', full_name: 'Már*****', profile_pic_url: 'https://i.pravatar.cc/150?img=16' },
+                        { username: 'Fern*****', full_name: 'Fern*****', profile_pic_url: 'https://i.pravatar.cc/150?img=17' },
+                        { username: 'Patr*****', full_name: 'Patr*****', profile_pic_url: 'https://i.pravatar.cc/150?img=18' },
+                        { username: 'Ali*****', full_name: 'Ali*****', profile_pic_url: 'https://i.pravatar.cc/150?img=19' },
+                        { username: 'Bru*****', full_name: 'Bru*****', profile_pic_url: 'https://i.pravatar.cc/150?img=20' },
+                        { username: 'Gabr*****', full_name: 'Gabr*****', profile_pic_url: 'https://i.pravatar.cc/150?img=21' },
+                        { username: 'Rafa*****', full_name: 'Rafa*****', profile_pic_url: 'https://i.pravatar.cc/150?img=22' },
+                        { username: 'Lui*****', full_name: 'Lui*****', profile_pic_url: 'https://i.pravatar.cc/150?img=23' },
+                        { username: 'Dani*****', full_name: 'Dani*****', profile_pic_url: 'https://i.pravatar.cc/150?img=24' }
+                    ];
+                    const shuffled = [...fallbackStories].sort(() => Math.random() - 0.5);
+                    allUsers = shuffled.slice(0, 14);
+                } else if (typeof generateRandomUsers === 'function') {
+                    const randomUsers = generateRandomUsers(15);
+                    allUsers = randomUsers.map(user => ({
+                        username: user.username || '', full_name: user.full_name || '', profile_pic_url: 'https://i.pravatar.cc/150?img=' + Math.floor(Math.random() * 50)
+                    })).filter(u => u.username);
+                    localStorage.setItem(storiesDataKey, JSON.stringify(allUsers));
+                }
+            }
+
+            const storiesContainer = document.getElementById('stories-container');
+            if (storiesContainer && username && profilePicUrl) {
+                storiesContainer.innerHTML = '';
+                
+                const firstStoryHTML = `
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                        <button class="story-button">
+                            <div style="width: 100%; height: 100%; border-radius: 50%; background: rgb(31, 41, 55); position: relative; overflow: visible;">
+                                <div style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
+                                    <img alt="${username}" src="${profilePicUrl}" data-unavatar="${cleanUsername}" loading="eager" decoding="async" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;" onerror="this.src='../assets/images/avatars/perfil-sem-foto.jpg';">
+                                </div>
+                                <div class="add-story-button" style="position: absolute; bottom: -2px; right: -2px; width: 26px; height: 26px; background-color: #F9F9F9; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2.6px solid rgb(31, 41, 55); z-index: 30; cursor: pointer;">
+                                    <svg width="15" height="14.5" viewBox="0 0 24 24" fill="none" stroke="rgb(31, 41, 55)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                </div>
+                            </div>
+                        </button>
+                        <span class="story-username">Seu story</span>
+                    </div>
+                `;
+                storiesContainer.innerHTML = firstStoryHTML;
+
+                setTimeout(() => {
+                    const addStoryButton = document.querySelector('.add-story-button');
+                    if (addStoryButton) {
+                        addStoryButton.addEventListener('click', function (e) {
+                            e.preventDefault(); e.stopPropagation(); showBlockedPopup('Adicionar story');
+                        });
+                    }
+                }, 100);
+
+                const MAX_STORIES = 15;
+                const validStories = allUsers.filter(user => user && user.username && user.profile_pic_url).slice(0, MAX_STORIES - 1);
+
+                let orderedStories = [...validStories];
+                const savedOrder = localStorage.getItem(storiesOrderKey);
+
+                if (savedOrder) {
+                    try {
+                        const orderArray = JSON.parse(savedOrder);
+                        const usernameMap = {};
+                        validStories.forEach(s => usernameMap[s.username] = s);
+                        const reordered = orderArray.map(username => usernameMap[username]).filter(Boolean);
+                        if (reordered.length === validStories.length) {
+                            orderedStories = reordered;
+                        } else {
+                            for (let i = orderedStories.length - 1; i > 0; i--) {
+                                const j = Math.floor(Math.random() * (i + 1));
+                                [orderedStories[i], orderedStories[j]] = [orderedStories[j], orderedStories[i]];
+                            }
+                            localStorage.setItem(storiesOrderKey, JSON.stringify(orderedStories.map(s => s.username)));
+                        }
+                    } catch (e) { }
+                } else {
+                    for (let i = orderedStories.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [orderedStories[i], orderedStories[j]] = [orderedStories[j], orderedStories[i]];
+                    }
+                    localStorage.setItem(storiesOrderKey, JSON.stringify(orderedStories.map(s => s.username)));
+                }
+
+                const isFallbackDataForStories = localStorage.getItem('is_fallback_data') === 'true';
+                const hasNoApiDataForStories = !localStorage.getItem('instagram_followers') && !localStorage.getItem('followers') && !localStorage.getItem('chaining_results');
+                const shouldUseFallbackForStories = isFallbackDataForStories || hasNoApiDataForStories;
+
+                const storiesHTML = orderedStories.map((user, index) => {
+                    const displayName = user.full_name || user.username || 'Usuario';
+                    const maskedUsername = typeof maskUsername === 'function' ? maskUsername(displayName) : displayName.substring(0,3) + '*****';
+                    let profilePic = user.profile_pic_url || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                    if (typeof getProxyImageUrlLight === 'function' && profilePic && !profilePic.startsWith('../index.html') && !profilePic.startsWith('index.html') && !profilePic.includes('pravatar')) {
+                        profilePic = getProxyImageUrlLight(profilePic);
+                    }
+                    const borderColor = index < 3 ? '#44B051' : 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)';
+                    const blurStyle = shouldUseFallbackForStories ? 'filter: blur(5px); -webkit-filter: blur(5px);' : '';
+                    
+                    return `
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                            <button class="story-button">
+                                <div style="width: 100%; height: 100%; border-radius: 50%; padding: 3px; background: ${borderColor};">
+                                    <div style="width: 100%; height: 100%; border-radius: 50%; background: rgb(11, 16, 20); padding: 2px;">
+                                        <div style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: rgb(31, 41, 55); position: relative;">
+                                            <img alt="${maskedUsername}" src="${profilePic}" data-unavatar="${user.username}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; ${blurStyle}" onerror="this.onerror=null; this.src='https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 50)}';">
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                            <span class="story-username">${maskedUsername}</span>
+                        </div>
+                    `;
+                }).join('');
+
+                storiesContainer.innerHTML += storiesHTML;
+            }
+
+            const navProfilePic = document.getElementById('nav-profile-pic');
+            if (navProfilePic && profilePicUrl) {
+                navProfilePic.src = profilePicUrl;
+                navProfilePic.style.opacity = '0.8';
+                navProfilePic.setAttribute('data-unavatar', cleanUsername);
+            }
+
+            const postsContainer = document.getElementById('posts-container');
+            if (postsContainer && username) {
+                function formatPostDate(timestamp) {
+                    if (!timestamp || timestamp <= 0) return null;
+                    const now = new Date();
+                    const postDate = new Date(timestamp * 1000);
+                    const diffMs = now - postDate;
+                    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+                    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+                    const diffYears = Math.floor(diffDays / 365);
+                    if (diffYears >= 1) return null;
+                    if (diffHours < 24) {
+                        if (diffHours === 0) return 'Agora';
+                        return `há ${diffHours} hora${diffHours > 1 ? 's' : ''}`;
+                    }
+                    if (diffDays >= 1 && diffDays <= 7) return `há ${diffDays} dia${diffDays > 1 ? 's' : ''}`;
+                    const meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+                    return `${postDate.getDate()} de ${meses[postDate.getMonth()]} de ${postDate.getFullYear()}`;
+                }
+
+                const sessionPostsKey = `feed_posts_${username}`;
+                let postsData = null;
+                sessionStorage.removeItem(sessionPostsKey);
+
+                let postsReais = [];
+                try {
+                    if (isPrivate) {
+                        const possiblePostKeys = ['instagram_posts', 'feed_real_posts'];
+                        let realPostsData = null;
+                        for (const key of possiblePostKeys) {
+                            const data = localStorage.getItem(key);
+                            if (data) {
+                                try {
+                                    const parsed = JSON.parse(data);
+                                    if (parsed && Array.isArray(parsed) && parsed.length > 0) { realPostsData = data; break; }
+                                } catch (e) { continue; }
+                            }
+                        }
+
+                        if (realPostsData) {
+                            const parsedRealPosts = JSON.parse(realPostsData);
+                            postsReais = parsedRealPosts.map((item, idx) => {
+                                const post = item.post;
+                                let imageUrl = post.image_url || '';
+                                let videoUrl = post.video_url || '';
+                                const likes = post.like_count || 0;
+                                const comments = post.comment_count || 0;
+                                const timestamp = post.taken_at || (Date.now() / 1000);
+                                const caption = post.caption || '';
+                                let mediaType = 1;
+                                if (post.media_type === 'VIDEO') mediaType = 2;
+                                else if (post.media_type === 'CAROUSEL') mediaType = 8;
+
+                                const aspectRatio = '1 / 1';
+                                const usuario = item.de_usuario || item;
+                                let profilePicUrl = usuario.profile_pic_url || item.profile_pic_url || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                                let postUsername = usuario.username || item.username || '';
+                                let postFullName = usuario.full_name || item.full_name || '';
+
+                                return {
+                                    username: postUsername, originalUsername: postUsername, profilePic: profilePicUrl, fullName: postFullName,
+                                    imageUrl: imageUrl, videoUrl: videoUrl, mediaType: mediaType, likes: likes, comments: comments,
+                                    reposts: 0, shares: 0, caption: caption, timestamp: timestamp, isReal: true, isFallback: false, aspectRatio: aspectRatio, locationType: 'none'
+                                };
+                            });
+
+                            postsReais = postsReais.map((post, idx) => {
+                                if (!post.username) {
+                                    if (typeof generateRandomUsers === 'function') {
+                                        const randomUsers = generateRandomUsers(1);
+                                        if (randomUsers && randomUsers.length > 0) {
+                                            post.username = typeof maskUsername === 'function' ? maskUsername(randomUsers[0].username || 'usuario') : (randomUsers[0].username || 'usuario').substring(0,3)+'*****';
+                                            post.originalUsername = randomUsers[0].username || 'usuario';
+                                        } else {
+                                            post.username = typeof maskUsername === 'function' ? maskUsername('usuario') : 'usua*****';
+                                            post.originalUsername = 'usuario';
+                                        }
+                                    } else {
+                                        post.username = typeof maskUsername === 'function' ? maskUsername('usuario') : 'usua*****';
+                                        post.originalUsername = 'usuario';
+                                    }
+                                }
+                                return post;
+                            });
+                        }
+                    } else {
+                        const possiblePostKeys = ['instagram_posts', 'feed_real_posts'];
+                        let realPostsData = null;
+                        for (const key of possiblePostKeys) {
+                            const data = localStorage.getItem(key);
+                            if (data) {
+                                try {
+                                    const parsed = JSON.parse(data);
+                                    if (parsed && Array.isArray(parsed) && parsed.length > 0) { realPostsData = data; break; }
+                                } catch (e) { continue; }
+                            }
+                        }
+
+                        if (realPostsData) {
+                            const parsedRealPosts = JSON.parse(realPostsData);
+                            postsReais = parsedRealPosts.map((item, idx) => {
+                                const post = item.post;
+                                if (!post) return null;
+                                let imageUrl = post.image_url || post.display_url || post.thumbnail_url || post.imageUrl || '';
+                                let videoUrl = post.video_url || post.videoUrl || null;
+                                const likes = post.like_count || post.likes || 0;
+                                const comments = post.comment_count || post.comments || 0;
+                                const timestamp = post.taken_at || post.timestamp || (Date.now() / 1000);
+                                const caption = post.caption || post.text || '';
+                                let mediaType = 1;
+                                if (post.media_type === 'VIDEO' || post.type === 'VIDEO' || post.is_video) mediaType = 2;
+                                else if (post.media_type === 'CAROUSEL' || post.type === 'CAROUSEL') mediaType = 8;
+
+                                const aspectRatio = '1 / 1';
+                                const usuario = item.de_usuario || item;
+                                let profilePicUrl = usuario.profile_pic_url || item.profile_pic_url || item.profile_pic_url_hd || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                                let postUsername = usuario.username || item.username || '';
+                                let postFullName = usuario.full_name || item.full_name || '';
+
+                                return {
+                                    username: postUsername, originalUsername: postUsername, profilePic: profilePicUrl, fullName: postFullName,
+                                    imageUrl: imageUrl, videoUrl: videoUrl, mediaType: mediaType, likes: likes, comments: comments,
+                                    reposts: 0, shares: 0, caption: caption, timestamp: timestamp, isReal: true, isFallback: false, aspectRatio: aspectRatio, locationType: 'none'
+                                };
+                            }).filter(p => p !== null);
+
+                            postsReais = postsReais.map((post, idx) => {
+                                if (!post.username) {
+                                    if (typeof generateRandomUsers === 'function') {
+                                        const randomUsers = generateRandomUsers(1);
+                                        if (randomUsers && randomUsers.length > 0) {
+                                            post.username = typeof maskUsername === 'function' ? maskUsername(randomUsers[0].username || 'usuario') : (randomUsers[0].username || 'usuario').substring(0,3)+'*****';
+                                            post.originalUsername = randomUsers[0].username || 'usuario';
+                                        } else {
+                                            post.username = typeof maskUsername === 'function' ? maskUsername('usuario') : 'usua*****';
+                                            post.originalUsername = 'usuario';
+                                        }
+                                    } else {
+                                        post.username = typeof maskUsername === 'function' ? maskUsername('usuario') : 'usua*****';
+                                        post.originalUsername = 'usuario';
+                                    }
+                                }
+                                return post;
+                            });
+                        }
+                    }
+                } catch (e) { }
+
+                let needFallback = Math.max(0, 6 - postsReais.length);
+                if (needFallback === 1) needFallback = 2;
+
+                const availableUsers = [];
+                let apiProfiles = [];
+                if (isPrivate) {
+                    const chainingData = localStorage.getItem('chaining_results');
+                    if (chainingData) try { apiProfiles = JSON.parse(chainingData); } catch (e) { }
+                } else {
+                    const followersData = localStorage.getItem('instagram_followers') || localStorage.getItem('followers');
+                    if (followersData) try { apiProfiles = JSON.parse(followersData); } catch (e) { }
+                }
+
+                if (apiProfiles && apiProfiles.length > 0) {
+                    apiProfiles.forEach(profile => {
+                        if (profile && profile.username) {
+                            const alreadyHasPost = postsReais.some(p => p.username === profile.username);
+                            if (!alreadyHasPost) {
+                                let profilePic = profile.profile_pic_url || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                                availableUsers.push({ username: profile.username, profilePic: profilePic, fullName: profile.full_name || '' });
+                            }
+                        }
+                    });
+                }
+
+                const shuffledUsers = [...availableUsers].sort(() => Math.random() - 0.5);
+                const fallbackPosts = [];
+
+                if (needFallback > 0 && shuffledUsers.length > 0) {
+                    let fallbackDates = [];
+                    if (postsReais.length >= 2) {
+                        const sortedRealPosts = [...postsReais].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+                        for (let i = 0; i < sortedRealPosts.length - 1 && fallbackDates.length < needFallback; i++) {
+                            const newerPost = sortedRealPosts[i].timestamp || 0;
+                            const olderPost = sortedRealPosts[i + 1].timestamp || 0;
+                            fallbackDates.push((newerPost + olderPost) / 2);
+                        }
+                        while (fallbackDates.length < needFallback) {
+                            const oldestPost = sortedRealPosts[sortedRealPosts.length - 1].timestamp || (Date.now() / 1000);
+                            const daysBeforeOldest = (fallbackDates.length + 1) * 3 * 86400;
+                            fallbackDates.push(oldestPost - daysBeforeOldest);
+                        }
+                    } else if (postsReais.length === 1) {
+                        const realTimestamp = postsReais[0].timestamp || (Date.now() / 1000);
+                        for (let i = 0; i < needFallback; i++) {
+                            const offset = (i % 2 === 0 ? 1 : -1) * ((Math.floor(i / 2) + 1) * 3 * 86400);
+                            fallbackDates.push(realTimestamp + offset);
+                        }
+                    } else {
+                        const nowTimestamp = Date.now() / 1000;
+                        for (let i = 0; i < needFallback; i++) {
+                            const daysAgo = (i + 1) * 4 * 86400;
+                            fallbackDates.push(nowTimestamp - daysAgo);
+                        }
+                    }
+
+                    for (let i = 0; i < needFallback && i < shuffledUsers.length; i++) {
+                        const user = shuffledUsers[i];
+                        const likes = Math.floor(Math.random() * 180) + 20;
+
+                        fallbackPosts.push({
+                            username: typeof maskUsername === 'function' ? maskUsername(user.username) : user.username.substring(0,3)+'*****',
+                            originalUsername: user.username,
+                            profilePic: user.profilePic || '../assets/images/avatars/perfil-sem-foto.jpeg',
+                            fullName: user.fullName, imageUrl: '', likes: likes, comments: 0, reposts: 0, shares: 0,
+                            caption: '', timestamp: fallbackDates[i] || (Date.now() / 1000), isReal: false, isFallback: true,
+                            hideComments: false, hideCaption: false, aspectRatio: Math.random() > 0.5 ? '1 / 1' : '3 / 2', locationType: 'none'
+                        });
+                    }
+                }
+
+                let allPosts = [...postsReais, ...fallbackPosts];
+                allPosts.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+                postsData = allPosts.map(post => {
+                    let profilePic = post.profilePic || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                    let fullName = post.fullName || '';
+                    return {
+                        username: post.isReal ? post.username : (typeof maskUsername === 'function' ? maskUsername(post.username) : post.username.substring(0,3)+'*****'),
+                        originalUsername: post.originalUsername || post.username, profilePic: profilePic, fullName: fullName, imageUrl: post.imageUrl,
+                        videoUrl: post.videoUrl || '', mediaType: post.mediaType || post.media_type || '', likes: post.likes || Math.floor(Math.random() * 180) + 20,
+                        comments: post.comments || 0, reposts: post.reposts || 0, shares: post.shares || 0, liked: Math.random() > 0.5, saved: Math.random() > 0.7, caption: post.caption || '',
+                        date: formatPostDate(post.timestamp), timestamp: post.timestamp, aspectRatio: post.aspectRatio || '1 / 1', verified: post.verified || false,
+                        isReal: post.isReal || false, isFallback: post.isFallback || false, hideComments: false, hideCaption: false, locationType: post.locationType || 'none'
+                    };
+                });
+                sessionStorage.setItem(sessionPostsKey, JSON.stringify(postsData));
+
+                function formatNumber(num) {
+                    if (num >= 1000000) {
+                        const mi = (num / 1000000).toFixed(1);
+                        return mi.replace('.', ',').replace(',0', '') + ' mi';
+                    } else if (num >= 10000) {
+                        const k = (num / 1000).toFixed(1);
+                        return k.replace('.', ',').replace(',0', '') + ' mil';
+                    } else if (num >= 1000) {
+                        const str = num.toString();
+                        return str.slice(0, -3) + '.' + str.slice(-3);
+                    }
+                    return num.toString();
+                }
+
+                const isFallbackDataForPosts = localStorage.getItem('is_fallback_data') === 'true';
+                const hasNoApiDataForPosts = !localStorage.getItem('instagram_followers') && !localStorage.getItem('followers') && !localStorage.getItem('chaining_results');
+                const shouldUseFallbackForPosts = isFallbackDataForPosts || hasNoApiDataForPosts;
+
+                if ((!postsData || postsData.length === 0) && shouldUseFallbackForPosts) {
+                    const fallbackNames = ['And*****', 'Fran*****', 'Antô*****', 'Adri*****', 'Juli*****', 'Már*****', 'Fern*****', 'Patr*****', 'Ali*****', 'Bru*****', 'Gabr*****', 'Rafa*****', 'Lui*****', 'Dani*****'];
+                    const fallbackAvatars = [
+                        'https://i.pravatar.cc/150?img=11', 'https://i.pravatar.cc/150?img=12', 'https://i.pravatar.cc/150?img=13',
+                        'https://i.pravatar.cc/150?img=14', 'https://i.pravatar.cc/150?img=15', 'https://i.pravatar.cc/150?img=16',
+                        'https://i.pravatar.cc/150?img=17', 'https://i.pravatar.cc/150?img=18', 'https://i.pravatar.cc/150?img=19',
+                        'https://i.pravatar.cc/150?img=20', 'https://i.pravatar.cc/150?img=21', 'https://i.pravatar.cc/150?img=22',
+                        'https://i.pravatar.cc/150?img=23', 'https://i.pravatar.cc/150?img=24'
+                    ];
+                    const locationTypes = ['ip_city', 'ip_city', 'ip_city', 'ip_city', 'neighbor_city_1', 'neighbor_city_1', 'neighbor_city_1', 'neighbor_city_2', 'neighbor_city_2', 'neighbor_city_2'];
+                    const nowTimestamp = Date.now() / 1000;
+                    postsData = [];
+                    for (let i = 0; i < 10; i++) {
+                        const daysAgo = (i + 1) * 3 * 86400;
+                        postsData.push({
+                            username: fallbackNames[i % fallbackNames.length], originalUsername: fallbackNames[i % fallbackNames.length], profilePic: fallbackAvatars[i % fallbackAvatars.length],
+                            fullName: fallbackNames[i % fallbackNames.length], imageUrl: '', videoUrl: '', likes: Math.floor(Math.random() * 180) + 20, comments: Math.floor(Math.random() * 30) + 1,
+                            reposts: Math.floor(Math.random() * 10), shares: Math.floor(Math.random() * 5), caption: '', timestamp: nowTimestamp - daysAgo, date: `${i + 1} dias atrás`,
+                            isReal: false, isFallback: true, aspectRatio: Math.random() > 0.5 ? '1 / 1' : '3 / 2', locationType: locationTypes[i], verified: false, liked: Math.random() > 0.5, saved: Math.random() > 0.7
+                        });
+                    }
+                }
+
+                let locations = [];
+                const cityData = await detectCityByIPWithCache();
+                if (!cityData) {
+                    locations = postsData.map(() => '');
+                } else {
+                    const neighborCitiesArray = JSON.parse(localStorage.getItem('user_neighbor_cities') || '[]');
+                    const famousPlacesArray = JSON.parse(localStorage.getItem('user_famous_places') || '[]');
+                    let neighborCityIndex = 0;
+                    let famousPlaceIndex = 0;
+
+                    locations = postsData.map((post, index) => {
+                        const locationType = post.locationType || 'none';
+                        if (locationType === 'none') return '';
+                        if (locationType === 'ip_city') return cityData.cidade || '';
+                        if (locationType === 'neighbor_city_1') return neighborCitiesArray.length > 0 ? neighborCitiesArray[0] : cityData.cidade || '';
+                        if (locationType === 'neighbor_city_2') return neighborCitiesArray.length > 1 ? neighborCitiesArray[1] : (neighborCitiesArray.length === 1 ? neighborCitiesArray[0] : cityData.cidade || '');
+                        if (locationType === 'neighbor_city') {
+                            if (neighborCitiesArray.length > 0) { const city = neighborCitiesArray[neighborCityIndex % neighborCitiesArray.length]; neighborCityIndex++; return city; }
+                            return cityData.cidade || '';
+                        }
+                        if (locationType === 'famous_place') {
+                            if (famousPlacesArray.length > 0) { const place = famousPlacesArray[famousPlaceIndex % famousPlacesArray.length]; famousPlaceIndex++; return place; }
+                            return cityData.cidade || '';
+                        }
+                        return '';
+                    });
+                }
+
+                if (!postsData || postsData.length === 0) {
+                    postsContainer.innerHTML = '<div style="padding: 20px; text-align: center; color: #F9F9F9;">⚠️ Nenhum post disponível</div>';
+                    return;
+                }
+
+                const now = Date.now() / 1000;
+                const oneYearInSeconds = 365 * 86400;
+
+                postsContainer.innerHTML = postsData.map((post, index) => {
+                    let relativeTime = '';
+                    if (post.timestamp) {
+                        const postAge = now - post.timestamp;
+                        if (postAge < oneYearInSeconds) { relativeTime = post.date || 'Agora'; }
+                    } else {
+                        relativeTime = post.date || 'Agora';
+                    }
+
+                    let time = '00:00';
+                    if (post.timestamp) {
+                        const postDate = new Date(post.timestamp * 1000);
+                        const hours = postDate.getHours().toString().padStart(2, '0');
+                        const minutes = postDate.getMinutes().toString().padStart(2, '0');
+                        time = `${hours}:${minutes}`;
+                    }
+
+                    const formattedDate = post.date || '';
+
+                    let postImageUrl = '';
+                    let postVideoUrl = '';
+                    
+                    if (shouldUseFallbackForPosts) {
+                        postImageUrl = 'https://picsum.photos/600/600?random=' + index;
+                        postVideoUrl = '';
+                    } else if (post.isReal && (post.imageUrl || post.videoUrl)) {
+                        postImageUrl = post.imageUrl || '';
+                        if (postImageUrl && (postImageUrl.includes('instagram') || postImageUrl.includes('fbcdn'))) {
+                            postImageUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(postImageUrl);
+                        }
+                        postVideoUrl = post.videoUrl || '';
+                        if (postVideoUrl && !postImageUrl) { postImageUrl = postVideoUrl; }
+                    }
+                    
+                    let postProfilePic = post.profilePic || '../assets/images/avatars/perfil-sem-foto.jpeg';
+                    if (shouldUseFallbackForPosts) {
+                        const fallbackAvatars = [
+                            'https://i.pravatar.cc/150?img=11', 'https://i.pravatar.cc/150?img=12', 'https://i.pravatar.cc/150?img=13',
+                            'https://i.pravatar.cc/150?img=14', 'https://i.pravatar.cc/150?img=15', 'https://i.pravatar.cc/150?img=16',
+                            'https://i.pravatar.cc/150?img=17', 'https://i.pravatar.cc/150?img=18', 'https://i.pravatar.cc/150?img=19',
+                            'https://i.pravatar.cc/150?img=20', 'https://i.pravatar.cc/150?img=21', 'https://i.pravatar.cc/150?img=22',
+                            'https://i.pravatar.cc/150?img=23', 'https://i.pravatar.cc/150?img=24'
+                        ];
+                        postProfilePic = fallbackAvatars[index % fallbackAvatars.length];
+                    } else {
+                        if (typeof getProxyImageUrl === 'function' && postProfilePic && !postProfilePic.startsWith('../index.html') && !postProfilePic.includes('pravatar')) {
+                            postProfilePic = getProxyImageUrl(postProfilePic);
+                        }
+                    }
+
+                    const locationText = locations[index] || '';
+                    const formattedLikes = (post.likes && post.likes > 0) ? formatNumber(post.likes) : '';
+                    const formattedComments = (post.comments && post.comments > 0) ? formatNumber(post.comments) : '';
+                    const formattedReposts = (post.reposts && post.reposts > 0) ? formatNumber(post.reposts) : '';
+                    const formattedShares = (post.shares && post.shares > 0) ? formatNumber(post.shares) : '';
+
+                    let displayUsername = shouldUseFallbackForPosts ? ['And*****', 'Fran*****', 'Antô*****', 'Adri*****', 'Juli*****', 'Már*****', 'Fern*****', 'Patr*****', 'Ali*****', 'Bru*****', 'Gabr*****', 'Rafa*****', 'Lui*****', 'Dani*****'][index % 14] : (typeof maskUsername === 'function' ? maskUsername(post.username || post.originalUsername || 'usuario') : post.username);
+                    const showVerified = post.verified;
+                    const safeCaption = post.caption ? post.caption.replace(/"/g, '&quot;').replace(/\n/g, '[BR]') : '';
+
+                    return `
+                        <div class="post-container" style="background: rgb(11, 16, 20); margin-bottom: 16px;">
+                            <div style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
+                                <button style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer;">
+                                    <div style="width: 32px; height: 32px; border-radius: 50%; overflow: hidden; background: rgb(31, 41, 55); position: relative;">
+                                        ${post.locked ? `
+                                            <img alt="${post.username}" src="${postProfilePic}" style="width: 100%; height: 100%; object-fit: cover; filter: blur(4px); opacity: 0.8;" onerror="this.onerror=null; this.src='https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 50)}';">
+                                        ` : `
+                                            <img alt="${post.username}" src="${postProfilePic}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 50)}';">
+                                        `}
+                                    </div>
+                                    <div style="text-align: left;">
+                                        <div style="display: flex; align-items: center; gap: 4px;">
+                                            <p style="font-size: 14px; font-weight: 600; color: #F9F9F9; margin: 0;">${displayUsername}</p>
+                                            ${showVerified ? `<img src="../assets/images/icons/verificado-ig.png" alt="Verificado" style="width: 12px; height: 12px; flex-shrink: 0; object-fit: contain;" loading="lazy" decoding="async">` : ''}
+                                        </div>
+                                        ${locationText ? `<p style="font-size: 12px; color: rgb(156, 163, 175); margin: 0;">${locationText}</p>` : ''}
+                                    </div>
+                                </button>
+                                <button class="blocked-action" style="background: none; border: none; cursor: pointer;">
+                                    <svg fill="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #F9F9F9;"><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></svg>
+                                </button>
+                            </div>
+                            <div class="post-image-container" style="width: 100%; aspect-ratio: ${post.aspectRatio}; background: rgb(18, 24, 34); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                                ${postVideoUrl ? `
+                                    <video id="video-${post.id || Math.random().toString(36).substr(2, 9)}" src="${postVideoUrl}" playsinline loop muted preload="none" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" oncontextmenu="return false;" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; background-color: #000; background-image: url('${postImageUrl || ''}'); background-size: cover; background-position: center;" poster="${postImageUrl || ''}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></video>
+                                    <img src="${postImageUrl || 'https://picsum.photos/600/600?random=' + index}" style="display:none; width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://picsum.photos/600/600?random=${index}';">
+                                    <div class="video-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                                        <button class="video-mute-btn" data-video-id="video-${post.id || Math.random().toString(36).substr(2, 9)}" style="position: absolute; bottom: 16px; right: 16px; width: 24px; height: 24px; border-radius: 50%; background: rgba(60, 60, 60, 0.75); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto; z-index: 10; padding: 0;">
+                                            <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="white"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+                                            <svg class="muted-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="white"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><line x1="2" y1="2" x2="22" y2="22" stroke-width="2.2"></line></svg>
+                                        </button>
+                                    </div>
+                                ` : postImageUrl ? `
+                                    <img src="${postImageUrl}" alt="Post de ${post.username}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://picsum.photos/600/600?random=${index}';">
+                                ` : `
+                                    <img src="https://picsum.photos/600/600?random=${index}" alt="Post" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                                `}
+                            </div>
+                            <div style="padding: 12px 16px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 16px;">
+                                        <button class="like-button" data-post-index="${index}" data-liked="${post.liked}" style="display: flex; align-items: center; gap: 4px; background: none; border: none; cursor: pointer;">
+                                            <img alt="Curtir" src="../assets/svg/${post.liked ? 'coracao-curtido' : 'coracao'}.svg" style="width: 26px; height: 26px;">
+                                            ${formattedLikes ? `<span class="likes-count-display" style="font-size: 14px; font-weight: 600; color: #F9F9F9;">${formattedLikes}</span>` : ''}
+                                        </button>
+                                        <button class="blocked-action" style="display: flex; align-items: center; gap: 4px; background: none; border: none; cursor: pointer;">
+                                            <img alt="Comentar" src="../assets/svg/comentario.svg" style="width: 24px; height: 24px;">
+                                            ${formattedComments ? `<span style="font-size: 14px; font-weight: 600; color: #F9F9F9;">${formattedComments}</span>` : ''}
+                                        </button>
+                                        ${post.username === 'choqu**' ? '' : `
+                                        <button class="blocked-action" style="display: flex; align-items: center; gap: 4px; background: none; border: none; cursor: pointer;">
+                                            <img alt="Repost" src="../assets/svg/repost.svg" style="width: 24px; height: 24px;">
+                                            ${formattedReposts ? `<span style="font-size: 14px; font-weight: 600; color: #F9F9F9;">${formattedReposts}</span>` : ''}
+                                        </button>
+                                        `}
+                                        <button class="blocked-action" style="display: flex; align-items: center; gap: 4px; background: none; border: none; cursor: pointer;">
+                                            <img alt="Enviar" src="../assets/svg/enviar.svg" style="width: 24px; height: 24px;">
+                                            ${formattedShares ? `<span style="font-size: 14px; font-weight: 600; color: #F9F9F9;">${formattedShares}</span>` : ''}
+                                        </button>
+                                    </div>
+                                    <button class="save-button" data-post-index="${index}" data-saved="${post.saved}" style="background: none; border: none; cursor: pointer;">
+                                        <img alt="Salvar" src="../assets/svg/${post.saved ? 'salvar-salvado' : 'salvar'}.svg" style="width: 24px; height: 24px;">
+                                    </button>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    ${post.caption ? `<p class="caption-container" data-full-caption="${safeCaption}" data-expanded="false" style="font-size: 14px; color: #F9F9F9; margin: 0; line-height: 1.4;"><span style="font-weight: 600;">${post.username}</span> ${post.caption.length > 80 ? post.caption.substring(0, 80).replace(/\n/g, ' ').trim() + '...' : post.caption.replace(/\n/g, '<br>')}${post.caption.length > 80 ? ` <span class="blocked-action" style="color: rgb(156, 163, 175); cursor: pointer;">mais</span>` : ''}</p>` : ''}
+                                    ${relativeTime ? `<p style="font-size: 12.32px; color: rgb(156, 163, 175); margin: 0;">${relativeTime}</p>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                applyUnavatarToDOM();
+
+                const allPostElements = postsContainer.querySelectorAll('.post-container');
+                const totalPosts = allPostElements.length;
+                let currentVisibleCount = 3;
+                let bannerAlreadyShown = false;
+                const bannerShownKey = `banner_shown_${cleanUsername}`;
+                const bannerWasShown = localStorage.getItem(bannerShownKey) === 'true';
+
+                function showBanner() {
+                    if (bannerAlreadyShown) return;
+                    bannerAlreadyShown = true;
+                    localStorage.setItem(bannerShownKey, 'true');
+                    const banner = document.getElementById('all-posts-seen-banner');
+                    if (banner) {
+                        banner.classList.add('show');
+                        setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 300);
+                    }
+                }
+
+                if (bannerWasShown) {
+                    allPostElements.forEach(post => post.style.display = 'block');
+                    showBanner();
+                } else {
+                    allPostElements.forEach((post, index) => { post.style.display = index < 3 ? 'block' : 'none'; });
+                    if (totalPosts <= 3) {
+                        let hasScrolled = false;
+                        window.addEventListener('scroll', function checkScroll() {
+                            if (!hasScrolled && window.scrollY > 100) {
+                                hasScrolled = true;
+                                showBanner();
+                                window.removeEventListener('scroll', checkScroll);
+                            }
+                        }, { passive: true });
+                    }
+                }
+
+                if (!bannerWasShown) {
+                    let loading = false;
+                    window.addEventListener('scroll', function () {
+                        if (loading || currentVisibleCount >= totalPosts) return;
+                        const scrollPos = window.scrollY + window.innerHeight;
+                        const docHeight = document.documentElement.scrollHeight;
+                        if (scrollPos >= docHeight - 300) {
+                            loading = true;
+                            const nextVisible = Math.min(currentVisibleCount + 3, totalPosts);
+                            for (let i = currentVisibleCount; i < nextVisible; i++) {
+                                if (allPostElements[i]) allPostElements[i].style.display = 'block';
+                            }
+                            currentVisibleCount = nextVisible;
+                            if (currentVisibleCount >= totalPosts) showBanner();
+                            setTimeout(() => { loading = false; }, 500);
+                        }
+                    }, { passive: true });
+                }
+
+                setTimeout(setupBlockedActions, 100);
+            }
+        }
+
+        function updateUnreadMessagesCount() {
+            const chat1Read = localStorage.getItem('chat-1-read');
+            const chat3Read = localStorage.getItem('chat-3-read');
+            const chat5Read = localStorage.getItem('chat-5-read');
+            let unreadCount = 0;
+            if (chat1Read !== 'true') unreadCount++;
+            if (chat3Read !== 'true') unreadCount++;
+            if (chat5Read !== 'true') unreadCount++;
+            const unreadCountEl = document.getElementById('unread-messages-count');
+            if (unreadCountEl) {
+                if (unreadCount > 0) {
+                    unreadCountEl.textContent = unreadCount.toString();
+                    unreadCountEl.style.display = 'flex';
+                } else {
+                    unreadCountEl.style.display = 'none';
+                }
+            }
+            return unreadCount;
+        }
+
+        let lastScrollTop = 0;
+        let scrollTimeout = null;
+        const header = document.getElementById('main-header');
+
+        function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                if (header && !header.classList.contains('hidden')) header.classList.add('hidden');
+            } else if (scrollTop < lastScrollTop) {
+                if (header && header.classList.contains('hidden')) header.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(handleScroll, 10);
+        }, { passive: true });
+
+        function showIOSNotification() {
+            const espionadoUsername = localStorage.getItem('espionado_username');
+            const notificationKey = `ios-notification-shown-${espionadoUsername || 'default'}`;
+            if (localStorage.getItem(notificationKey) === 'true') return;
+            if (document.readyState === 'loading') { setTimeout(showIOSNotification, 1000); return; }
+
+            const notification = document.getElementById('ios-notification');
+            const profilePicContainer = document.getElementById('notification-profile-pic');
+            const messageEl = document.getElementById('notification-message');
+
+            if (!notification || !profilePicContainer || !messageEl) { setTimeout(showIOSNotification, 2000); return; }
+
+            if (notification && profilePicContainer && messageEl) {
+                const displayName = 'Fer******';
+                const img = document.createElement('img');
+                img.src = '../assets/images/logos/Logo-notificcai.svg.png';
+                img.alt = 'Instagram';
+                img.style.width = '100%'; img.style.height = '100%'; img.style.objectFit = 'contain';
+                profilePicContainer.innerHTML = '';
+                profilePicContainer.appendChild(img);
+                messageEl.innerHTML = `${displayName} enviou uma mensagem: "Oi delícia, adivinha o que vc esqueceu aqui? kkkk"`;
+                localStorage.setItem(notificationKey, 'true');
+
+                setTimeout(() => {
+                    notification.classList.add('show');
+                    updateUnreadMessagesCount();
+                    setTimeout(() => { hideNotification(); }, 5000);
+                }, 10000);
+
+                notification.onclick = function () {
+                    hideNotification();
+                    function maskUsernameSimple(username) {
+                        if (!username || username.length === 0) return 'xxx*****';
+                        if (username.includes('*')) return username;
+                        const visibleChars = username.length >= 3 ? username.substring(0, 3) : username;
+                        return visibleChars + '*****';
+                    }
+                    const maskedName = maskUsernameSimple('Fernanda');
+                    const defaultPhoto = 'https://i.pravatar.cc/150?img=2';
+                    sessionStorage.setItem('chat-1-user-name', maskedName);
+                    sessionStorage.setItem('chat-1-user-photo', defaultPhoto);
+                    if (typeof navigateWithUTM === 'function') navigateWithUTM('chat-1.html');
+                    else window.location.href = 'chat-1.html' + window.location.search;
+                };
+            }
+        }
+
+        function hideNotification() {
+            const notification = document.getElementById('ios-notification');
+            if (notification && notification.classList.contains('show')) {
+                notification.classList.add('hiding');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    notification.classList.remove('hiding');
+                }, 300);
+            }
+        }
+
+        (function () {
+            const TIMER_EXPIRED_KEY = 'cta_timer_expired';
+            const PREVIEW_START_KEY = 'previewStartTime';
+            const TIMER_DURATION = 10 * 60 * 1000; 
+            const startTime = localStorage.getItem(PREVIEW_START_KEY);
+            if (startTime) {
+                const elapsed = Date.now() - parseInt(startTime);
+                if (TIMER_DURATION - elapsed <= 0) localStorage.setItem(TIMER_EXPIRED_KEY, '1');
+                else if (localStorage.getItem(TIMER_EXPIRED_KEY) === '1') localStorage.removeItem(TIMER_EXPIRED_KEY);
+            }
+        })();
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () {
+                updateUnreadMessagesCount(); loadFeedData();
+                setTimeout(() => { }, 500);
+                let scrollTimeout;
+                window.addEventListener('scroll', function () { clearTimeout(scrollTimeout); scrollTimeout = setTimeout(() => {}, 100); });
+                setTimeout(setupBlockedActions, 100);
+                setTimeout(showIOSNotification, 10000);
+            });
+        } else {
+            updateUnreadMessagesCount(); loadFeedData();
+            setTimeout(() => { }, 500);
+            let scrollTimeout;
+            window.addEventListener('scroll', function () { clearTimeout(scrollTimeout); scrollTimeout = setTimeout(() => {}, 100); });
+            setTimeout(setupBlockedActions, 100);
+            updateUnreadMessagesCount();
+            setTimeout(showIOSNotification, 10000);
+        }
+
+        (function () {
+            const PREVIEW_DURATION = 10 * 60 * 1000;
+            const STORAGE_KEY = 'previewStartTime';
+            const TIMER_EXPIRED_KEY = 'cta_timer_expired';
+
+            function formatTime(ms) {
+                const totalSeconds = Math.floor(ms / 1000);
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            function initPreviewBanner() {
+                if (localStorage.getItem(TIMER_EXPIRED_KEY) === '1') {
+                    const timerText = document.getElementById('timer-text');
+                    if (timerText) timerText.textContent = '00:00';
+                    return;
+                }
+
+                let startTime = localStorage.getItem(STORAGE_KEY);
+                if (!startTime) {
+                    startTime = Date.now();
+                    localStorage.setItem(STORAGE_KEY, startTime.toString());
+                } else startTime = parseInt(startTime);
+
+                const elapsed = Date.now() - startTime;
+                const remaining = PREVIEW_DURATION - elapsed;
+
+                if (remaining <= 0) {
+                    localStorage.setItem(TIMER_EXPIRED_KEY, '1');
+                    const timerText = document.getElementById('timer-text');
+                    if (timerText) timerText.textContent = '00:00';
+                    return;
+                }
+
+                const timerText = document.getElementById('timer-text');
+                if (timerText) timerText.textContent = formatTime(remaining);
+
+                const timerInterval = setInterval(() => {
+                    const elapsed = Date.now() - startTime;
+                    const remaining = PREVIEW_DURATION - elapsed;
+
+                    if (remaining <= 0) {
+                        clearInterval(timerInterval);
+                        localStorage.setItem(TIMER_EXPIRED_KEY, '1');
+                        const timerText = document.getElementById('timer-text');
+                        if (timerText) timerText.textContent = '00:00';
+                        return;
+                    } else {
+                        const timerText = document.getElementById('timer-text');
+                        if (timerText) timerText.textContent = formatTime(remaining);
+                    }
+                }, 1000);
+            }
+
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPreviewBanner);
+            else initPreviewBanner();
+        })();
+
+        (function () {
+            const STORAGE_KEY = 'instagram_preview_expiry';
+            const PREVIEW_DURATION = 10 * 60 * 1000; 
+            const AUDIO_DURATION = 10; 
+            const shouldPlayAudio = () => {
+                const expiryTime = localStorage.getItem(STORAGE_KEY);
+                if (!expiryTime) return false;
+                const remainingSeconds = Math.floor((parseInt(expiryTime) - Date.now()) / 1000);
+                const totalSeconds = Math.floor(PREVIEW_DURATION / 1000); 
+                return remainingSeconds >= (totalSeconds - AUDIO_DURATION) && remainingSeconds <= totalSeconds;
+            };
+
+            const playAudio = () => {
+                if (!shouldPlayAudio()) return;
+                const audio = new Audio('../assets/svg/áudio-cronometro-banner.MP3');
+                audio.volume = 0.5; 
+                audio.play().catch(err => {
+                    document.addEventListener('click', () => { if (shouldPlayAudio()) audio.play().catch(() => { }); }, { once: true });
+                });
+            };
+
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', playAudio);
+            else playAudio();
+        })();
+
+        (function () {
+            let currentPlayingVideo = null;
+            let startX = 0; let startY = 0; let hasMoved = false;
+
+            function pauseAllVideosExcept(exceptVideo) {
+                document.querySelectorAll('video').forEach(video => {
+                    if (video !== exceptVideo && !video.paused) { video.pause(); video.muted = true; updateMuteIcon(video); }
+                });
+            }
+
+            function updateMuteIcon(video) {
+                const container = video.closest('.post-image-container');
+                if (!container) return;
+                const muteBtn = container.querySelector('.video-mute-btn');
+                if (!muteBtn) return;
+                const soundIcon = muteBtn.querySelector('.sound-icon');
+                const mutedIcon = muteBtn.querySelector('.muted-icon');
+                if (video.muted || video.paused) {
+                    if (soundIcon) soundIcon.style.display = 'none';
+                    if (mutedIcon) mutedIcon.style.display = 'block';
+                } else {
+                    if (soundIcon) soundIcon.style.display = 'block';
+                    if (mutedIcon) mutedIcon.style.display = 'none';
+                }
+            }
+
+            function toggleVideo(video) {
+                if (!video) return;
+                if (video.paused) {
+                    pauseAllVideosExcept(video);
+                    video.muted = false;
+                    video.play().catch(() => { video.muted = true; video.play().catch(() => { }); });
+                    currentPlayingVideo = video;
+                } else {
+                    video.pause(); video.muted = true; currentPlayingVideo = null;
+                }
+                updateMuteIcon(video);
+            }
+
+            function handleStart(e) {
+                const video = e.target.closest('video') || e.target.closest('.post-image-container')?.querySelector('video');
+                if (!video) return;
+                if (e.target.closest('.video-mute-btn')) return;
+                hasMoved = false;
+                if (e.type === 'touchstart') { startX = e.touches[0].clientX; startY = e.touches[0].clientY; } 
+                else { startX = e.clientX; startY = e.clientY; }
+            }
+
+            function handleMove(e) {
+                if (hasMoved) return;
+                let currentX, currentY;
+                if (e.type === 'touchmove') { currentX = e.touches[0].clientX; currentY = e.touches[0].clientY; } 
+                else { currentX = e.clientX; currentY = e.clientY; }
+                if (Math.abs(currentX - startX) > 10 || Math.abs(currentY - startY) > 10) hasMoved = true;
+            }
+
+            function handleEnd(e) {
+                if (hasMoved) { hasMoved = false; return; }
+                if (e.target.closest('.video-mute-btn')) return;
+                const video = e.target.closest('video') || e.target.closest('.post-image-container')?.querySelector('video');
+                if (video) toggleVideo(video);
+                hasMoved = false;
+            }
+
+            document.addEventListener('mousedown', handleStart, true);
+            document.addEventListener('mousemove', handleMove, true);
+            document.addEventListener('mouseup', handleEnd, true);
+            document.addEventListener('touchstart', handleStart, { passive: true, capture: true });
+            document.addEventListener('touchmove', handleMove, { passive: true, capture: true });
+            document.addEventListener('touchend', handleEnd, true);
+            document.addEventListener('contextmenu', function (e) { if (e.target.closest('video')) { e.preventDefault(); e.stopPropagation(); return false; } }, true);
+            document.addEventListener('click', function (e) {
+                const muteBtn = e.target.closest('.video-mute-btn');
+                if (!muteBtn) return;
+                e.preventDefault(); e.stopPropagation();
+                const container = muteBtn.closest('.post-image-container');
+                if (!container) return;
+                const video = container.querySelector('video');
+                if (!video) return;
+                toggleVideo(video);
+            }, true);
+
+            function setupVideoPreload() {
+                const videos = document.querySelectorAll('video');
+                videos.forEach(video => {
+                    if (video.dataset.observerAttached) return;
+                    video.dataset.observerAttached = 'true';
+                    video.style.willChange = 'auto';
+                    video.style.imageRendering = 'optimizeSpeed';
+                    video.pause(); video.muted = true;
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                                if (video.preload === 'none') { video.preload = 'metadata'; video.load(); }
+                            } else if (!entry.isIntersecting) {
+                                if (!video.paused) { video.pause(); video.muted = true; updateMuteIcon(video); }
+                            }
+                        });
+                    }, { threshold: [0.3] });
+                    observer.observe(video);
+                });
+            }
+            setInterval(setupVideoPreload, 1000);
+            setupVideoPreload();
+        })();
+    </script>
+
+</body>
+
+</html>
